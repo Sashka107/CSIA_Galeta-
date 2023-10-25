@@ -1,4 +1,4 @@
-package com.example.csia_galeta.People;
+package com.example.csia_galeta.people;
 
 public class Judge {
 

@@ -1,7 +1,7 @@
 package com.example.csia_galeta;
 
-import com.example.csia_galeta.People.Driver;
-import com.example.csia_galeta.People.Judge;
+import com.example.csia_galeta.people.Driver;
+import com.example.csia_galeta.people.Judge;
 
 import java.util.ArrayList;
 
@@ -11,8 +11,8 @@ public class Competition {
     // Attributes of the class:
     private String competitionName;
     private byte amountOfQualifyingRounds;
-    private ArrayList<Driver> listOfDrivers;
-    private ArrayList<Judge> listOfJudges;
+    private ArrayList<Driver> listOfDrivers = new ArrayList<>();
+    private ArrayList<Judge> listOfJudges = new ArrayList<>();
 
 
     public void setCompetitionName(String competitionName){ // Set competition name

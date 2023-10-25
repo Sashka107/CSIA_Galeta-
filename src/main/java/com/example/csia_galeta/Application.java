@@ -1,5 +1,8 @@
 package com.example.csia_galeta;
 
+import com.example.csia_galeta.people.Driver;
+import com.example.csia_galeta.people.Judge;
+import com.example.csia_galeta.ser.DataSaverAndReader;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
@@ -17,6 +20,23 @@ public class Application extends javafx.application.Application {
     }
 
     public static void main(String[] args) {
+        Driver d1 = new Driver();
+        d1.setNameD("Alex234");
+        d1.setNumber((byte) 2);
+        d1.setTeam("bb77777");
+
+        Judge j1 = new Judge();
+        j1.setName("Denis 45");
+        j1.setSurname("dskfhjks");
+
+        Competition c = new Competition();
+        c.setCompetitionName("Test 3");
+        c.setAmountOfQualifyingRounds((byte)7);
+        c.addDriverToList(d1);
+        c.addJudgeToList(j1);
+
+        DataSaverAndReader.saveJsonStringToFile("save.json", c);
+
         launch();
     }
 }

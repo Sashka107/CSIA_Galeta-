@@ -1,0 +1,17 @@
+{
+  "competitionName": "Test 3",
+  "amountOfQualifyingRounds": 7,
+  "listOfDrivers": [
+    {
+      "driverName": "Alex234",
+      "number": 2,
+      "team": "bb77777"
+    }
+  ],
+  "listOfJudges": [
+    {
+      "judgeName": "Denis 45",
+      "judgeSurname": "dskfhjks"
+    }
+  ]
+}
