@@ -32,7 +32,7 @@ public class Controller {
         Stage stage = (Stage) addCompetitionBtn.getScene().getWindow();
         stage.close();
 
-        FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("hello-view-2.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("Competitions.fxml"));
         Scene scene = null;
         try {
             scene = new Scene(fxmlLoader.load(), 320, 240);

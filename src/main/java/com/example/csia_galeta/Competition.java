@@ -1,39 +1,51 @@
 package com.example.csia_galeta;
 
+import com.example.csia_galeta.People.Driver;
+import com.example.csia_galeta.People.Judge;
+
+import java.util.ArrayList;
+
 public class Competition {
 
 
     // Attributes of the class:
-    public String competitionName;
-    public byte amountOfQualifyingRounds;
-    public String dateDay;
-    public String dateMonth;
-    public String dateYear;
-    public String Date;
+    private String competitionName;
+    private byte amountOfQualifyingRounds;
+    private ArrayList<Driver> listOfDrivers;
+    private ArrayList<Judge> listOfJudges;
 
 
-    // Methods for competition Name:
-
-    public void setCompetitionName(String competitionName){
+    public void setCompetitionName(String competitionName){ // Set competition name
     this.competitionName = competitionName;
     }
 
-    public String getCompetitionName (){
+    public String getCompetitionName (){ // Get competition name
         return competitionName;
     }
 
-
-    // Methods for an amount of qualifying rounds:
-
-    public  void setAmountOfQualifyingRounds (byte amountOfQualifyingRounds){
+    public  void setAmountOfQualifyingRounds (byte amountOfQualifyingRounds){ // Set an amount of qualifying rounds
         this.amountOfQualifyingRounds = amountOfQualifyingRounds;
     }
 
-    public byte getAmountOfQualifyingRounds (){
+    public byte getAmountOfQualifyingRounds (){ // Get an amount of qualifying rounds
         return amountOfQualifyingRounds;
     }
 
+    public void addDriverToList (Driver driver){ // Adding a new driver into the list of drivers
+        listOfDrivers.add(driver);
+    }
 
-    // Date of the competition
+    public void addJudgeToList (Judge judge){ // Adding a new judge into the list of judges
+        listOfJudges.add(judge);
+    }
 
+    @Override
+    public String toString() {
+        return "Competition{" +
+                "competitionName='" + competitionName + '\'' +
+                ", amountOfQualifyingRounds=" + amountOfQualifyingRounds +
+                ", listOfDrivers=" + listOfDrivers +
+                ", listOfJudges=" + listOfJudges +
+                '}';
+    }
 }

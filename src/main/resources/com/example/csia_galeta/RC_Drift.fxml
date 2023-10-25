@@ -4,19 +4,19 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<HBox alignment="CENTER" prefHeight="369.0" prefWidth="503.0" spacing="20.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.csia_galeta.Controller2">
+<HBox alignment="CENTER" prefHeight="221.0" prefWidth="503.0" spacing="20.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.csia_galeta.Controller">
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
     </padding>
    <AnchorPane prefHeight="181.0" prefWidth="331.0">
       <children>
-         <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" text="Add competition 2" />
+         <Button fx:id="addCompetitionBtn" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#openAddCompetitionWindow" text="Add competition" />
          <Button layoutX="12.0" layoutY="48.0" mnemonicParsing="false" text="Previous competitions" />
-          <Button layoutX="14.0" layoutY="79.0" text="Statistics" />
+          <Button layoutX="14.0" layoutY="79.0" onAction="#onHelloButtonClick" text="Statistics" />
       </children>
    </AnchorPane>
 
-    <Label fx:id="welcomeText" prefHeight="17.0" prefWidth="46.0" />
+    <Label fx:id="welcomeText" />
    <TableView prefHeight="181.0" prefWidth="319.0">
      <columns>
        <TableColumn prefWidth="75.0" text="C1" />
