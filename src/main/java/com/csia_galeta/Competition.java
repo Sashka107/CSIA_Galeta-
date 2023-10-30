@@ -1,7 +1,7 @@
-package com.example.csia_galeta;
+package com.csia_galeta;
 
-import com.example.csia_galeta.people.Driver;
-import com.example.csia_galeta.people.Judge;
+import com.csia_galeta.people.Driver;
+import com.csia_galeta.people.Judge;
 
 import java.util.ArrayList;
 

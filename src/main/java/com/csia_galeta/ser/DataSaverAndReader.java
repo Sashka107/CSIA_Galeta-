@@ -1,4 +1,4 @@
-package com.example.csia_galeta.ser;
+package com.csia_galeta.ser;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;

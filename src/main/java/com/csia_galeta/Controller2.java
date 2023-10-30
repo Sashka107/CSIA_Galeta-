@@ -1,4 +1,4 @@
-package com.example.csia_galeta;
+package com.csia_galeta;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;

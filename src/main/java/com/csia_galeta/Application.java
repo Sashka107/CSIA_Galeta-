@@ -1,8 +1,8 @@
-package com.example.csia_galeta;
+package com.csia_galeta;
 
-import com.example.csia_galeta.people.Driver;
-import com.example.csia_galeta.people.Judge;
-import com.example.csia_galeta.ser.DataSaverAndReader;
+import com.csia_galeta.people.Driver;
+import com.csia_galeta.people.Judge;
+import com.csia_galeta.ser.DataSaverAndReader;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
@@ -21,17 +21,17 @@ public class Application extends javafx.application.Application {
 
     public static void main(String[] args) {
         Driver d1 = new Driver();
-        d1.setNameD("Alex234");
-        d1.setNumber((byte) 2);
-        d1.setTeam("bb77777");
+        d1.setNameD("Oleksandr");
+        d1.setNumber((byte) 3);
+        d1.setTeam("DIZRC777");
 
         Judge j1 = new Judge();
-        j1.setName("Denis 45");
-        j1.setSurname("dskfhjks");
+        j1.setName("Sergey");
+        j1.setSurname("SKR");
 
         Competition c = new Competition();
         c.setCompetitionName("Test 3");
-        c.setAmountOfQualifyingRounds((byte)7);
+        c.setAmountOfQualifyingRounds((byte)1);
         c.addDriverToList(d1);
         c.addJudgeToList(j1);
 

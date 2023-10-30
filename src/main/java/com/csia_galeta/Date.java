@@ -1,4 +1,4 @@
-package com.example.csia_galeta;
+package com.csia_galeta;
 
 public class Date {
     public byte day;

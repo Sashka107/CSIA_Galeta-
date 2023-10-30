@@ -1,10 +1,12 @@
-package com.example.csia_galeta;
+package com.csia_galeta;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -12,14 +14,15 @@ import java.io.IOException;
 public class Controller {
     @FXML
     private Label welcomeText;
-
-    @FXML
-    private Button addCompetitionBtn;
-
     @FXML
     protected void onHelloButtonClick() {
         welcomeText.setText("Welcome to JavaFX Application!");
     }
+
+
+    @FXML
+    private Button addCompetitionBtn;
+
 
     @FXML
     protected void openAddCompetitionWindow(){
