@@ -9,6 +9,8 @@ import java.nio.file.Path;
 
 public class DataSaverAndReader {
 
+    //Saving and reading
+
     private static final String pathToSave = "saves/";
     private static final Gson gsonSaver = new GsonBuilder().setPrettyPrinting().create();
 
