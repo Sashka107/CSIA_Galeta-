@@ -1,4 +1,4 @@
-module com.example.csia_galeta {
+module com.csia_galeta {
     requires javafx.controls;
     requires javafx.fxml;
     requires com.google.gson;

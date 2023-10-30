@@ -1,17 +1,38 @@
 {
-  "competitionName": "Test 3",
-  "amountOfQualifyingRounds": 1,
-  "listOfDrivers": [
+  "allCompetitions": [
     {
-      "driverName": "Oleksandr",
-      "number": 3,
-      "team": "DIZRC777"
-    }
-  ],
-  "listOfJudges": [
+      "amountOfQualifyingRounds": 0,
+      "listOfDrivers": [],
+      "listOfJudges": [
+        {
+          "judgeName": "123",
+          "judgeSurname": "345"
+        }
+      ]
+    },
     {
-      "judgeName": "Sergey",
-      "judgeSurname": "SKR"
+      "amountOfQualifyingRounds": 0,
+      "listOfDrivers": [],
+      "listOfJudges": [
+        {
+          "judgeName": "edsfs",
+          "judgeSurname": "dsfs"
+        }
+      ]
+    },
+    {
+      "amountOfQualifyingRounds": 0,
+      "listOfDrivers": [],
+      "listOfJudges": [
+        {
+          "judgeName": "test",
+          "judgeSurname": "222"
+        },
+        {
+          "judgeName": "testrrrr",
+          "judgeSurname": "3434"
+        }
+      ]
     }
   ]
 }

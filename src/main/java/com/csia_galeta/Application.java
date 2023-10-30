@@ -20,7 +20,7 @@ public class Application extends javafx.application.Application {
     }
 
     public static void main(String[] args) {
-        Driver d1 = new Driver();
+       /* Driver d1 = new Driver();
         d1.setNameD("Oleksandr");
         d1.setNumber((byte) 3);
         d1.setTeam("DIZRC777");
@@ -35,7 +35,7 @@ public class Application extends javafx.application.Application {
         c.addDriverToList(d1);
         c.addJudgeToList(j1);
 
-        DataSaverAndReader.saveJsonStringToFile("save.json", c);
+        DataSaverAndReader.saveJsonStringToFile("save.json", c);*/
 
         launch();
     }

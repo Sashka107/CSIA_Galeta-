@@ -2,7 +2,10 @@ package com.csia_galeta.ser;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.google.gson.stream.JsonReader;
 
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -54,4 +57,8 @@ public class DataSaverAndReader {
         }
     }
 
+    public static<T> T readDataFromJson(Class<T> clazz, String pathToFile) throws FileNotFoundException {
+        JsonReader reader = new JsonReader(new FileReader(pathToSave + pathToFile));
+        return gsonSaver.fromJson(reader, clazz);
+    }
 }
