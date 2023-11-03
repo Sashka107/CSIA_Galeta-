@@ -21,19 +21,16 @@ public class Controller2 {
     private Button addJudges;
     @FXML
     private Button addDrivers;
-    @FXML
-    private Label competitionNameAndDate;
+
     @FXML
     private Label competitionJudges;
-    @FXML
-    private Label competitionPlayers;
 
     @FXML
     protected void openAddDrivers(){
         System.out.println("Click");
         /* Stage stage = (Stage) addJudges.getScene().getWindow();
         stage.close(); */
-        FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("DriversFrame.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("Drivers.fxml"));
         Scene scene = null;
         try {
             scene = new Scene(fxmlLoader.load());
@@ -52,6 +49,7 @@ public class Controller2 {
         System.out.println("Saving Competition...");
         CompetitionSingleton.addCountOfRounds(Integer.parseInt(countOfCF.getText()));
         CompetitionSingleton.addToTmpCompetitionName(competitionName.getText());
+        // date
         CompetitionSingleton.saveTmpCompetition();
     }
 

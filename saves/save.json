@@ -33,6 +33,24 @@
           "judgeSurname": "3434"
         }
       ]
+    },
+    {
+      "competitionName": "Test123",
+      "amountOfQualifyingRounds": 2,
+      "listOfDrivers": [
+        {
+          "driverName": "Dan",
+          "driverSurname": "Izi",
+          "number": 11,
+          "team": "R8"
+        }
+      ],
+      "listOfJudges": [
+        {
+          "judgeName": "Gorge",
+          "judgeSurname": "123"
+        }
+      ]
     }
   ]
 }

@@ -4,10 +4,15 @@ import com.csia_galeta.people.Driver;
 import com.csia_galeta.people.Judge;
 import com.csia_galeta.ser.DataSaverAndReader;
 
+import java.util.function.Function;
+import java.util.function.Supplier;
+
 public class CompetitionSingleton {
 
     private static CompetitionListWrapper competitionListWrapper = null;
     private static Competition tmpCompetition = new Competition();
+
+    private static Supplier<Driver> OnDriverAdded;
 
     private CompetitionSingleton(){}
 
@@ -22,6 +27,10 @@ public class CompetitionSingleton {
         return competitionListWrapper;
     }
 
+    public static void driverAddHandler(Supplier<Driver> func){
+        OnDriverAdded = func;
+    }
+
     public static void saveTmpCompetition(){
         competitionListWrapper.addCompetition(tmpCompetition);
         DataSaverAndReader.saveJsonStringToFile("save.json", competitionListWrapper);
@@ -31,6 +40,8 @@ public class CompetitionSingleton {
 
     public static void addDriverToTmpCompetition(Driver d){
         tmpCompetition.addDriverToList(d);
+        /*if(OnDriverAdded != null)
+            OnDriverAdded(d);*/
     }
 
     public static void addJudgeToTmpCompetition(Judge j){

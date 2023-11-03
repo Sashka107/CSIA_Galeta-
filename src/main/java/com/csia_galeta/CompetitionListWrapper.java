@@ -7,12 +7,12 @@ import java.util.List;
 
 public class CompetitionListWrapper {
 
-    private List<Competition> allCompetitions = new ArrayList<>();
+    private List<Competition> allCompetitions;
 
     public CompetitionListWrapper(String pathToSave){
         CompetitionListWrapper allCompetitionsFromFile;
         try {
-            allCompetitionsFromFile = DataSaverAndReader.readDataFromJson(CompetitionListWrapper.class, "save.json");
+            allCompetitionsFromFile = DataSaverAndReader.readDataFromJson(CompetitionListWrapper.class, pathToSave);
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
         }
