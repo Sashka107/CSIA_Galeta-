@@ -36,6 +36,7 @@ public class CompetitionSingleton {
         DataSaverAndReader.saveJsonStringToFile("save.json", competitionListWrapper);
         tmpCompetition = null;
         tmpCompetition = new Competition();
+
     }
 
     public static void addDriverToTmpCompetition(Driver d){

@@ -25,6 +25,7 @@ public class AddJudgeController
         judge.setName(judgeName.getText());
         judge.setSurname(judgeSurname.getText());
 
+
         CompetitionSingleton.addJudgeToTmpCompetition(judge);
 
         System.out.println("Close judge window");

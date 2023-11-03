@@ -28,6 +28,7 @@ public class AddDriverController {
         Driver driver = new Driver();
         driver.setNameD(driverName.getText());
         driver.setSurnameD(driverSurname.getText());
+
         driver.setNumber(Byte.parseByte(driverNumber.getText()));
         driver.setTeam(driverTeam.getText());
 

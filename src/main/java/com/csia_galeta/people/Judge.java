@@ -23,6 +23,7 @@ public class Judge {
 
     @Override
     public String toString() {
+
         return "Judges{" +
                 "judgeName='" + judgeName + '\'' +
                 ", judgeSurname='" + judgeSurname + '\'' +

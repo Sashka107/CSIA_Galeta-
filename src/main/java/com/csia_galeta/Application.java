@@ -25,6 +25,7 @@ public class Application extends javafx.application.Application {
         d1.setNumber((byte) 3);
         d1.setTeam("DIZRC777");
 
+
         Judge j1 = new Judge();
         j1.setName("Sergey");
         j1.setSurname("SKR");

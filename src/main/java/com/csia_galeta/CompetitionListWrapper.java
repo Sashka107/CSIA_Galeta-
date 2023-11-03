@@ -21,6 +21,7 @@ public class CompetitionListWrapper {
     }
 
     public void addCompetition(Competition c){
+
         if(allCompetitions == null)
             allCompetitions = new ArrayList<>();
 

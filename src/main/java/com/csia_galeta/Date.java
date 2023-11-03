@@ -8,6 +8,7 @@ public class Date {
     public String getDate (){
         String fullDate = this.day + "/" + this.month + "/" + this.year;
         return fullDate;
+
     }
 
 

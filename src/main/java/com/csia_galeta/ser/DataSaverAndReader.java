@@ -24,6 +24,7 @@ public class DataSaverAndReader {
             try {
                 Files.createDirectory(dir);
             } catch (IOException e) {
+
                 System.out.println("Folder can`t create");
                 e.printStackTrace();
             }

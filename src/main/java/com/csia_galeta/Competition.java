@@ -25,6 +25,7 @@ public class Competition {
 
     public  void setAmountOfQualifyingRounds (byte amountOfQualifyingRounds){ // Set an amount of qualifying rounds
         this.amountOfQualifyingRounds = amountOfQualifyingRounds;
+
     }
 
     public byte getAmountOfQualifyingRounds (){ // Get an amount of qualifying rounds

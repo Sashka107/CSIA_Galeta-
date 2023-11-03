@@ -36,6 +36,7 @@ public class Controller2 {
             scene = new Scene(fxmlLoader.load());
         } catch (IOException e) {
             throw new RuntimeException(e);
+
         }
 
         Stage newStage = new Stage();

@@ -29,6 +29,7 @@ public class Controller {
         Competition c = new Competition();
         System.out.println("Click");
         // c.load();
+
         // open window
 
         Stage stage = (Stage) addCompetitionBtn.getScene().getWindow();
