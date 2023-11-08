@@ -9,6 +9,8 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class Controller2 {
     @FXML
@@ -47,11 +49,36 @@ public class Controller2 {
 
     @FXML
     protected void saveCompetition(){
-        System.out.println("Saving Competition...");
-        CompetitionSingleton.addCountOfRounds(Integer.parseInt(countOfCF.getText()));
-        CompetitionSingleton.addToTmpCompetitionName(competitionName.getText());
-        // date
-        CompetitionSingleton.saveTmpCompetition();
+        boolean heats = false;
+        boolean name = false;
+        if (checkCountOfCF(countOfCF.getText()) && countOfCF.getText() != null){
+            CompetitionSingleton.addCountOfRounds(Integer.parseInt(countOfCF.getText()));
+            heats = true;
+        } else {
+            System.out.println("Please check whether entered data is a number from 1 to 127.");
+        }
+        if (checkCompetitionName(competitionName.getText()) && competitionName.getText() != null){
+            CompetitionSingleton.addToTmpCompetitionName(competitionName.getText());
+            name = true;
+        } else {
+            System.out.println("Please check whether entered data is a is a valid name and less or equal to 55 characters.");
+        }
+        if (heats == true && name == true){
+            System.out.println("Saving Competition...");
+            CompetitionSingleton.saveTmpCompetition();
+        }
+    }
+
+    private boolean checkCountOfCF (String amountToBeChecked){
+        Pattern pattern = Pattern.compile("^\\b([1-9]|[1-9][0-9]|1[01][0-9]|12[0-7])\\b$");
+        Matcher matcher = pattern.matcher(amountToBeChecked);
+        return matcher.find();
+    }
+
+    private boolean checkCompetitionName (String nameToBeChecked){
+        Pattern pattern = Pattern.compile("^.{1,55}$");
+        Matcher matcher = pattern.matcher(nameToBeChecked);
+        return matcher.find();
     }
 
     @FXML
