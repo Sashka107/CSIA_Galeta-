@@ -4,6 +4,7 @@ import com.csia_galeta.people.Driver;
 import com.csia_galeta.people.Judge;
 import com.csia_galeta.ser.DataSaverAndReader;
 
+import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.Supplier;
 
@@ -12,7 +13,7 @@ public class CompetitionSingleton {
     private static CompetitionListWrapper competitionListWrapper = null;
     private static Competition tmpCompetition = new Competition();
 
-    private static Supplier<Driver> OnDriverAdded;
+    private static Consumer<Driver> OnDriverAdded;
 
     private CompetitionSingleton(){}
 
@@ -27,7 +28,7 @@ public class CompetitionSingleton {
         return competitionListWrapper;
     }
 
-    public static void driverAddHandler(Supplier<Driver> func){
+    public static void driverAddHandler(Consumer<Driver> func){
         OnDriverAdded = func;
     }
 
@@ -41,8 +42,8 @@ public class CompetitionSingleton {
 
     public static void addDriverToTmpCompetition(Driver d){
         tmpCompetition.addDriverToList(d);
-        /*if(OnDriverAdded != null)
-            OnDriverAdded(d);*/
+        if(OnDriverAdded != null)
+            OnDriverAdded.accept(d);
     }
 
     public static void addJudgeToTmpCompetition(Judge j){

@@ -11,8 +11,10 @@
    <AnchorPane prefHeight="181.0" prefWidth="331.0">
       <children>
          <Button fx:id="addJudge" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#addJudge" text="Add Judge" />
-         <TextField layoutX="156.0" layoutY="14.0" promptText="Name" fx:id="judgeName"/>
-         <TextField layoutX="156.0" layoutY="49.0" promptText="Surname" fx:id="judgeSurname"/>
+         <TextField fx:id="judgeName" layoutX="55.0" layoutY="53.0" onMouseClicked="#handleClear"/>
+         <TextField fx:id="judgeSurname" layoutX="74.0" layoutY="89.0" onMouseClicked="#handleClear"/>
+         <Label layoutX="14.0" layoutY="53.0" prefHeight="25.0" prefWidth="39.0" text="Name:" />
+         <Label layoutX="14.0" layoutY="89.0" prefHeight="25.0" prefWidth="60.0" text="Surname:" />
 
       </children>
    </AnchorPane>

@@ -51,6 +51,30 @@
           "judgeSurname": "123"
         }
       ]
+    },
+    {
+      "competitionName": "3",
+      "amountOfQualifyingRounds": 34,
+      "listOfDrivers": [],
+      "listOfJudges": []
+    },
+    {
+      "competitionName": "Ser",
+      "amountOfQualifyingRounds": 3,
+      "listOfDrivers": [
+        {
+          "driverName": "Ser",
+          "driverSurname": "123",
+          "number": 777,
+          "team": "123"
+        }
+      ],
+      "listOfJudges": [
+        {
+          "judgeName": "ss",
+          "judgeSurname": "dd"
+        }
+      ]
     }
   ]
 }

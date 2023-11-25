@@ -4,6 +4,7 @@ import com.csia_galeta.people.Judge;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 public class AddJudgeController
@@ -22,15 +23,39 @@ public class AddJudgeController
     @FXML
     public void addJudge(){
         Judge judge = new Judge();
-        judge.setName(judgeName.getText());
-        judge.setSurname(judgeSurname.getText());
+        byte nSuccess = 0;
 
+        if(judge.setName(judgeName.getText()))
+            nSuccess++;
+        else
+            showWarning(judgeName, "Your name is incorrect");
 
-        CompetitionSingleton.addJudgeToTmpCompetition(judge);
+        if(judge.setSurname(judgeSurname.getText()))
+            nSuccess++;
+        else
+            showWarning(judgeSurname, "Your surname is incorrect");
 
-        System.out.println("Close judge window");
-        Stage stage = (Stage) addJudge.getScene().getWindow();
-        stage.close();
+        if(nSuccess == 2){
+            CompetitionSingleton.addJudgeToTmpCompetition(judge);
+            System.out.println("Close judge window");
+            Stage stage = (Stage) addJudge.getScene().getWindow();
+            stage.close();
+            resetStyles();
+        }
+    }
+
+    private void showWarning(TextField textField, String message){
+        textField.setText(message);
+        textField.setStyle("-fx-text-inner-color: red;");
+    }
+
+    private void resetStyles(){
+        judgeName.setStyle("-fx-text-inner-color: black;");
+        judgeSurname.setStyle("-fx-text-inner-color: black;");
+    }
+
+    public void handleClear(MouseEvent mouseEvent) {
+        resetStyles();
     }
 
 }

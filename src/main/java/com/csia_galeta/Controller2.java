@@ -1,11 +1,14 @@
 package com.csia_galeta;
 
+import com.csia_galeta.people.Driver;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -25,13 +28,17 @@ public class Controller2 {
     private Button addDrivers;
 
     @FXML
-    private Label competitionJudges;
+    private Label warnings;
+
+    @FXML
+    private ListView<String> listView;
 
     @FXML
     protected void openAddDrivers(){
         System.out.println("Click");
         /* Stage stage = (Stage) addJudges.getScene().getWindow();
         stage.close(); */
+        CompetitionSingleton.driverAddHandler(this::changeUI);
         FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("Drivers.fxml"));
         Scene scene = null;
         try {
@@ -47,6 +54,11 @@ public class Controller2 {
         newStage.show();
     }
 
+    private void changeUI(Driver d){
+        System.out.println(d);
+        listView.getItems().add(d.toString());
+    }
+
     @FXML
     protected void saveCompetition(){
         boolean heats = false;
@@ -56,29 +68,29 @@ public class Controller2 {
             heats = true;
         } else {
             System.out.println("Please check whether entered data is a number from 1 to 127.");
+            warnings.setText("Please check whether entered data is a number from 1 to 127.");
         }
+
         if (checkCompetitionName(competitionName.getText()) && competitionName.getText() != null){
             CompetitionSingleton.addToTmpCompetitionName(competitionName.getText());
             name = true;
         } else {
             System.out.println("Please check whether entered data is a is a valid name and less or equal to 55 characters.");
+            warnings.setText("Please check whether entered data is a is a valid name and less or equal to 55 characters.");
         }
-        if (heats == true && name == true){
+
+        if (heats && name){
             System.out.println("Saving Competition...");
             CompetitionSingleton.saveTmpCompetition();
         }
     }
 
     private boolean checkCountOfCF (String amountToBeChecked){
-        Pattern pattern = Pattern.compile("^\\b([1-9]|[1-9][0-9]|1[01][0-9]|12[0-7])\\b$");
-        Matcher matcher = pattern.matcher(amountToBeChecked);
-        return matcher.find();
+        return amountToBeChecked.matches("^\\b([1-9]|[1-9][0-9]|1[01][0-9]|12[0-7])\\b$");
     }
 
     private boolean checkCompetitionName (String nameToBeChecked){
-        Pattern pattern = Pattern.compile("^.{1,55}$");
-        Matcher matcher = pattern.matcher(nameToBeChecked);
-        return matcher.find();
+        return nameToBeChecked.matches("^.{1,55}$");
     }
 
     @FXML
@@ -94,6 +106,10 @@ public class Controller2 {
         newStage.setTitle("Frame 3!");
         newStage.setScene(scene);
         newStage.show();
+    }
+
+    public void handleClear(MouseEvent mouseEvent) {
+        warnings.setText("");
     }
 
 }
