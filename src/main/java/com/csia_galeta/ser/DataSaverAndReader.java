@@ -45,7 +45,7 @@ public class DataSaverAndReader {
             try {
                 Files.createDirectory(dir);
             } catch (IOException e) {
-                System.out.println("Folder can`t create");
+                System.out.println("Folder canc`t create");
                 e.printStackTrace();
             }
         }
