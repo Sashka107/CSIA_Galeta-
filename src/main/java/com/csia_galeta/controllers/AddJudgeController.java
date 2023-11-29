@@ -1,6 +1,8 @@
-package com.csia_galeta;
+package com.csia_galeta.controllers;
 
+import com.csia_galeta.CompetitionSingleton;
 import com.csia_galeta.people.Judge;
+import com.csia_galeta.ser.SceneOpener;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
@@ -15,6 +17,7 @@ public class AddJudgeController
 
     @FXML
     private TextField judgeSurname;
+
 
     @FXML
     private Button addJudge;
@@ -41,6 +44,9 @@ public class AddJudgeController
             Stage stage = (Stage) addJudge.getScene().getWindow();
             stage.close();
             resetStyles();
+
+            CreateEditCompetitionController controller = SceneOpener.openSceneAndReturnController("CreateOrEditCompetition.fxml", "Create New Competition");
+            controller.loadTmpCompetition();
         }
     }
 

@@ -13,6 +13,8 @@ public class CompetitionSingleton {
     private static CompetitionListWrapper competitionListWrapper = null;
     private static Competition tmpCompetition = new Competition();
 
+    private static Competition currentCompetition = new Competition();
+
     private static Consumer<Driver> OnDriverAdded;
 
     private CompetitionSingleton(){}
@@ -35,9 +37,14 @@ public class CompetitionSingleton {
     public static void saveTmpCompetition(){
         competitionListWrapper.addCompetition(tmpCompetition);
         DataSaverAndReader.saveJsonStringToFile("save.json", competitionListWrapper);
+        currentCompetition = tmpCompetition;
         tmpCompetition = null;
         tmpCompetition = new Competition();
+    }
 
+    public static void saveCurrentCompetition(){
+        competitionListWrapper.addCompetition(currentCompetition);
+        DataSaverAndReader.saveJsonStringToFile("save.json", competitionListWrapper);
     }
 
     public static void addDriverToTmpCompetition(Driver d){
@@ -54,7 +61,23 @@ public class CompetitionSingleton {
         tmpCompetition.setAmountOfQualifyingRounds((byte) count);
     }
 
+    public static Competition getTmpCompetition() {
+        return tmpCompetition;
+    }
+
+    public static Competition getCurrentCompetition() {
+        return currentCompetition;
+    }
+
     public static void addToTmpCompetitionName(String name){
         tmpCompetition.setCompetitionName(name);
+    }
+
+    public static void setCurrentCompetition(Competition currentCompetition) {
+        CompetitionSingleton.currentCompetition = currentCompetition;
+    }
+
+    public static void setTmpCompetition(Competition tmpCompetition) {
+        CompetitionSingleton.tmpCompetition = tmpCompetition;
     }
 }

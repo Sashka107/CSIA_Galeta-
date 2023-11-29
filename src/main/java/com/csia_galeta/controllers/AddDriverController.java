@@ -1,8 +1,8 @@
-package com.csia_galeta;
+package com.csia_galeta.controllers;
 
+import com.csia_galeta.CompetitionSingleton;
 import com.csia_galeta.people.Driver;
-import javafx.event.Event;
-import javafx.event.EventHandler;
+import com.csia_galeta.ser.SceneOpener;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
@@ -57,6 +57,9 @@ public class AddDriverController {
             Stage stage = (Stage) addDriverBtn.getScene().getWindow();
             stage.close();
             resetStyles();
+
+            CreateEditCompetitionController controller = SceneOpener.openSceneAndReturnController("CreateOrEditCompetition.fxml", "Create New Competition");
+            controller.loadTmpCompetition();
         }
     }
 

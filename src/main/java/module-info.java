@@ -8,4 +8,6 @@ module com.csia_galeta {
     exports com.csia_galeta;
     exports com.csia_galeta.people;
     opens com.csia_galeta.people to com.google.gson, javafx.fxml;
+    exports com.csia_galeta.controllers;
+    opens com.csia_galeta.controllers to com.google.gson, javafx.fxml;
 }

@@ -1,7 +1,11 @@
 package com.csia_galeta.people;
 
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+import com.csia_galeta.CompetitionSingleton;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class Driver {
 
@@ -9,6 +13,8 @@ public class Driver {
     private String driverSurname;
     private short number;
     private String team;
+
+    private Map<Integer, Integer> qualificationScore = new HashMap<>();
 
     public boolean setNameD(String name) { // Setting the name
         if (name.matches("^.{1,55}$")) {
@@ -62,8 +68,28 @@ public class Driver {
         return team;
     }
 
+    public Map<Integer, Integer> getQualificationScore() {
+        return qualificationScore;
+    }
+
+    public void addDriverScoreForQRound(int roundIndex, int score){
+        if(!qualificationScore.containsKey(roundIndex))
+            qualificationScore.put(roundIndex, score);
+        else
+            qualificationScore.replace(roundIndex, score);
+    }
+
     @Override
     public String toString() {
+        return "Drivers{" +
+                "driverName='" + driverName + '\'' +
+                ", driverSurname='" + driverSurname + '\'' +
+                ", number=" + number +
+                ", team='" + team + '\'' +
+                '}';
+    }
+
+    public String toStringQualificationView() {
         return "Drivers{" +
                 "driverName='" + driverName + '\'' +
                 ", driverSurname='" + driverSurname + '\'' +

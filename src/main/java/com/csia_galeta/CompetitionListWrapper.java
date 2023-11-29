@@ -17,7 +17,10 @@ public class CompetitionListWrapper {
             throw new RuntimeException(e);
         }
 
-        this.allCompetitions = allCompetitionsFromFile.getCompetitions();
+        if(allCompetitionsFromFile != null)
+            this.allCompetitions = allCompetitionsFromFile.getCompetitions();
+        else
+            allCompetitions = new ArrayList<>();
     }
 
     public void addCompetition(Competition c){
@@ -25,7 +28,15 @@ public class CompetitionListWrapper {
         if(allCompetitions == null)
             allCompetitions = new ArrayList<>();
 
-        allCompetitions.add(c);
+        if(!allCompetitions.contains(c))
+            allCompetitions.add(c);
+        else{
+            for(int i = 0; i < allCompetitions.size(); i++){
+                if(allCompetitions.get(i).equals(c))
+                    allCompetitions.set(i, c);
+            }
+        }
+
     }
 
     public List<Competition> getCompetitions(){

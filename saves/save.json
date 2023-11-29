@@ -1,80 +1,129 @@
 {
   "allCompetitions": [
     {
-      "amountOfQualifyingRounds": 0,
-      "listOfDrivers": [],
-      "listOfJudges": [
-        {
-          "judgeName": "123",
-          "judgeSurname": "345"
-        }
-      ]
-    },
-    {
-      "amountOfQualifyingRounds": 0,
-      "listOfDrivers": [],
-      "listOfJudges": [
-        {
-          "judgeName": "edsfs",
-          "judgeSurname": "dsfs"
-        }
-      ]
-    },
-    {
-      "amountOfQualifyingRounds": 0,
-      "listOfDrivers": [],
-      "listOfJudges": [
-        {
-          "judgeName": "test",
-          "judgeSurname": "222"
-        },
-        {
-          "judgeName": "testrrrr",
-          "judgeSurname": "3434"
-        }
-      ]
-    },
-    {
-      "competitionName": "Test123",
-      "amountOfQualifyingRounds": 2,
+      "competitionName": "Test",
+      "competitionState": "Qualification In Progress",
+      "amountOfQualifyingRounds": 4,
       "listOfDrivers": [
         {
-          "driverName": "Dan",
-          "driverSurname": "Izi",
-          "number": 11,
-          "team": "R8"
+          "driverName": "12",
+          "driverSurname": "12",
+          "number": 12,
+          "team": "12",
+          "qualificationScore": {
+            "1": 10,
+            "2": 30,
+            "3": 25,
+            "4": 35
+          }
+        },
+        {
+          "driverName": "12",
+          "driverSurname": "12",
+          "number": 12,
+          "team": "12",
+          "qualificationScore": {
+            "3": 40,
+            "1": 12,
+            "2": 123,
+            "4": 30
+          }
+        },
+        {
+          "driverName": "33",
+          "driverSurname": "33",
+          "number": 33,
+          "team": "33",
+          "qualificationScore": {
+            "1": 20,
+            "2": 100,
+            "3": 26,
+            "4": 344
+          }
         }
       ],
-      "listOfJudges": [
-        {
-          "judgeName": "Gorge",
-          "judgeSurname": "123"
-        }
-      ]
+      "listOfJudges": []
     },
     {
-      "competitionName": "3",
-      "amountOfQualifyingRounds": 34,
+      "competitionName": "11111",
+      "competitionState": "Qualification In Progress",
+      "amountOfQualifyingRounds": 3,
+      "listOfDrivers": [
+        {
+          "driverName": "12",
+          "driverSurname": "12",
+          "number": 12,
+          "team": "12",
+          "qualificationScore": {
+            "1": 30,
+            "2": 45
+          }
+        },
+        {
+          "driverName": "12",
+          "driverSurname": "12",
+          "number": 12,
+          "team": "12",
+          "qualificationScore": {
+            "1": 45,
+            "2": 50,
+            "3": 444
+          }
+        }
+      ],
+      "listOfJudges": []
+    },
+    {
+      "competitionName": "еуые",
+      "competitionState": "Qualification In Progress",
+      "amountOfQualifyingRounds": 3,
+      "listOfDrivers": [
+        {
+          "driverName": "11",
+          "driverSurname": "11",
+          "number": 11,
+          "team": "11",
+          "qualificationScore": {
+            "2": 50
+          }
+        },
+        {
+          "driverName": "12",
+          "driverSurname": "12",
+          "number": 12,
+          "team": "12",
+          "qualificationScore": {}
+        },
+        {
+          "driverName": "33",
+          "driverSurname": "33",
+          "number": 33,
+          "team": "333",
+          "qualificationScore": {}
+        }
+      ],
+      "listOfJudges": []
+    },
+    {
+      "competitionName": "ыук",
+      "amountOfQualifyingRounds": 3,
       "listOfDrivers": [],
       "listOfJudges": []
     },
     {
-      "competitionName": "Ser",
-      "amountOfQualifyingRounds": 3,
+      "competitionName": "tesrdfd",
+      "competitionState": "Planned",
+      "amountOfQualifyingRounds": 4,
       "listOfDrivers": [
         {
-          "driverName": "Ser",
-          "driverSurname": "123",
-          "number": 777,
-          "team": "123"
+          "driverName": "12",
+          "driverSurname": "13",
+          "number": 13,
+          "team": "13",
+          "qualificationScore": {}
         }
       ],
-      "listOfJudges": [
-        {
-          "judgeName": "ss",
-          "judgeSurname": "dd"
-        }
-      ]
+      "listOfJudges": []
     }
   ]
 }

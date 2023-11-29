@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="509.0"
+            prefWidth="590.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.csia_galeta.controllers.CompetitionViewController">
+   <Label layoutX="230.0" layoutY="20.0" text="CompetitionName" fx:id="competitionName">
+      <font>
+         <Font name="System Bold" size="16.0"/>
+      </font>
+   </Label>
+   <Label layoutX="14.0" layoutY="45.0" text="Settings:">
+      <font>
+         <Font size="14.0"/>
+
+      </font>
+   </Label>
+   <Label layoutX="14.0" layoutY="70.0" text="Qual Rounds:">
+      <font>
+         <Font size="14.0"/>
+      </font>
+   </Label>
+   <Label layoutX="14.0" layoutY="95.0" text="Date :">
+      <font>
+         <Font size="14.0"/>
+      </font>
+   </Label>
+   <ListView fx:id="listView" layoutX="18.0" layoutY="230.0" prefHeight="200.0" prefWidth="526.0"/>
+   <Label layoutX="102.0" layoutY="70.0" prefHeight="20.0" prefWidth="36.0" text="1" fx:id="qRounds">
+      <font>
+         <Font size="14.0"/>
+      </font>
+   </Label>
+   <Label layoutX="53.0" layoutY="97.0" prefHeight="20.0" prefWidth="83.0" text="22.02.2022" fx:id="dateText">
+      <font>
+         <Font size="14.0"/>
+      </font>
+   </Label>
+   <Label layoutX="18.0" layoutY="127.0" prefHeight="17.0" prefWidth="53.0" text="Judjes:">
+      <font>
+         <Font size="14.0"/>
+      </font>
+   </Label>
+   <Label layoutX="18.0" layoutY="147.0" prefHeight="57.0" prefWidth="145.0" text="Label" fx:id="judgesNames"/>
+   <Label layoutX="18.0" layoutY="203.0" prefHeight="17.0" prefWidth="60.0" text="Drivers:">
+      <font>
+         <Font size="18.0"/>
+      </font>
+   </Label>
+   <Label layoutX="281.0" layoutY="47.0" text="Status:"/>
+   <Label layoutX="325.0" layoutY="47.0" text="Planned" fx:id="plannedStatus"/>
+   <Button layoutX="19.0" layoutY="447.0" mnemonicParsing="false" text="Play" fx:id="playBtn" onAction="#playCompetition"/>
+   <Button layoutX="72.0" layoutY="447.0" mnemonicParsing="false" text="Edit" onAction="#editCompetition"
+           fx:id="editBtn"/>
+</AnchorPane>
