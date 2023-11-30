@@ -113,6 +113,7 @@ public class CreateEditCompetitionController {
         competitionName.setText(CompetitionSingleton.getTmpCompetition().getCompetitionName());
         countOfCF.setText(CompetitionSingleton.getTmpCompetition().getAmountOfQualifyingRounds() + "");
         listView.getItems().addAll(CompetitionSingleton.getTmpCompetition().getListOfDrivers());
+        datePicked.setValue(CompetitionSingleton.getTmpCompetition().getCompetitionDateLocalDate());
     }
 
     public void loadToEditCompetition(){
@@ -120,6 +121,7 @@ public class CreateEditCompetitionController {
         loadTmpCompetition();
         mainText.setText("Edit Competition");
         competitionName.setEditable(false);
+        datePicked.setValue(CompetitionSingleton.getTmpCompetition().getCompetitionDateLocalDate());
     }
 
     private boolean checkDate(LocalDate date){

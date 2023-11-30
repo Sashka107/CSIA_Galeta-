@@ -43,6 +43,11 @@ public class Competition {
         return competitionDate;
     }
 
+    public LocalDate getCompetitionDateLocalDate() {
+        DateTimeFormatter oldFormat = DateTimeFormatter.ofPattern("dd-MMM-yyyy", Locale.UK);
+        return LocalDate.parse(competitionDate, oldFormat);
+    }
+
     public void setCompetitionDate(LocalDate competitionDate) {
         //DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd LLLL yyyy", new Locale("en"));
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MMM-yyyy", Locale.UK);

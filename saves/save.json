@@ -1,0 +1,25 @@
+{
+  "allCompetitions": [
+    {
+      "competitionName": "555",
+      "competitionState": "Qualification In Progress",
+      "competitionDate": "09-Nov-2023",
+      "amountOfQualifyingRounds": 5,
+      "listOfDrivers": [
+        {
+          "driverName": "12",
+          "driverSurname": "12",
+          "number": 12,
+          "team": "12",
+          "qualificationScore": {}
+        }
+      ],
+      "listOfJudges": [],
+      "qualification": {
+        "randIndexes": [
+          0
+        ]
+      }
+    }
+  ]
+}
