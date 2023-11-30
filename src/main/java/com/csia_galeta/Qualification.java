@@ -1,10 +1,50 @@
 package com.csia_galeta;
 
+import com.csia_galeta.people.Driver;
+
 import java.util.ArrayList;
+import java.util.List;
 
 public class Qualification {
 
-    private boolean finishedQualification;
+    //private boolean finishedQualification;
+
+    private int[] randIndexes;
+
+    public int[] getRandNums() {
+        return randIndexes;
+    }
+
+    public Qualification(List<Driver> drivers) {
+        randIndexes = generateRandomIndexes(drivers.size());
+    }
+
+    private int[] generateRandomIndexes(int size) {
+        int[] indexes = new int[size];
+        for (int i = 0; i < size; i++) {
+            indexes[i] = i;
+        }
+
+        for (int i = size - 1; i > 0; i--) {
+            int j = (int) (Math.random() * (i + 1));
+            int tmp = indexes[i];
+            indexes[i] = indexes[j];
+            indexes[j] = tmp;
+        }
+        return indexes;
+    }
+
+    /*private List<Driver> shuffleList(List<Driver> list) {
+        List<Driver> driversNew = new ArrayList<>(List.copyOf(list));
+        int size = driversNew.size();
+        for (int i = size - 1; i > 0; i--) {
+            int j = (int) (Math.random() * (i + 1));
+            Driver temp = driversNew.get(i);
+            driversNew.set(i, driversNew.get(j));
+            driversNew.set(j, temp);
+        }
+        return driversNew;
+    }
 
     /*public static void main(String[] args) {
         int[] grades = {2, 4, 8, 16, 32, 64, 128};

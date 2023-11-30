@@ -2,21 +2,21 @@ package com.csia_galeta.controllers;
 
 import com.csia_galeta.Competition;
 import com.csia_galeta.CompetitionSingleton;
+import com.csia_galeta.Qualification;
 import com.csia_galeta.QualificationController;
 import com.csia_galeta.people.Driver;
 import com.csia_galeta.ser.SceneOpener;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.ListView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 
+import java.time.LocalDate;
+
 public class CreateEditCompetitionController {
+    public DatePicker datePicked;
     @FXML
     private TextField competitionName;
-    @FXML
-    private TextField competitionDate;
+
     @FXML
     private TextField countOfCF;
     @FXML
@@ -28,9 +28,6 @@ public class CreateEditCompetitionController {
     private Button startQualification;
 
     @FXML
-    private Label warnings;
-
-    @FXML
     private Label mainText;
 
     @FXML
@@ -38,38 +35,37 @@ public class CreateEditCompetitionController {
 
     @FXML
     protected void openAddDrivers(){
-        saveCompetition();
+        saveCompetition(true);
         SceneOpener.openSceneAndReturnController("Drivers.fxml",
                 "Add New Driver",
                 addDrivers.getScene().getWindow());
     }
 
-    private void changeUI(Driver d){
-        System.out.println(d);
-        listView.getItems().add(d);
-    }
-
-    protected boolean saveCompetition(){
-        boolean heats = false;
-        boolean name = false;
+    protected boolean saveCompetition(boolean notCheckWarnings){
+        boolean hasWarning = false;
 
         if (checkCountOfCF(countOfCF.getText())){
             CompetitionSingleton.addCountOfRounds(Integer.parseInt(countOfCF.getText()));
-            heats = true;
         } else {
-            System.out.println("Please check whether entered data is a number from 1 to 127.");
-            warnings.setText("Please check whether entered data is a number from 1 to 127.");
+            hasWarning = true;
+            showWarning("Please check whether entered data is a number from 1 to 127.", notCheckWarnings);
         }
 
         if (checkCompetitionName(competitionName.getText())){
             CompetitionSingleton.addToTmpCompetitionName(competitionName.getText());
-            name = true;
         } else {
-            System.out.println("Please check whether entered data is a is a valid name and less or equal to 55 characters.");
-            warnings.setText("Please check whether entered data is a is a valid name and less or equal to 55 characters.");
+            hasWarning = true;
+            showWarning("Please check whether entered data is a is a valid name and less or equal to 55 characters.", notCheckWarnings);
         }
 
-        if (heats && name){
+        if (checkDate(datePicked.getValue())){
+            CompetitionSingleton.getTmpCompetition().setCompetitionDate(datePicked.getValue());
+        } else {
+            hasWarning = true;
+            showWarning("Date is incorrect", notCheckWarnings);
+        }
+
+        if (!hasWarning){
             System.out.println("Saving Competition...");
             return true;
         }
@@ -79,26 +75,38 @@ public class CreateEditCompetitionController {
 
     @FXML
     protected void startCompetition(){
-        if(saveCompetition()){
-            CompetitionSingleton.getTmpCompetition().setCompetitionStateQualificationInProgress();
-            CompetitionSingleton.saveTmpCompetition();
-            QualificationController controller = SceneOpener.openSceneAndReturnController("QualificationView.fxml",
-                    "Qualification",
-                    startQualification.getScene().getWindow());
-            controller.loadWindow();
-        }
+        if(!saveCompetition(false))
+            return;
+
+        CompetitionSingleton.getTmpCompetition().setCompetitionStateQualificationInProgress();
+        CompetitionSingleton.addQualificationToTmpCompetition(new Qualification(CompetitionSingleton.getTmpCompetition().getListOfDrivers()));
+        CompetitionSingleton.saveTmpCompetition();
+        QualificationController controller = SceneOpener.openSceneAndReturnController("QualificationView.fxml",
+                "Qualification",
+                startQualification.getScene().getWindow());
+        controller.loadWindow();
     }
 
     @FXML
     private void saveCompetitionOnClick(){
-        if(saveCompetition()){
-            CompetitionSingleton.getTmpCompetition().setCompetitionStatePlanned();
-            CompetitionSingleton.saveTmpCompetition();
-        }
+        if(!saveCompetition(false))
+            return;
 
+        CompetitionSingleton.getTmpCompetition().setCompetitionStatePlanned();
+        CompetitionSingleton.saveTmpCompetition();
         SceneOpener.openSceneAndReturnController("RC_Drift.fxml",
                 "Main View",
                 startQualification.getScene().getWindow());
+    }
+
+    private void showWarning(String message, boolean notShowWarn){
+        if(notShowWarn)
+            return;
+
+        Alert warningsAlert = new Alert(Alert.AlertType.WARNING);
+        warningsAlert.setHeaderText("Incorrect data");
+        warningsAlert.setContentText(message);
+        warningsAlert.show();
     }
 
     public void loadTmpCompetition(){
@@ -112,6 +120,10 @@ public class CreateEditCompetitionController {
         loadTmpCompetition();
         mainText.setText("Edit Competition");
         competitionName.setEditable(false);
+    }
+
+    private boolean checkDate(LocalDate date){
+        return date != null;
     }
 
     private boolean checkCountOfCF (String amountToBeChecked){
@@ -130,14 +142,10 @@ public class CreateEditCompetitionController {
 
     @FXML
     public void addJudges(){
-        saveCompetition();
+        saveCompetition(true);
         SceneOpener.openSceneAndReturnController("AddJudgeFrame.fxml",
                 "Add New Judge",
                 addJudges.getScene().getWindow());
-    }
-
-    public void handleClear(MouseEvent mouseEvent) {
-        warnings.setText("");
     }
 
 }

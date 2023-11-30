@@ -6,10 +6,10 @@
 
 <AnchorPane prefHeight="267.0" prefWidth="419.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.csia_galeta.controllers.AddDriverController">
    <children>
-      <TextField fx:id="driverName" layoutX="158.0" layoutY="56.0" onMouseClicked="#handleClear" />
-      <TextField fx:id="driverSurname" layoutX="158.0" layoutY="95.0" onMouseClicked="#handleClear"/>
-      <TextField fx:id="driverTeam" layoutX="160.0" layoutY="134.0" onMouseClicked="#handleClear"/>
-      <TextField fx:id="driverNumber" layoutX="160.0" layoutY="173.0" onMouseClicked="#handleClear"/>
+      <TextField fx:id="driverName" layoutX="158.0" layoutY="56.0"/>
+      <TextField fx:id="driverSurname" layoutX="158.0" layoutY="95.0"/>
+      <TextField fx:id="driverTeam" layoutX="160.0" layoutY="134.0"/>
+      <TextField fx:id="driverNumber" layoutX="160.0" layoutY="173.0"/>
       <Label layoutX="87.0" layoutY="61.0" text=" Name :">
          <font>
             <Font size="14.0" />

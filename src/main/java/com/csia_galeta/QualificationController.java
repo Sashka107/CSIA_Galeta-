@@ -23,8 +23,13 @@ public class QualificationController {
 
     public void loadWindow(){
         Competition c = CompetitionSingleton.getCurrentCompetition();
-        List<Driver> drivers =  c.getListOfDrivers();
-        listView.getItems().addAll(drivers);
+        List<Driver> driversFromCompetition = c.getListOfDrivers();
+        for(int i = 0; i < driversFromCompetition.size(); i++){
+            listView.getItems().addAll(driversFromCompetition.get(
+                    c.getQualification().getRandNums()[i]
+            ));
+        }
+        //listView.getItems().addAll(drivers);
     }
 
     @FXML

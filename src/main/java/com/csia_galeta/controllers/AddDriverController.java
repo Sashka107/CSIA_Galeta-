@@ -4,9 +4,9 @@ import com.csia_galeta.CompetitionSingleton;
 import com.csia_galeta.people.Driver;
 import com.csia_galeta.ser.SceneOpener;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
-import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 public class AddDriverController {
@@ -34,48 +34,39 @@ public class AddDriverController {
         if(driver.setNameD(driverName.getText()))
             nSuccess++;
         else
-            showWarning(driverName, "Your name is incorrect");
+            showWarning("Your name is incorrect");
 
         if(driver.setSurnameD(driverSurname.getText()))
             nSuccess++;
         else
-            showWarning(driverSurname, "Your surname is incorrect");
+            showWarning("Your surname is incorrect");
 
         if(driver.setNumber(driverNumber.getText()))
             nSuccess++;
         else
-            showWarning(driverNumber, "Number incorrect");
+            showWarning("Number incorrect");
 
         if(driver.setTeam(driverTeam.getText()))
             nSuccess++;
         else
-            showWarning(driverTeam, "Your name is incorrect");
+            showWarning("Your name is incorrect");
 
         if(nSuccess == 4){
             CompetitionSingleton.addDriverToTmpCompetition(driver);
             System.out.println("Close driver window");
             Stage stage = (Stage) addDriverBtn.getScene().getWindow();
             stage.close();
-            resetStyles();
 
             CreateEditCompetitionController controller = SceneOpener.openSceneAndReturnController("CreateOrEditCompetition.fxml", "Create New Competition");
             controller.loadTmpCompetition();
         }
     }
 
-    private void showWarning(TextField textField, String message){
-        textField.setText(message);
-        textField.setStyle("-fx-text-inner-color: red;");
+    private void showWarning(String message){
+        Alert warningsAlert = new Alert(Alert.AlertType.WARNING);
+        warningsAlert.setHeaderText("Incorrect data");
+        warningsAlert.setContentText(message);
+        warningsAlert.show();
     }
 
-    private void resetStyles(){
-        driverTeam.setStyle("-fx-text-inner-color: black;");
-        driverNumber.setStyle("-fx-text-inner-color: black;");
-        driverSurname.setStyle("-fx-text-inner-color: black;");
-        driverName.setStyle("-fx-text-inner-color: black;");
-    }
-
-    public void handleClear(MouseEvent mouseEvent) {
-        resetStyles();
-    }
 }

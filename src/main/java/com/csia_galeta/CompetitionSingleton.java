@@ -57,6 +57,10 @@ public class CompetitionSingleton {
         tmpCompetition.addJudgeToList(j);
     }
 
+    public static void addQualificationToTmpCompetition(Qualification q){
+        tmpCompetition.setQualification(q);
+    }
+
     public static void addCountOfRounds(int count){
         tmpCompetition.setAmountOfQualifyingRounds((byte) count);
     }

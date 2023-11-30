@@ -4,7 +4,11 @@ import com.csia_galeta.people.Driver;
 import com.csia_galeta.people.Judge;
 import com.csia_galeta.ser.CompetitionStates;
 
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Locale;
 import java.util.Objects;
 
 public class Competition {
@@ -13,9 +17,13 @@ public class Competition {
     // Attributes of the class:
     private String competitionName;
     private String competitionState;
+
+    private String competitionDate;
     private byte amountOfQualifyingRounds;
     private ArrayList<Driver> listOfDrivers = new ArrayList<>();
     private ArrayList<Judge> listOfJudges = new ArrayList<>();
+
+    private Qualification qualification;
 
 
 
@@ -29,7 +37,24 @@ public class Competition {
 
     public  void setAmountOfQualifyingRounds (byte amountOfQualifyingRounds){ // Set an amount of qualifying rounds
         this.amountOfQualifyingRounds = amountOfQualifyingRounds;
+    }
 
+    public String getCompetitionDate() {
+        return competitionDate;
+    }
+
+    public void setCompetitionDate(LocalDate competitionDate) {
+        //DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd LLLL yyyy", new Locale("en"));
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MMM-yyyy", Locale.UK);
+        this.competitionDate = competitionDate.format(formatter);
+    }
+
+    public void setQualification(Qualification qualification) {
+        this.qualification = qualification;
+    }
+
+    public Qualification getQualification() {
+        return qualification;
     }
 
     public ArrayList<Driver> getListOfDrivers() {
