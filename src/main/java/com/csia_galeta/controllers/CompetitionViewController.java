@@ -2,6 +2,7 @@ package com.csia_galeta.controllers;
 
 import com.csia_galeta.Competition;
 import com.csia_galeta.CompetitionSingleton;
+import com.csia_galeta.PrevCompetitionsController;
 import com.csia_galeta.QualificationController;
 import com.csia_galeta.people.Driver;
 import com.csia_galeta.ser.CompetitionStates;
@@ -33,14 +34,25 @@ public class CompetitionViewController {
     @FXML
     private Button editBtn;
 
+    @FXML
+    private Button backBtn;
+
     public void load(Competition competition){
         CompetitionSingleton.setCurrentCompetition(competition);
         competitionName.setText(competition.getCompetitionName());
         qRounds.setText(competition.getAmountOfQualifyingRounds() + "");
         dateText.setText("Test date");
-        judgesNames.setText(competition.getListOfJudges().toString());
+        judgesNames.setText(competition.getListOfJudgesString());
         plannedStatus.setText(competition.getCompetitionState());
         listView.getItems().addAll(competition.getListOfDrivers());
+    }
+
+    @FXML
+    private void back(){
+        PrevCompetitionsController controller = SceneOpener.openSceneAndReturnController("PrevCompetitions.fxml",
+                "All Saved Competitions",
+                backBtn.getScene().getWindow());
+        controller.showCompetitions(CompetitionSingleton.getInstance().getCompetitions());
     }
 
     @FXML

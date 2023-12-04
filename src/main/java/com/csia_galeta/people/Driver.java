@@ -14,7 +14,7 @@ public class Driver {
     private short number;
     private String team;
 
-    private Map<Integer, Integer> qualificationScore = new HashMap<>();
+    private List<Integer> qualificationScore = new ArrayList<>();
 
     public boolean setNameD(String name) { // Setting the name
         if (name.matches("^.{1,55}$")) {
@@ -68,25 +68,41 @@ public class Driver {
         return team;
     }
 
-    public Map<Integer, Integer> getQualificationScore() {
+    public List<Integer> getQualificationScore() {
         return qualificationScore;
     }
 
-    public void addDriverScoreForQRound(int roundIndex, int score){
-        if(!qualificationScore.containsKey(roundIndex))
-            qualificationScore.put(roundIndex, score);
-        else
-            qualificationScore.replace(roundIndex, score);
+    public void addDriverScoreForQRound(int score){
+        qualificationScore.add(score);
+    }
+
+    public int getLastCompletedQRound(){
+        return qualificationScore.size();
     }
 
     @Override
     public String toString() {
-        return "Drivers{" +
-                "driverName='" + driverName + '\'' +
-                ", driverSurname='" + driverSurname + '\'' +
-                ", number=" + number +
-                ", team='" + team + '\'' +
-                '}';
+
+        StringBuilder sb = new StringBuilder();
+        for (int score : qualificationScore) {
+            sb.append("/").append(score);
+        }
+
+        if(!sb.isEmpty())
+            sb.delete(0, 1);
+
+        char firstLetterName = Character.toUpperCase(driverName.charAt(0));
+
+        if(qualificationScore.isEmpty()) {
+            return driverName.replace(driverName.charAt(0), firstLetterName)
+                    + " " + Character.toUpperCase(driverSurname.charAt(0)) + " " + number + " " + team;
+            // Alex G 777 OOO
+        }
+        else {
+            return driverName.replace(driverName.charAt(0), firstLetterName)
+                    + " " + Character.toUpperCase(driverSurname.charAt(0)) + " " + number + " " + team
+                    + " scores: " + sb; // Alex G 777 OOO scores: 15/30/45/100
+        }
     }
 
     public String toStringQualificationView() {

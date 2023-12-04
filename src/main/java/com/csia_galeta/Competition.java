@@ -45,7 +45,11 @@ public class Competition {
 
     public LocalDate getCompetitionDateLocalDate() {
         DateTimeFormatter oldFormat = DateTimeFormatter.ofPattern("dd-MMM-yyyy", Locale.UK);
-        return LocalDate.parse(competitionDate, oldFormat);
+
+        if(competitionDate != null)
+            return LocalDate.parse(competitionDate, oldFormat);
+        else
+            return null;
     }
 
     public void setCompetitionDate(LocalDate competitionDate) {
@@ -68,6 +72,18 @@ public class Competition {
 
     public ArrayList<Judge> getListOfJudges() {
         return listOfJudges;
+    }
+
+    public String getListOfJudgesString() {
+        StringBuilder stringBuilder = new StringBuilder();
+        for (Judge j : listOfJudges) {
+            stringBuilder.append(j.toString()).append(", ");
+        }
+
+        if(stringBuilder.length() > 3)
+            stringBuilder.replace(stringBuilder.length()-2, stringBuilder.length()-1, ".");
+
+        return stringBuilder.toString();
     }
 
     public byte getAmountOfQualifyingRounds (){ // Get an amount of qualifying rounds

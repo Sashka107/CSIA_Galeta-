@@ -33,10 +33,7 @@ public class Judge {
 
     @Override
     public String toString() {
-
-        return "Judges{" +
-                "judgeName='" + judgeName + '\'' +
-                ", judgeSurname='" + judgeSurname + '\'' +
-                '}';
+        char firstLetterName = Character.toUpperCase(judgeName.charAt(0));
+        return judgeName.replace(judgeName.charAt(0), firstLetterName) + " " + Character.toUpperCase(judgeSurname.charAt(0)); // Alex G
     }
 }

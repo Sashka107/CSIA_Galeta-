@@ -55,14 +55,21 @@ public class DriverQualificationAddController {
 
         MenuItem n = (MenuItem) event.getSource();
         roundSelected = Integer.parseInt(n.getText());
-        menuButton.setText("Round #" + roundSelected);
 
-        if(editDriver.getQualificationScore().get(roundSelected) != null){
-            driverScore.setText(editDriver.getQualificationScore().get(roundSelected) + "");
+        if(roundSelected < editDriver.getLastCompletedQRound() + 1 && editDriver.getQualificationScore().get(roundSelected-1) != null){
+            driverScore.setText(editDriver.getQualificationScore().get(roundSelected-1) + "");
             driverScore.setEditable(false);
             saveBtn.setDisable(true);
+        }else if(roundSelected != editDriver.getLastCompletedQRound() + 1){
+            saveBtn.setDisable(false);
+            roundSelected = editDriver.getLastCompletedQRound() + 1;
         }
-        else{
+
+        menuButton.setText("Round #" + roundSelected);
+
+        try{
+            editDriver.getQualificationScore().get(roundSelected-1);
+        }catch (IndexOutOfBoundsException ex){
             driverScore.setText("");
             driverScore.setEditable(true);
             saveBtn.setDisable(false);
@@ -79,7 +86,7 @@ public class DriverQualificationAddController {
             return;
         }
 
-        editDriver.addDriverScoreForQRound(roundSelected, Integer.parseInt(driverScore.getText()));
+        editDriver.addDriverScoreForQRound(Integer.parseInt(driverScore.getText()));
         CompetitionSingleton.saveCurrentCompetition();
         Alert alertSuccess = new Alert(Alert.AlertType.INFORMATION);
         alertSuccess.setTitle("Round Score Saved");

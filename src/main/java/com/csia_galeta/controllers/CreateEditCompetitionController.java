@@ -14,6 +14,7 @@ import java.time.LocalDate;
 
 public class CreateEditCompetitionController {
     public DatePicker datePicked;
+    public Label judgesLabel;
     @FXML
     private TextField competitionName;
 
@@ -114,6 +115,7 @@ public class CreateEditCompetitionController {
         countOfCF.setText(CompetitionSingleton.getTmpCompetition().getAmountOfQualifyingRounds() + "");
         listView.getItems().addAll(CompetitionSingleton.getTmpCompetition().getListOfDrivers());
         datePicked.setValue(CompetitionSingleton.getTmpCompetition().getCompetitionDateLocalDate());
+        judgesLabel.setText(CompetitionSingleton.getTmpCompetition().getListOfJudgesString());
     }
 
     public void loadToEditCompetition(){
@@ -122,6 +124,7 @@ public class CreateEditCompetitionController {
         mainText.setText("Edit Competition");
         competitionName.setEditable(false);
         datePicked.setValue(CompetitionSingleton.getTmpCompetition().getCompetitionDateLocalDate());
+        judgesLabel.setText(CompetitionSingleton.getTmpCompetition().getListOfJudgesString());
     }
 
     private boolean checkDate(LocalDate date){

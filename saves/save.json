@@ -1,36 +1,40 @@
 {
   "allCompetitions": [
     {
-      "competitionName": "FIrst ",
+      "competitionName": "Competition 1",
       "competitionState": "Qualification In Progress",
-      "competitionDate": "03-Dec-2023",
-      "amountOfQualifyingRounds": 2,
+      "competitionDate": "08-Dec-2023",
+      "amountOfQualifyingRounds": 4,
       "listOfDrivers": [
         {
-          "driverName": "Sasha ",
-          "driverSurname": "Galeta ",
-          "number": 77,
-          "team": "DIZRC",
-          "qualificationScore": {
-            "2": 60,
-            "1": 70
-          }
+          "driverName": "alex",
+          "driverSurname": "galeta",
+          "number": 777,
+          "team": "wow",
+          "qualificationScore": [
+            65,
+            50,
+            44,
+            100
+          ]
         },
         {
-          "driverName": "Olga ",
-          "driverSurname": "Galeta ",
-          "number": 17,
-          "team": "ALLIANCE",
-          "qualificationScore": {
-            "1": 80,
-            "2": 100
-          }
+          "driverName": "Dan",
+          "driverSurname": "Rover",
+          "number": 6,
+          "team": "666D",
+          "qualificationScore": [
+            15,
+            50,
+            70,
+            35
+          ]
         }
       ],
       "listOfJudges": [
         {
-          "judgeName": "Igor ",
-          "judgeSurname": "Galeta "
+          "judgeName": "Sergey",
+          "judgeSurname": "Skr"
         }
       ],
       "qualification": {
@@ -41,55 +45,72 @@
       }
     },
     {
-      "competitionName": "TRial ",
+      "competitionName": "Test",
       "competitionState": "Qualification In Progress",
-      "competitionDate": "22-Dec-2023",
-      "amountOfQualifyingRounds": 3,
+      "competitionDate": "07-Dec-2023",
+      "amountOfQualifyingRounds": 2,
       "listOfDrivers": [
         {
-          "driverName": "Sasha ",
-          "driverSurname": "Galeta ",
-          "number": 100,
-          "team": "777",
-          "qualificationScore": {
-            "1": 60,
-            "2": 78,
-            "3": 40
-          }
-        }
-      ],
-      "listOfJudges": [
+          "driverName": "12",
+          "driverSurname": "12",
+          "number": 12,
+          "team": "12",
+          "qualificationScore": [
+            100,
+            99
+          ]
+        },
         {
-          "judgeName": "Tony ",
-          "judgeSurname": "Georgiev"
+          "driverName": "13",
+          "driverSurname": "13",
+          "number": 13,
+          "team": "13",
+          "qualificationScore": [
+            0,
+            0
+          ]
+        },
+        {
+          "driverName": "14",
+          "driverSurname": "14",
+          "number": 14,
+          "team": "14",
+          "qualificationScore": [
+            50,
+            30
+          ]
+        },
+        {
+          "driverName": "15",
+          "driverSurname": "15",
+          "number": 15,
+          "team": "15",
+          "qualificationScore": [
+            40,
+            40
+          ]
+        },
+        {
+          "driverName": "16",
+          "driverSurname": "16",
+          "number": 16,
+          "team": "16",
+          "qualificationScore": [
+            60,
+            50
+          ]
         }
       ],
+      "listOfJudges": [],
       "qualification": {
         "randIndexes": [
+          4,
+          3,
+          2,
+          1,
           0
         ]
       }
-    },
-    {
-      "competitionName": "TRIAL",
-      "competitionState": "Planned",
-      "competitionDate": "07-Dec-2023",
-      "amountOfQualifyingRounds": 3,
-      "listOfDrivers": [
-        {
-          "driverName": "1",
-          "driverSurname": "1",
-          "number": 1,
-          "team": "1",
-          "qualificationScore": {}
-        }
-      ],
-      "listOfJudges": [
-        {
-          "judgeName": "wr2w",
-          "judgeSurname": "rqwrq"
-        }
-      ]
     }
   ]
 }
