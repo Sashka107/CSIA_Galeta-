@@ -1,25 +1,95 @@
 {
   "allCompetitions": [
     {
-      "competitionName": "555",
+      "competitionName": "FIrst ",
       "competitionState": "Qualification In Progress",
-      "competitionDate": "09-Nov-2023",
-      "amountOfQualifyingRounds": 5,
+      "competitionDate": "03-Dec-2023",
+      "amountOfQualifyingRounds": 2,
       "listOfDrivers": [
         {
-          "driverName": "12",
-          "driverSurname": "12",
-          "number": 12,
-          "team": "12",
-          "qualificationScore": {}
+          "driverName": "Sasha ",
+          "driverSurname": "Galeta ",
+          "number": 77,
+          "team": "DIZRC",
+          "qualificationScore": {
+            "2": 60,
+            "1": 70
+          }
+        },
+        {
+          "driverName": "Olga ",
+          "driverSurname": "Galeta ",
+          "number": 17,
+          "team": "ALLIANCE",
+          "qualificationScore": {
+            "1": 80,
+            "2": 100
+          }
         }
       ],
-      "listOfJudges": [],
+      "listOfJudges": [
+        {
+          "judgeName": "Igor ",
+          "judgeSurname": "Galeta "
+        }
+      ],
+      "qualification": {
+        "randIndexes": [
+          1,
+          0
+        ]
+      }
+    },
+    {
+      "competitionName": "TRial ",
+      "competitionState": "Qualification In Progress",
+      "competitionDate": "22-Dec-2023",
+      "amountOfQualifyingRounds": 3,
+      "listOfDrivers": [
+        {
+          "driverName": "Sasha ",
+          "driverSurname": "Galeta ",
+          "number": 100,
+          "team": "777",
+          "qualificationScore": {
+            "1": 60,
+            "2": 78,
+            "3": 40
+          }
+        }
+      ],
+      "listOfJudges": [
+        {
+          "judgeName": "Tony ",
+          "judgeSurname": "Georgiev"
+        }
+      ],
       "qualification": {
         "randIndexes": [
           0
         ]
       }
+    },
+    {
+      "competitionName": "TRIAL",
+      "competitionState": "Planned",
+      "competitionDate": "07-Dec-2023",
+      "amountOfQualifyingRounds": 3,
+      "listOfDrivers": [
+        {
+          "driverName": "1",
+          "driverSurname": "1",
+          "number": 1,
+          "team": "1",
+          "qualificationScore": {}
+        }
+      ],
+      "listOfJudges": [
+        {
+          "judgeName": "wr2w",
+          "judgeSurname": "rqwrq"
+        }
+      ]
     }
   ]
 }

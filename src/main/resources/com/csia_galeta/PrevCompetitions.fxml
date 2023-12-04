@@ -1,12 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.csia_galeta.PrevCompetitionsController">
+<AnchorPane prefHeight="450.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.csia_galeta.PrevCompetitionsController">
    <children>
-      <ListView layoutX="20.0" layoutY="64.0" prefHeight="326.0" prefWidth="566.0" fx:id="savedCompetitions"/>
-      <Label layoutX="286.0" layoutY="28.0" text="Saved Competitions" />
+      <ListView fx:id="savedCompetitions" layoutX="17.0" layoutY="60.0" prefHeight="326.0" prefWidth="566.0" />
+      <Label layoutX="226.0" layoutY="25.0" text="Previous competitions">
+         <font>
+            <Font size="16.0" />
+         </font></Label>
+      <Button layoutX="212.0" layoutY="404.0" mnemonicParsing="false" text="Get back to the home screen " />
    </children>
 </AnchorPane>
