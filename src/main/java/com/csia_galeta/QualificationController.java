@@ -2,6 +2,7 @@ package com.csia_galeta;
 
 import com.csia_galeta.controllers.DriverQualificationAddController;
 import com.csia_galeta.people.Driver;
+import com.csia_galeta.ser.ChooseCompetitionTable;
 import com.csia_galeta.ser.SceneOpener;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -67,45 +68,37 @@ public class QualificationController {
         }
 
         getBestAndSort(drivers);
-        //
+        ChooseCompetitionTable.prepareDriversForPairRuns(drivers);
+        CompetitionSingleton.saveCurrentCompetition();
+
+        P2PController controller = SceneOpener.openSceneAndReturnController("PairToPairView.fxml",
+                "Run in pairs",
+                listView.getScene().getWindow());
+        controller.load();
     }
 
     public void getBestAndSort(List<Driver> drivers) {
-        int[] bestScores = new int[drivers.size()];
-        int tmpScore;
-        for (int i = 0; i < drivers.size(); i++) {
-            for (int j = 1; j < drivers.get(i).getQualificationScore().size(); j++) {
-                tmpScore = drivers.get(i).getQualificationScore().get(j - 1);
-                System.out.println("tmp score = " + tmpScore);
-                if (tmpScore < drivers.get(i).getQualificationScore().get(j)) {
-                    tmpScore = drivers.get(i).getQualificationScore().get(j);
-                }
-                bestScores[i] = tmpScore;
-            }
-        }
         System.out.println("This is a sorted array of driver's best scores: ");
-        selectionSort(bestScores);
-        for (int k = 0; k < bestScores.length; k++) {
-            System.out.println(bestScores[k]);
+        selectionSort(drivers);
+        for (Driver d : drivers) {
+            System.out.println(d);
         }
-
     }
 
-    public void selectionSort(int[] array) {
-        int n = array.length;
+    public void selectionSort(List<Driver> drivers) {
+        int n = drivers.size();
 
         for (int i = 0; i < n - 1; i++) {
             int maxIndex = i;
             for (int j = i + 1; j < n; j++) {
-                if (array[j] > array[maxIndex]) {
+                if (drivers.get(j).getMaxQScore() > drivers.get(maxIndex).getMaxQScore()) {
                     maxIndex = j;
                 }
             }
 
-            // Swap the found maximum element with the first element
-            int temp = array[maxIndex];
-            array[maxIndex] = array[i];
-            array[i] = temp;
+            Driver temp = drivers.get(maxIndex);
+            drivers.set(maxIndex, drivers.get(i));
+            drivers.set(i, temp);
         }
     }
 

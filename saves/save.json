@@ -1,113 +1,153 @@
 {
   "allCompetitions": [
     {
-      "competitionName": "Competition 1",
+      "competitionName": "2345",
       "competitionState": "Qualification In Progress",
-      "competitionDate": "08-Dec-2023",
-      "amountOfQualifyingRounds": 4,
+      "competitionDate": "13-Dec-2023",
+      "amountOfQualifyingRounds": 1,
       "listOfDrivers": [
         {
-          "driverName": "alex",
-          "driverSurname": "galeta",
-          "number": 777,
-          "team": "wow",
+          "driverName": "44",
+          "driverSurname": "44",
+          "number": 44,
+          "team": "44",
           "qualificationScore": [
-            65,
-            50,
-            44,
-            100
+            89
           ]
         },
         {
-          "driverName": "Dan",
-          "driverSurname": "Rover",
-          "number": 6,
-          "team": "666D",
+          "driverName": "55",
+          "driverSurname": "55",
+          "number": 55,
+          "team": "55",
           "qualificationScore": [
-            15,
-            50,
-            70,
-            35
+            60
+          ]
+        },
+        {
+          "driverName": "22",
+          "driverSurname": "22",
+          "number": 22,
+          "team": "22",
+          "qualificationScore": [
+            59
+          ]
+        },
+        {
+          "driverName": "33",
+          "driverSurname": "33",
+          "number": 33,
+          "team": "33",
+          "qualificationScore": [
+            55
           ]
         }
       ],
       "listOfJudges": [
         {
-          "judgeName": "Sergey",
-          "judgeSurname": "Skr"
+          "judgeName": "ww",
+          "judgeSurname": "ww"
         }
       ],
       "qualification": {
         "randIndexes": [
-          1,
-          0
+          4,
+          2,
+          3,
+          0,
+          1
         ]
       }
     },
     {
-      "competitionName": "Test",
+      "competitionName": "ser",
       "competitionState": "Qualification In Progress",
-      "competitionDate": "07-Dec-2023",
-      "amountOfQualifyingRounds": 2,
+      "competitionDate": "13-Dec-2023",
+      "amountOfQualifyingRounds": 1,
       "listOfDrivers": [
         {
-          "driverName": "12",
-          "driverSurname": "12",
-          "number": 12,
-          "team": "12",
+          "driverName": "11",
+          "driverSurname": "11",
+          "number": 11,
+          "team": "11",
           "qualificationScore": [
-            100,
-            99
+            90
           ]
         },
         {
-          "driverName": "13",
-          "driverSurname": "13",
-          "number": 13,
-          "team": "13",
+          "driverName": "77",
+          "driverSurname": "77",
+          "number": 77,
+          "team": "77",
           "qualificationScore": [
-            0,
-            0
+            78
           ]
         },
         {
-          "driverName": "14",
-          "driverSurname": "14",
-          "number": 14,
-          "team": "14",
+          "driverName": "66",
+          "driverSurname": "66",
+          "number": 66,
+          "team": "66",
           "qualificationScore": [
-            50,
-            30
+            59
           ]
         },
         {
-          "driverName": "15",
-          "driverSurname": "15",
-          "number": 15,
-          "team": "15",
+          "driverName": "44",
+          "driverSurname": "44",
+          "number": 44,
+          "team": "44",
           "qualificationScore": [
-            40,
-            40
+            45
           ]
         },
         {
-          "driverName": "16",
-          "driverSurname": "16",
-          "number": 16,
-          "team": "16",
+          "driverName": "55",
+          "driverSurname": "55",
+          "number": 55,
+          "team": "55",
           "qualificationScore": [
-            60,
-            50
+            34
           ]
+        },
+        {
+          "driverName": "33",
+          "driverSurname": "33",
+          "number": 33,
+          "team": "33",
+          "qualificationScore": [
+            23
+          ]
+        },
+        {
+          "driverName": "22",
+          "driverSurname": "22",
+          "number": 22,
+          "team": "22",
+          "qualificationScore": [
+            19
+          ]
+        },
+        {
+          "driverName": "Empty",
+          "number": -1,
+          "qualificationScore": []
         }
       ],
-      "listOfJudges": [],
+      "listOfJudges": [
+        {
+          "judgeName": "ser",
+          "judgeSurname": "123"
+        }
+      ],
       "qualification": {
         "randIndexes": [
-          4,
-          3,
-          2,
           1,
+          5,
+          3,
+          6,
+          4,
+          2,
           0
         ]
       }

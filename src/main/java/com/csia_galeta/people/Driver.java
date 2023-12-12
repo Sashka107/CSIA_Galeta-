@@ -1,18 +1,24 @@
 package com.csia_galeta.people;
 
-import com.csia_galeta.CompetitionSingleton;
-
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 public class Driver {
+
+    public static final Driver EMPTY_DRIVER = new Driver("Empty", (short) -1);
 
     private String driverName;
     private String driverSurname;
     private short number;
     private String team;
+
+    public Driver(String driverName, short number) {
+        this.driverName = driverName;
+        this.number = number;
+    }
+
+    public Driver() {
+    }
 
     private List<Integer> qualificationScore = new ArrayList<>();
 
@@ -78,6 +84,15 @@ public class Driver {
 
     public int getLastCompletedQRound(){
         return qualificationScore.size();
+    }
+
+    public int getMaxQScore(){
+        int max = qualificationScore.get(0);
+        for(int i = 1; i < qualificationScore.size(); i++){
+            if(max < qualificationScore.get(i))
+                max = qualificationScore.get(i);
+        }
+        return max;
     }
 
     @Override

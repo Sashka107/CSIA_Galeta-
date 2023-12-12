@@ -41,7 +41,7 @@ public class CompetitionViewController {
         CompetitionSingleton.setCurrentCompetition(competition);
         competitionName.setText(competition.getCompetitionName());
         qRounds.setText(competition.getAmountOfQualifyingRounds() + "");
-        dateText.setText("Test date");
+        dateText.setText(competition.getCompetitionDate());
         judgesNames.setText(competition.getListOfJudgesString());
         plannedStatus.setText(competition.getCompetitionState());
         listView.getItems().addAll(competition.getListOfDrivers());
@@ -78,11 +78,18 @@ public class CompetitionViewController {
     @FXML
     private void playCompetition(){
         switch (CompetitionSingleton.getCurrentCompetition().getCompetitionState()) {
-            case CompetitionStates.PLANNED, CompetitionStates.QUALIFICATION_IN_PROGRESS -> {
+            case CompetitionStates.QUALIFICATION_IN_PROGRESS -> {
                 QualificationController controller = SceneOpener.openSceneAndReturnController("QualificationView.fxml",
                         "Qualification",
                         playBtn.getScene().getWindow());
                 controller.loadWindow();
+            }
+            case CompetitionStates.PLANNED -> {
+                CreateEditCompetitionController controller = SceneOpener.openSceneAndReturnController(
+                        "CreateOrEditCompetition.fxml",
+                        "Edit Competition",
+                        editBtn.getScene().getWindow());
+                controller.loadToEditCompetition();
             }
             case CompetitionStates.QUALIFICATION_DONE, CompetitionStates.RUN_IN_PAIRS_IN_PROGRESS ->{
                     System.out.println("RUN IN PAIRS OPEN");

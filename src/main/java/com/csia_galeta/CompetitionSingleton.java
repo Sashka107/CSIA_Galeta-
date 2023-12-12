@@ -30,6 +30,15 @@ public class CompetitionSingleton {
         return competitionListWrapper;
     }
 
+    public static Driver getDriverByNumber(short num){
+        for(Driver d : currentCompetition.getListOfDrivers()){
+            if(d.getNumber() == num)
+                return d;
+        }
+
+        return null;
+    }
+
     public static void driverAddHandler(Consumer<Driver> func){
         OnDriverAdded = func;
     }
