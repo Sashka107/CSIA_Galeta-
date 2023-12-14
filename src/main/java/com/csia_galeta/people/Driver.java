@@ -5,20 +5,12 @@ import java.util.List;
 
 public class Driver {
 
-    public static final Driver EMPTY_DRIVER = new Driver("Empty", (short) -1);
+    public static final Driver EMPTY_DRIVER = new Driver();
 
-    private String driverName;
-    private String driverSurname;
-    private short number;
-    private String team;
-
-    public Driver(String driverName, short number) {
-        this.driverName = driverName;
-        this.number = number;
-    }
-
-    public Driver() {
-    }
+    private String driverName = "Empty";
+    private String driverSurname = "Empty";
+    private short number = -1;
+    private String team = "Empty";
 
     private List<Integer> qualificationScore = new ArrayList<>();
 
