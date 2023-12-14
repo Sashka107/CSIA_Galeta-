@@ -5,8 +5,6 @@ import com.csia_galeta.people.Judge;
 import com.csia_galeta.ser.DataSaverAndReader;
 
 import java.util.function.Consumer;
-import java.util.function.Function;
-import java.util.function.Supplier;
 
 public class CompetitionSingleton {
 
