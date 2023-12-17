@@ -1,6 +1,8 @@
 package com.csia_galeta;
 
+import com.csia_galeta.controllers.CompetitionViewController;
 import com.csia_galeta.ser.Pair;
+import com.csia_galeta.ser.SceneOpener;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -20,7 +22,10 @@ public class P2PController {
     @FXML
     public void handleClickOnPair(MouseEvent mouseEvent){
         System.out.println(pairListView.getSelectionModel().getSelectedItem().toString());
-        editPair(pairListView.getSelectionModel().getSelectedItem());
+        Pair p = pairListView.getSelectionModel().getSelectedItem();
+
+        if(p != null)
+            editPair(p);
     }
 
     public void load(){
@@ -29,7 +34,10 @@ public class P2PController {
     }
     
     private void editPair(Pair pair){
-        // code here
+        PairEditController controller = SceneOpener.openSceneAndReturnController("PairEdit.fxml",
+                "Pair Edit",
+                pairListView.getScene().getWindow());
+        controller.load(pair);
     }
 
     public void saveAndExit(ActionEvent actionEvent) {
