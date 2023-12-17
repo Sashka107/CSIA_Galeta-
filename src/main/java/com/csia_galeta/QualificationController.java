@@ -4,17 +4,15 @@ import com.csia_galeta.controllers.DriverQualificationAddController;
 import com.csia_galeta.people.Driver;
 import com.csia_galeta.ser.ChooseCompetitionTable;
 import com.csia_galeta.ser.SceneOpener;
-import com.csia_galeta.ser.SelectionSort;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.input.MouseEvent;
 
-import java.util.ArrayList;
 import java.util.List;
 
-public class QualificationController implements SelectionSort {
+public class QualificationController  {
 
     @FXML
     private ListView<Driver> listView;
@@ -80,31 +78,12 @@ public class QualificationController implements SelectionSort {
 
     public void getBestAndSort(List<Driver> drivers) {
         System.out.println("This is a sorted array of driver's best scores: ");
-        sort(drivers);
+        selectionSort(drivers);
         for (Driver d : drivers) {
             System.out.println(d);
         }
     }
-
-/*    public void selectionSort(List<Driver> drivers) {
-        int n = drivers.size();
-
-        for (int i = 0; i < n - 1; i++) {
-            int maxIndex = i;
-            for (int j = i + 1; j < n; j++) {
-                if (drivers.get(j).getMaxQScore() > drivers.get(maxIndex).getMaxQScore()) {
-                    maxIndex = j;
-                }
-            }
-
-            Driver temp = drivers.get(maxIndex);
-            drivers.set(maxIndex, drivers.get(i));
-            drivers.set(i, temp);
-        }
-    }*/
-
-    @Override
-    public void sort(List<Driver> drivers) {
+    public void selectionSort(List<Driver> drivers) {
         int n = drivers.size();
 
         for (int i = 0; i < n - 1; i++) {

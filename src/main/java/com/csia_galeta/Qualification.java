@@ -26,7 +26,7 @@ public class Qualification {
         }
 
         for (int i = size - 1; i > 0; i--) {
-            int j = (int) (Math.random() * (i + 1));
+            int j = (int) (Math.random() * (i + 1)); //casting Math . random generates a random number between 0 and 1
             int tmp = indexes[i];
             indexes[i] = indexes[j];
             indexes[j] = tmp;

@@ -2,8 +2,11 @@ package com.csia_galeta;
 
 import com.csia_galeta.people.Driver;
 import com.csia_galeta.people.Judge;
+import com.csia_galeta.ser.BinarySearch;
 import com.csia_galeta.ser.DataSaverAndReader;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.function.Consumer;
 
 public class CompetitionSingleton {
@@ -29,12 +32,15 @@ public class CompetitionSingleton {
     }
 
     public static Driver getDriverByNumber(short num){
-        for(Driver d : currentCompetition.getListOfDrivers()){
-            if(d.getNumber() == num)
+        //Selection sort
+        List<Driver> listOfDriversForNumSearch = new ArrayList<>(currentCompetition.getListOfDrivers());
+        bubbleSort(listOfDriversForNumSearch);
+         return BinarySearch.binarySearch(listOfDriversForNumSearch, num);
+        /*for(Driver d : currentCompetition.getListOfDrivers()){
+            if(d.getNumber() == num) // Binary Search (Separate class - binary search)
                 return d;
-        }
-
-        return null;
+        }*/
+        /*return null;*/
     }
 
     public static void driverAddHandler(Consumer<Driver> func){
@@ -91,4 +97,21 @@ public class CompetitionSingleton {
     public static void setTmpCompetition(Competition tmpCompetition) {
         CompetitionSingleton.tmpCompetition = tmpCompetition;
     }
+
+    public static void bubbleSort(List<Driver> drivers) {
+        int i, j;
+        Driver tmp;
+        for (i = 0; i < drivers.size() - 1; i++) {
+            for (j = 0; j < drivers.size() - i - 1; j++) {
+                if (drivers.get(j).getNumber() > drivers.get(j+1).getNumber()) {
+
+                    tmp = drivers.get(j);
+                    drivers.set(j,drivers.get(j+1));
+                    drivers.set(j+1, tmp);
+                }
+            }
+
+        }
+    }
+
 }
