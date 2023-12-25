@@ -112,12 +112,18 @@ public class Driver {
         }
     }
 
-    public String toStringQualificationView() {
-        return "Drivers{" +
-                "driverName='" + driverName + '\'' +
-                ", driverSurname='" + driverSurname + '\'' +
-                ", number=" + number +
-                ", team='" + team + '\'' +
-                '}';
+    public String toStringPairEdit() {
+        StringBuilder sb = new StringBuilder();
+        for (int score : qualificationScore) {
+            sb.append("/").append(score);
+        }
+
+        if(!sb.isEmpty())
+            sb.delete(0, 1);
+
+        char firstLetterName = Character.toUpperCase(driverName.charAt(0));
+
+        return driverName.replace(driverName.charAt(0), firstLetterName) + " " + Character.toUpperCase(driverSurname.charAt(0)) + " " + number + " " + team; // Alex G 777 OOO
+
     }
 }

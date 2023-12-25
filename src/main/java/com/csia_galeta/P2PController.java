@@ -34,12 +34,12 @@ public class P2PController {
     }
     
     private void editPair(Pair pair){
-        PairEditController controller = SceneOpener.openSceneAndReturnController("PairEdit.fxml",
-                "Pair Edit",
-                pairListView.getScene().getWindow());
+        PairEditController controller = SceneOpener.openSceneAndReturnController("PairEdit.fxml", "Pair Edit", pairListView.getScene().getWindow());
         controller.load(pair);
     }
 
     public void saveAndExit(ActionEvent actionEvent) {
+            CompetitionSingleton.saveCurrentCompetition();
+            SceneOpener.openSceneAndReturnController("RC_Drift.fxml", "Main View", saveAndExitBtn.getScene().getWindow());
     }
 }

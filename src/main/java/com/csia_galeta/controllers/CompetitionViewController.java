@@ -1,9 +1,6 @@
 package com.csia_galeta.controllers;
 
-import com.csia_galeta.Competition;
-import com.csia_galeta.CompetitionSingleton;
-import com.csia_galeta.PrevCompetitionsController;
-import com.csia_galeta.QualificationController;
+import com.csia_galeta.*;
 import com.csia_galeta.people.Driver;
 import com.csia_galeta.ser.CompetitionStates;
 import com.csia_galeta.ser.SceneOpener;
@@ -91,13 +88,13 @@ public class CompetitionViewController {
                         editBtn.getScene().getWindow());
                 controller.loadToEditCompetition();
             }
-            case CompetitionStates.QUALIFICATION_DONE, CompetitionStates.RUN_IN_PAIRS_IN_PROGRESS ->{
+            case CompetitionStates.RUN_IN_PAIRS_IN_PROGRESS ->{
                     System.out.println("RUN IN PAIRS OPEN");
 
-                /*QualificationController controller2 = SceneOpener.openSceneAndReturnController("QualificationView.fxml",
-                        "Qualification",
+                    P2PController controller2 = SceneOpener.openSceneAndReturnController("PairToPairView.fxml",
+                        "Runs in pairs",
                         playBtn.getScene().getWindow());
-                controller.loadWindow();*/
+                    controller2.load();
             }
             default -> {
                 Alert alertWarning = new Alert(Alert.AlertType.WARNING);

@@ -25,10 +25,10 @@ public class PairEditController {
     private int p2Score;
 
     public void load(Pair p){
-        d1Label.setText(p.p1.toString());
-        d1Label2.setText(p.p1.toString());
-        d2Label.setText(p.p2.toString());
-        d2Label2.setText(p.p2.toString());
+        d1Label.setText(p.p1.toStringPairEdit());
+        d1Label2.setText(p.p1.toStringPairEdit());
+        d2Label.setText(p.p2.toStringPairEdit());
+        d2Label2.setText(p.p2.toStringPairEdit());
 
         deathMatchWonButton.setDisable(true);
         deathMatch.setDisable(true);
@@ -68,6 +68,16 @@ public class PairEditController {
 
         p1ScoreRace2.setDisable(true);
         p2ScoreRace2.setDisable(true);
+    }
+
+    public void checkForRound(){
+        if (!p1ScoreRace1.getText().isEmpty() && !p2ScoreRace1.getText().isEmpty() && !p1ScoreRace2.getText().isEmpty() && !p2ScoreRace2.getText().isEmpty()){
+            if (p1Score == p2Score){
+                NextOrSaveBtn.setText("OMT");
+            } else {
+                NextOrSaveBtn.setText("Save pair results");
+            }
+        }
     }
     
 }

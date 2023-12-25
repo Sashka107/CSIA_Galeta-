@@ -36,11 +36,6 @@ public class CompetitionSingleton {
         List<Driver> listOfDriversForNumSearch = new ArrayList<>(currentCompetition.getListOfDrivers());
         bubbleSort(listOfDriversForNumSearch);
          return BinarySearch.binarySearch(listOfDriversForNumSearch, num);
-        /*for(Driver d : currentCompetition.getListOfDrivers()){
-            if(d.getNumber() == num) // Binary Search (Separate class - binary search)
-                return d;
-        }*/
-        /*return null;*/
     }
 
     public static void driverAddHandler(Consumer<Driver> func){

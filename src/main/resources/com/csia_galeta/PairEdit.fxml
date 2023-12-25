@@ -38,8 +38,8 @@
          <Font size="16.0" />
       </font>
    </Label>
-   <TextField layoutX="59.0" layoutY="169.0" fx:id="p2ScoreRace2"/>
-   <TextField layoutX="301.0" layoutY="169.0" fx:id="p1ScoreRace2"/>
+   <TextField layoutX="59.0" layoutY="169.0" fx:id="p2ScoreRace2" onAction="#setScoreRace2"/>
+   <TextField layoutX="301.0" layoutY="169.0" fx:id="p1ScoreRace2" onAction="#setScoreRace2" />
    <Label layoutX="59.0" layoutY="233.0" text="Death match :">
       <font>
          <Font size="16.0" />

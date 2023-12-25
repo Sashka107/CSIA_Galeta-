@@ -27,9 +27,7 @@ public class QualificationController  {
         Competition c = CompetitionSingleton.getCurrentCompetition();
         List<Driver> driversFromCompetition = c.getListOfDrivers();
         for(int i = 0; i < driversFromCompetition.size(); i++){
-            listView.getItems().addAll(driversFromCompetition.get(
-                    c.getQualification().getRandNums()[i]
-            ));
+            listView.getItems().addAll(driversFromCompetition.get(c.getQualification().getRandNums()[i]));
         }
         //listView.getItems().addAll(drivers);
     }
@@ -74,6 +72,7 @@ public class QualificationController  {
                 "Run in pairs",
                 listView.getScene().getWindow());
         controller.load();
+        CompetitionSingleton.getCurrentCompetition().setCompetitionStateRunInPairsInProgress();
     }
 
     public void getBestAndSort(List<Driver> drivers) {

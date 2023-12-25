@@ -3,6 +3,7 @@ package com.csia_galeta;
 import com.csia_galeta.people.Driver;
 import com.csia_galeta.people.Judge;
 import com.csia_galeta.ser.CompetitionStates;
+import com.csia_galeta.ser.Pair;
 
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
@@ -24,6 +25,8 @@ public class Competition {
     private ArrayList<Judge> listOfJudges = new ArrayList<>();
 
     private Qualification qualification;
+    /*private ArrayList<Pair> listOfPairs = new ArrayList<>();*/
+
 
 
 
