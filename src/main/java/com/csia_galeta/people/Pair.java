@@ -1,7 +1,6 @@
-package com.csia_galeta.ser;
+package com.csia_galeta.people;
 
 import com.csia_galeta.CompetitionSingleton;
-import com.csia_galeta.people.Driver;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -57,6 +56,38 @@ public class Pair {
             res.add(strPairs.get(i) + " " + strPairs.get(j));
         }
         return res;
+    }
+
+    public int getPairNum() {
+        return pairNum;
+    }
+
+    public void setPairNum(int pairNum) {
+        this.pairNum = pairNum;
+    }
+
+    public Driver getWinner() {
+        return winner;
+    }
+
+    public void setWinner(Driver winner) {
+        this.winner = winner;
+    }
+
+    public Driver getP1() {
+        return p1;
+    }
+
+    public void setP1(Driver p1) {
+        this.p1 = p1;
+    }
+
+    public Driver getP2() {
+        return p2;
+    }
+
+    public void setP2(Driver p2) {
+        this.p2 = p2;
     }
 
     @Override

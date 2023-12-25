@@ -1,58 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.MenuButton?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Font?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="354.0" prefWidth="519.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.csia_galeta.PairEditController">
-   <Label layoutX="219.0" layoutY="20.0" prefHeight="17.0" prefWidth="138.0" text="Round 1" textAlignment="CENTER" fx:id="roundText">
+<AnchorPane prefHeight="354.0" prefWidth="519.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.csia_galeta.PairEditController">
+   <Label fx:id="roundText" layoutX="219.0" layoutY="20.0" prefHeight="17.0" prefWidth="138.0" text="Round 1" textAlignment="CENTER">
       <font>
          <Font size="16.0" />
       </font></Label>
-   <Button layoutX="204.0" layoutY="293.0" mnemonicParsing="false" text="Save and Exit" fx:id="NextOrSaveBtn">
+   <Button fx:id="NextOrSaveBtn" layoutX="204.0" layoutY="293.0" mnemonicParsing="false" text="Save and Exit">
       <font>
          <Font size="16.0" />
       </font></Button>
-   <Label layoutX="59.0" layoutY="58.0" prefHeight="17.0" prefWidth="138.0" text="Driver 1 " fx:id="d1Label">
+   <Label fx:id="d1Label" layoutX="59.0" layoutY="58.0" prefHeight="17.0" prefWidth="138.0" text="Driver 1 ">
       <font>
          <Font size="16.0" />
       </font>
    </Label>
-   <Label layoutX="301.0" layoutY="58.0" prefHeight="17.0" prefWidth="138.0" text="Driver 2 " fx:id="d2Label">
+   <Label fx:id="d2Label" layoutX="301.0" layoutY="58.0" prefHeight="17.0" prefWidth="138.0" text="Driver 2 ">
       <font>
          <Font size="16.0" />
       </font>
    </Label>
-   <TextField layoutX="59.0" layoutY="88.0" fx:id="p1ScoreRace1" onAction="#setScoreRace1"/>
-   <TextField layoutX="301.0" layoutY="88.0" fx:id="p2ScoreRace1" onAction="#setScoreRace1"/>
-   <Label layoutX="59.0" layoutY="139.0" prefHeight="17.0" prefWidth="138.0" text="Driver 2" fx:id="d2Label2">
+   <TextField fx:id="p1ScoreRace1" layoutX="59.0" layoutY="88.0" onAction="#setScoreRace1" />
+   <TextField fx:id="p2ScoreRace1" layoutX="301.0" layoutY="88.0" onAction="#setScoreRace1" />
+   <Label fx:id="d2Label2" layoutX="59.0" layoutY="139.0" prefHeight="17.0" prefWidth="138.0" text="Driver 2">
       <font>
          <Font size="16.0" />
       </font>
    </Label>
-   <Label layoutX="301.0" layoutY="139.0" prefHeight="17.0" prefWidth="138.0" text="Driver 1" fx:id="d1Label2">
+   <Label fx:id="d1Label2" layoutX="301.0" layoutY="139.0" prefHeight="17.0" prefWidth="138.0" text="Driver 1">
       <font>
          <Font size="16.0" />
       </font>
    </Label>
-   <TextField layoutX="59.0" layoutY="169.0" fx:id="p2ScoreRace2" onAction="#setScoreRace2"/>
-   <TextField layoutX="301.0" layoutY="169.0" fx:id="p1ScoreRace2" onAction="#setScoreRace2" />
+   <TextField fx:id="p2ScoreRace2" layoutX="59.0" layoutY="169.0" onAction="#setScoreRace2" />
+   <TextField fx:id="p1ScoreRace2" layoutX="301.0" layoutY="169.0" onAction="#setScoreRace2" />
    <Label layoutX="59.0" layoutY="233.0" text="Death match :">
       <font>
          <Font size="16.0" />
       </font>
    </Label>
-   <MenuButton layoutX="166.0" layoutY="228.0" mnemonicParsing="false" text="Driver #..." fx:id="deathMatch">
+   <MenuButton fx:id="deathMatch" layoutX="166.0" layoutY="228.0" mnemonicParsing="false" text="Driver #...">
       <font>
          <Font size="16.0" />
       </font>
    </MenuButton>
-   <Button layoutX="301.0" layoutY="228.0" mnemonicParsing="false" text="Won " fx:id="deathMatchWonButton">
-      <font>
-         <Font size="16.0" />
-      </font>
-   </Button>
 </AnchorPane>

@@ -3,12 +3,12 @@ package com.csia_galeta;
 import com.csia_galeta.people.Driver;
 import com.csia_galeta.people.Judge;
 import com.csia_galeta.ser.CompetitionStates;
-import com.csia_galeta.ser.Pair;
+import com.csia_galeta.people.Pair;
 
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Locale;
 import java.util.Objects;
 
@@ -25,9 +25,7 @@ public class Competition {
     private ArrayList<Judge> listOfJudges = new ArrayList<>();
 
     private Qualification qualification;
-    /*private ArrayList<Pair> listOfPairs = new ArrayList<>();*/
-
-
+    private List<Pair> listOfPairs = new ArrayList<>();
 
 
     public void setCompetitionName(String competitionName){ // Set competition name
@@ -75,6 +73,14 @@ public class Competition {
 
     public ArrayList<Judge> getListOfJudges() {
         return listOfJudges;
+    }
+
+    public List<Pair> getListOfPairs() {
+        return listOfPairs;
+    }
+
+    public void setListOfPairs(List<Pair> listOfPairs) {
+        this.listOfPairs = listOfPairs;
     }
 
     public String getListOfJudgesString() {
