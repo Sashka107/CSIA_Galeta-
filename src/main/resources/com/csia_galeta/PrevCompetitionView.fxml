@@ -1,65 +1,70 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="609.0" prefWidth="590.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.csia_galeta.controllers.CompetitionViewController">
-   <Label fx:id="competitionName" layoutX="230.0" layoutY="20.0" text="CompetitionName">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="632.0" prefWidth="590.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.csia_galeta.controllers.CompetitionViewController">
+   <Label fx:id="competitionName" layoutX="218.0" layoutY="21.0" text="CompetitionName">
       <font>
-         <Font name="System Bold" size="16.0" />
+         <Font size="20.0" />
       </font>
    </Label>
-   <Label layoutX="29.0" layoutY="179.0" text="Settings:">
+   <Label layoutX="33.0" layoutY="165.0" text="Numver of qualifying Rounds:">
       <font>
-         <Font size="16.0" />
-
-      </font>
-   </Label>
-   <Label layoutX="29.0" layoutY="145.0" text="Numver of qualifying Rounds:">
-      <font>
-         <Font size="16.0" />
+         <Font size="20.0" />
       </font>
    </Label>
    <Label layoutX="31.0" layoutY="70.0" text="Date :">
       <font>
-         <Font size="16.0" />
+         <Font size="20.0" />
       </font>
    </Label>
-   <ListView fx:id="listView" layoutX="32.0" layoutY="323.0" prefHeight="200.0" prefWidth="526.0" />
-   <Label fx:id="qRounds" layoutX="238.0" layoutY="145.0" prefHeight="20.0" prefWidth="36.0" text="1">
+   <ListView fx:id="listView" layoutX="32.0" layoutY="340.0" prefHeight="200.0" prefWidth="526.0" />
+   <Label fx:id="qRounds" layoutX="299.0" layoutY="165.0" prefHeight="20.0" prefWidth="36.0" text="1">
       <font>
-         <Font size="16.0" />
+         <Font size="20.0" />
       </font>
    </Label>
-   <Label fx:id="dateText" layoutX="85.0" layoutY="70.0" prefHeight="25.0" prefWidth="175.0" text="22.02.2022">
+   <Label fx:id="dateText" layoutX="96.0" layoutY="70.0" prefHeight="25.0" prefWidth="175.0" text="22.02.2022">
       <font>
-         <Font size="16.0" />
+         <Font size="20.0" />
       </font>
    </Label>
-   <Label layoutX="268.0" layoutY="223.0" prefHeight="17.0" prefWidth="53.0" text="Judges">
+   <Label layoutX="262.0" layoutY="213.0" prefHeight="26.0" prefWidth="69.0" text="Judges">
       <font>
-         <Font size="16.0" />
+         <Font size="20.0" />
       </font>
    </Label>
-   <Label fx:id="judgesNames" layoutX="33.0" layoutY="257.0" prefHeight="26.0" prefWidth="526.0" text="Label">
+   <Label fx:id="judgesNames" layoutX="34.0" layoutY="255.0" prefHeight="26.0" prefWidth="526.0" text="Label">
       <font>
-         <Font size="16.0" />
+         <Font size="20.0" />
       </font></Label>
-   <Label layoutX="266.0" layoutY="296.0" prefHeight="17.0" prefWidth="60.0" text="Drivers">
+   <Label layoutX="265.0" layoutY="297.0" prefHeight="17.0" prefWidth="60.0" text="Drivers">
       <font>
-         <Font size="16.0" />
+         <Font size="20.0" />
       </font>
    </Label>
-   <Label layoutX="31.0" layoutY="109.0" text="Status:">
+   <Label layoutX="30.0" layoutY="116.0" text="Status:">
       <font>
-         <Font size="16.0" />
+         <Font size="20.0" />
       </font></Label>
-   <Label fx:id="plannedStatus" layoutX="91.0" layoutY="109.0" text="Planned">
+   <Label fx:id="plannedStatus" layoutX="107.0" layoutY="116.0" text="Planned">
       <font>
-         <Font size="16.0" />
+         <Font size="20.0" />
       </font></Label>
-   <Button fx:id="playBtn" layoutX="416.0" layoutY="549.0" mnemonicParsing="false" onAction="#playCompetition" text="Load competition" />
-   <Button fx:id="editBtn" layoutX="268.0" layoutY="549.0" mnemonicParsing="false" onAction="#editCompetition" text="Edit competition" />
-   <Button fx:id="backBtn" layoutX="61.0" layoutY="549.0" mnemonicParsing="false" onAction="#back" text="Back" />
+   <Button fx:id="playBtn" layoutX="386.0" layoutY="566.0" mnemonicParsing="false" onAction="#playCompetition" style="-fx-background-color: black;" text="Load competition" textFill="WHITE">
+      <font>
+         <Font size="20.0" />
+      </font></Button>
+   <Button fx:id="editBtn" layoutX="201.0" layoutY="566.0" mnemonicParsing="false" onAction="#editCompetition" style="-fx-background-color: black;" text="Edit competition" textFill="WHITE">
+      <font>
+         <Font size="20.0" />
+      </font></Button>
+   <Button fx:id="backBtn" layoutX="34.0" layoutY="566.0" mnemonicParsing="false" onAction="#back" style="-fx-background-color: black;" text="Back" textFill="WHITE">
+      <font>
+         <Font size="20.0" />
+      </font></Button>
 </AnchorPane>

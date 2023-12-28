@@ -6,13 +6,16 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="450.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.csia_galeta.PrevCompetitionsController">
+<AnchorPane prefHeight="491.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.csia_galeta.PrevCompetitionsController">
    <children>
-      <ListView fx:id="savedCompetitions" layoutX="17.0" layoutY="60.0" prefHeight="326.0" prefWidth="566.0" />
-      <Label layoutX="226.0" layoutY="25.0" text="Previous competitions">
+      <ListView fx:id="savedCompetitions" layoutX="17.0" layoutY="72.0" prefHeight="326.0" prefWidth="566.0" />
+      <Label layoutX="208.0" layoutY="28.0" text="Previous competitions">
          <font>
-            <Font size="16.0" />
+            <Font size="20.0" />
          </font></Label>
-      <Button layoutX="212.0" layoutY="404.0" mnemonicParsing="false" text="Get back to the home screen " fx:id="backBtn" onAction="#backToMainMenu"/>
+      <Button fx:id="backBtn" layoutX="174.0" layoutY="425.0" mnemonicParsing="false" onAction="#backToMainMenu" style="-fx-background-color: black;" text="Return to the home screen " textFill="WHITE">
+         <font>
+            <Font size="20.0" />
+         </font></Button>
    </children>
 </AnchorPane>

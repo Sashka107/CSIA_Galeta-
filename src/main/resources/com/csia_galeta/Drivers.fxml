@@ -6,38 +6,53 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="267.0" prefWidth="419.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.csia_galeta.controllers.AddDriverController">
+<AnchorPane prefHeight="396.0" prefWidth="485.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.csia_galeta.controllers.AddDriverController">
    <children>
-      <TextField fx:id="driverName" layoutX="158.0" layoutY="56.0" />
-      <TextField fx:id="driverSurname" layoutX="158.0" layoutY="95.0" />
-      <TextField fx:id="driverTeam" layoutX="159.0" layoutY="134.0" />
-      <TextField fx:id="driverNumber" layoutX="159.0" layoutY="173.0" />
-      <Label layoutX="68.0" layoutY="61.0" text=" Name :">
+      <TextField fx:id="driverName" layoutX="179.0" layoutY="77.0">
          <font>
-            <Font size="14.0" />
+            <Font size="20.0" />
+         </font></TextField>
+      <TextField fx:id="driverSurname" layoutX="179.0" layoutY="141.0">
+         <font>
+            <Font size="20.0" />
+         </font></TextField>
+      <TextField fx:id="driverTeam" layoutX="179.0" layoutY="204.0">
+         <font>
+            <Font size="20.0" />
+         </font></TextField>
+      <TextField fx:id="driverNumber" layoutX="179.0" layoutY="265.0">
+         <font>
+            <Font size="20.0" />
+         </font></TextField>
+      <Label layoutX="55.0" layoutY="84.0" text=" Name :">
+         <font>
+            <Font size="20.0" />
          </font>
       </Label>
-      <Label layoutX="70.0" layoutY="100.0" text="Surname :">
+      <Label layoutX="60.0" layoutY="148.0" text="Surname :">
          <font>
-            <Font size="14.0" />
+            <Font size="20.0" />
          </font>
       </Label>
-      <Label layoutX="70.0" layoutY="138.0" text="Team :">
+      <Label layoutX="61.0" layoutY="211.0" text="Team :">
          <font>
-            <Font size="14.0" />
+            <Font size="20.0" />
 
          </font>
       </Label>
-      <Label layoutX="72.0" layoutY="175.0" text="Number :">
+      <Label layoutX="60.0" layoutY="272.0" text="Number :">
          <font>
-            <Font size="14.0" />
+            <Font size="20.0" />
          </font>
       </Label>
-      <Label layoutX="173.0" layoutY="17.0" text="New driver ">
+      <Label layoutX="173.0" layoutY="26.0" text="Add a new driver ">
          <font>
-            <Font size="16.0" />
+            <Font size="20.0" />
          </font>
       </Label>
-      <Button fx:id="addDriverBtn" layoutX="178.0" layoutY="219.0" mnemonicParsing="false" onAction="#addDriver" prefHeight="25.0" prefWidth="71.0" text="Add" />
+      <Button fx:id="addDriverBtn" layoutX="207.0" layoutY="328.0" mnemonicParsing="false" onAction="#addDriver" prefHeight="25.0" prefWidth="71.0" style="-fx-background-color: black;" text="Add" textFill="WHITE">
+         <font>
+            <Font size="20.0" />
+         </font></Button>
    </children>
 </AnchorPane>

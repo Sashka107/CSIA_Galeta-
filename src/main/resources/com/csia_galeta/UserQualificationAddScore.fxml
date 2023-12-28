@@ -7,27 +7,35 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="236.0" prefWidth="474.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.csia_galeta.controllers.DriverQualificationAddController">
+<AnchorPane prefHeight="206.0" prefWidth="521.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.csia_galeta.controllers.DriverQualificationAddController">
    <children>
-      <MenuButton fx:id="menuButton" layoutX="28.0" layoutY="98.0" mnemonicParsing="false" text="Select Round">
+      <MenuButton fx:id="menuButton" layoutX="28.0" layoutY="86.0" mnemonicParsing="false" style="-fx-background-color: black;" text="Select Round" textFill="WHITE">
         <items>
         </items>
          <font>
-            <Font size="16.0" />
+            <Font size="20.0" />
          </font>
       </MenuButton>
-      <TextField fx:id="driverScore" layoutX="178.0" layoutY="98.0" prefHeight="31.0" prefWidth="168.0" />
-      <Label fx:id="driverInfo" layoutX="28.0" layoutY="43.0" prefHeight="38.0" prefWidth="372.0" text="Label">
+      <TextField fx:id="driverScore" layoutX="224.0" layoutY="86.0" prefHeight="31.0" prefWidth="168.0">
          <font>
-            <Font size="16.0" />
+            <Font size="20.0" />
+         </font></TextField>
+      <Label fx:id="driverInfo" layoutX="113.0" layoutY="30.0" prefHeight="38.0" prefWidth="372.0" text="Label">
+         <font>
+            <Font size="20.0" />
          </font></Label>
-      <Button fx:id="exitBtn" layoutX="28.0" layoutY="160.0" mnemonicParsing="false" onAction="#exitToQList" prefHeight="25.0" prefWidth="52.0" text="Exit">
+      <Button fx:id="exitBtn" layoutX="152.0" layoutY="149.0" mnemonicParsing="false" onAction="#exitToQList" prefHeight="39.0" prefWidth="218.0" style="-fx-background-color: black;" text="Return to other drivers" textFill="WHITE">
          <font>
-            <Font size="16.0" />
+            <Font size="20.0" />
          </font></Button>
-      <Button fx:id="saveBtn" layoutX="365.0" layoutY="98.0" mnemonicParsing="false" onAction="#saveForRound" text="Save">
+      <Button fx:id="saveBtn" layoutX="421.0" layoutY="86.0" mnemonicParsing="false" onAction="#saveForRound" style="-fx-background-color: black;" text="Save" textFill="WHITE">
          <font>
-            <Font size="16.0" />
+            <Font size="20.0" />
          </font></Button>
+      <Label layoutX="27.0" layoutY="36.0" text="Driver :">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

@@ -121,6 +121,379 @@
           }
         }
       ]
+    },
+    {
+      "competitionName": "Змагання1 ",
+      "competitionState": "Pairs run in Progress",
+      "competitionDate": "26-Dec-2023",
+      "amountOfQualifyingRounds": 1,
+      "listOfDrivers": [
+        {
+          "driverName": "Ігор ",
+          "driverSurname": "Галета",
+          "number": 3,
+          "team": "ROCKET",
+          "qualificationScore": [
+            100
+          ]
+        },
+        {
+          "driverName": "Саша ",
+          "driverSurname": "Галета ",
+          "number": 7,
+          "team": "DizRC",
+          "qualificationScore": [
+            98
+          ]
+        },
+        {
+          "driverName": "Ольга",
+          "driverSurname": "Галета ",
+          "number": 17,
+          "team": "ALLIANCE",
+          "qualificationScore": [
+            97
+          ]
+        },
+        {
+          "driverName": "55",
+          "driverSurname": "55",
+          "number": 55,
+          "team": "55",
+          "qualificationScore": [
+            96
+          ]
+        },
+        {
+          "driverName": "33",
+          "driverSurname": "33",
+          "number": 33,
+          "team": "33",
+          "qualificationScore": [
+            93
+          ]
+        },
+        {
+          "driverName": "77",
+          "driverSurname": "77",
+          "number": 77,
+          "team": "77",
+          "qualificationScore": [
+            89
+          ]
+        },
+        {
+          "driverName": "11",
+          "driverSurname": "11",
+          "number": 11,
+          "team": "11",
+          "qualificationScore": [
+            70
+          ]
+        },
+        {
+          "driverName": "22",
+          "driverSurname": "22",
+          "number": 22,
+          "team": "22",
+          "qualificationScore": [
+            15
+          ]
+        }
+      ],
+      "listOfJudges": [
+        {
+          "judgeName": "Баба",
+          "judgeSurname": "Рома "
+        }
+      ],
+      "qualification": {
+        "randIndexes": [
+          3,
+          5,
+          4,
+          2,
+          1,
+          6,
+          8,
+          7,
+          0
+        ]
+      },
+      "listOfPairs": [
+        {
+          "pairNum": 1,
+          "winner": {
+            "driverName": "22",
+            "driverSurname": "22",
+            "number": 22,
+            "team": "22",
+            "qualificationScore": [
+              15
+            ]
+          },
+          "p1": {
+            "driverName": "Ігор ",
+            "driverSurname": "Галета",
+            "number": 3,
+            "team": "ROCKET",
+            "qualificationScore": [
+              100
+            ]
+          },
+          "p2": {
+            "driverName": "22",
+            "driverSurname": "22",
+            "number": 22,
+            "team": "22",
+            "qualificationScore": [
+              15
+            ]
+          }
+        },
+        {
+          "pairNum": 2,
+          "p1": {
+            "driverName": "55",
+            "driverSurname": "55",
+            "number": 55,
+            "team": "55",
+            "qualificationScore": [
+              96
+            ]
+          },
+          "p2": {
+            "driverName": "33",
+            "driverSurname": "33",
+            "number": 33,
+            "team": "33",
+            "qualificationScore": [
+              93
+            ]
+          }
+        },
+        {
+          "pairNum": 3,
+          "p1": {
+            "driverName": "Саша ",
+            "driverSurname": "Галета ",
+            "number": 7,
+            "team": "DizRC",
+            "qualificationScore": [
+              98
+            ]
+          },
+          "p2": {
+            "driverName": "11",
+            "driverSurname": "11",
+            "number": 11,
+            "team": "11",
+            "qualificationScore": [
+              70
+            ]
+          }
+        },
+        {
+          "pairNum": 4,
+          "p1": {
+            "driverName": "Ольга",
+            "driverSurname": "Галета ",
+            "number": 17,
+            "team": "ALLIANCE",
+            "qualificationScore": [
+              97
+            ]
+          },
+          "p2": {
+            "driverName": "77",
+            "driverSurname": "77",
+            "number": 77,
+            "team": "77",
+            "qualificationScore": [
+              89
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "competitionName": "Trial 28233121wr qr",
+      "competitionState": "Pairs run in Progress",
+      "competitionDate": "05-Jan-2024",
+      "amountOfQualifyingRounds": 1,
+      "listOfDrivers": [
+        {
+          "driverName": "1",
+          "driverSurname": "1",
+          "number": 1,
+          "team": "1",
+          "qualificationScore": [
+            100
+          ]
+        },
+        {
+          "driverName": "Empty",
+          "driverSurname": "Empty",
+          "number": -1,
+          "team": "Empty",
+          "qualificationScore": []
+        }
+      ],
+      "listOfJudges": [
+        {
+          "judgeName": "Sasha ",
+          "judgeSurname": "Galeta "
+        }
+      ],
+      "qualification": {
+        "randIndexes": [
+          0
+        ]
+      },
+      "listOfPairs": [
+        {
+          "pairNum": 1,
+          "winner": {
+            "driverName": "1",
+            "driverSurname": "1",
+            "number": 1,
+            "team": "1",
+            "qualificationScore": [
+              100
+            ]
+          },
+          "p1": {
+            "driverName": "1",
+            "driverSurname": "1",
+            "number": 1,
+            "team": "1",
+            "qualificationScore": [
+              100
+            ]
+          },
+          "p2": {
+            "driverName": "Empty",
+            "driverSurname": "Empty",
+            "number": -1,
+            "team": "Empty",
+            "qualificationScore": []
+          }
+        }
+      ]
+    },
+    {
+      "competitionName": "TEST2",
+      "competitionState": "Qualification In Progress",
+      "competitionDate": "27-Dec-2023",
+      "amountOfQualifyingRounds": 1,
+      "listOfDrivers": [
+        {
+          "driverName": "Sasha ",
+          "driverSurname": "Galeta ",
+          "number": 777,
+          "team": "DizRC",
+          "qualificationScore": [
+            100
+          ]
+        },
+        {
+          "driverName": "Empty",
+          "driverSurname": "Empty",
+          "number": -1,
+          "team": "Empty",
+          "qualificationScore": []
+        }
+      ],
+      "listOfJudges": [],
+      "qualification": {
+        "randIndexes": [
+          0
+        ]
+      },
+      "listOfPairs": [
+        {
+          "pairNum": 1,
+          "p1": {
+            "driverName": "Sasha ",
+            "driverSurname": "Galeta ",
+            "number": 777,
+            "team": "DizRC",
+            "qualificationScore": [
+              100
+            ]
+          },
+          "p2": {
+            "driverName": "Empty",
+            "driverSurname": "Empty",
+            "number": -1,
+            "team": "Empty",
+            "qualificationScore": []
+          }
+        }
+      ]
+    },
+    {
+      "competitionName": "Test3",
+      "competitionState": "Pairs run in Progress",
+      "competitionDate": "27-Dec-2023",
+      "amountOfQualifyingRounds": 1,
+      "listOfDrivers": [
+        {
+          "driverName": "Sasha ",
+          "driverSurname": "Galeta ",
+          "number": 33,
+          "team": "33",
+          "qualificationScore": [
+            100
+          ]
+        },
+        {
+          "driverName": "Empty",
+          "driverSurname": "Empty",
+          "number": -1,
+          "team": "Empty",
+          "qualificationScore": []
+        }
+      ],
+      "listOfJudges": [
+        {
+          "judgeName": "Igor ",
+          "judgeSurname": "Galeta "
+        }
+      ],
+      "qualification": {
+        "randIndexes": [
+          0
+        ]
+      },
+      "listOfPairs": [
+        {
+          "pairNum": 1,
+          "winner": {
+            "driverName": "Empty",
+            "driverSurname": "Empty",
+            "number": -1,
+            "team": "Empty",
+            "qualificationScore": []
+          },
+          "p1": {
+            "driverName": "Sasha ",
+            "driverSurname": "Galeta ",
+            "number": 33,
+            "team": "33",
+            "qualificationScore": [
+              100
+            ]
+          },
+          "p2": {
+            "driverName": "Empty",
+            "driverSurname": "Empty",
+            "number": -1,
+            "team": "Empty",
+            "qualificationScore": []
+          }
+        }
+      ]
     }
   ]
 }
