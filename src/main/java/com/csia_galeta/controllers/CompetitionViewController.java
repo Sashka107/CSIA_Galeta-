@@ -53,26 +53,6 @@ public class CompetitionViewController {
     }
 
     @FXML
-    private void editCompetition(){
-        if(!CompetitionSingleton.getCurrentCompetition().getCompetitionState().equals(CompetitionStates.PLANNED)){
-            Alert alertWarning = new Alert(Alert.AlertType.ERROR);
-            alertWarning.setTitle("Can`t Edit!");
-            alertWarning.setContentText("You can`t edit! Cause: Competition has a state:\n"
-                    + CompetitionSingleton.getCurrentCompetition().getCompetitionState().toUpperCase() +
-                    ", for editing it it must be: "
-                    + CompetitionStates.PLANNED);
-            alertWarning.show();
-            return;
-        }
-
-        CreateEditCompetitionController controller = SceneOpener.openSceneAndReturnController(
-                "CreateOrEditCompetition.fxml",
-                "Edit Competition",
-                editBtn.getScene().getWindow());
-        controller.loadToEditCompetition();
-    }
-
-    @FXML
     private void playCompetition(){
         switch (CompetitionSingleton.getCurrentCompetition().getCompetitionState()) {
             case CompetitionStates.QUALIFICATION_IN_PROGRESS -> {

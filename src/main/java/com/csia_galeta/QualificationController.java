@@ -66,13 +66,13 @@ public class QualificationController  {
 
         getBestAndSort(drivers);
         ChooseCompetitionTable.prepareDriversForPairRuns(drivers);
+        CompetitionSingleton.getCurrentCompetition().setCompetitionStateRunInPairsInProgress();
         CompetitionSingleton.saveCurrentCompetition();
 
         P2PController controller = SceneOpener.openSceneAndReturnController("PairToPairView.fxml",
                 "Run in pairs",
                 listView.getScene().getWindow());
         controller.load();
-        CompetitionSingleton.getCurrentCompetition().setCompetitionStateRunInPairsInProgress();
     }
 
     public void getBestAndSort(List<Driver> drivers) {

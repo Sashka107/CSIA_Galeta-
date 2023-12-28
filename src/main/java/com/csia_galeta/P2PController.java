@@ -1,16 +1,23 @@
 package com.csia_galeta;
 
+import com.csia_galeta.people.Driver;
 import com.csia_galeta.people.Pair;
 import com.csia_galeta.ser.SceneOpener;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.input.MouseEvent;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class P2PController {
 
     public Button saveAndExitBtn;
+    public Button toNextNet;
+    public Label windowTitle;
     @FXML
     private ListView<Pair> pairListView = new ListView<>();
 
@@ -30,6 +37,39 @@ public class P2PController {
         }
 
         pairListView.getItems().setAll(CompetitionSingleton.getCurrentCompetition().getListOfPairs());
+    }
+
+    public void toNextNet(){
+        if(CompetitionSingleton.getCurrentCompetition().getListOfDrivers().size() == 4){
+            Pair winners = new Pair();
+            winners.setPairNum(1);
+            Pair losers = new Pair();
+            losers.setPairNum(2);
+            for(var pair : CompetitionSingleton.getCurrentCompetition().getListOfPairs()){
+                winners.addDriver(pair.winner);
+                if(pair.p1.equals(pair.winner)){
+                    losers.addDriver(pair.p2);
+                }else {
+                    losers.addDriver(pair.p1);
+                }
+            }
+
+            List<Pair> newPairs = new ArrayList<>(2);
+            newPairs.add(winners);
+            newPairs.add(losers);
+            CompetitionSingleton.getCurrentCompetition().setListOfPairs(newPairs);
+            CompetitionSingleton.saveCurrentCompetition();
+
+            windowTitle.setText("Final");
+            saveAndExitBtn.setDisable(true);
+            toNextNet.setText("Finish competition");
+            toNextNet.setOnAction(event -> finish());
+            load();
+        }
+    }
+
+    private void finish(){
+
     }
     
     private void editPair(Pair pair){

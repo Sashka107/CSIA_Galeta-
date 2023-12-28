@@ -22,6 +22,7 @@ public class Competition {
     private String competitionDate;
     private byte amountOfQualifyingRounds;
     private ArrayList<Driver> listOfDrivers = new ArrayList<>();
+
     private ArrayList<Judge> listOfJudges = new ArrayList<>();
 
     private Qualification qualification;

@@ -1,5 +1,6 @@
 package com.csia_galeta;
 
+import com.csia_galeta.people.Driver;
 import com.csia_galeta.people.Pair;
 import com.csia_galeta.ser.SceneOpener;
 import javafx.event.ActionEvent;
@@ -32,11 +33,17 @@ public class PairEditController {
     private Pair currentPair;
 
     public void load(Pair p){
+        currentPair = p;
+
+        /*if(p.p2.equals(Driver.EMPTY_DRIVER)){
+            withEmptyMatch();
+            return;
+        }*/
+
         d1Label.setText(p.p1.toStringPairEdit());
         d1Label2.setText(p.p1.toStringPairEdit());
         d2Label.setText(p.p2.toStringPairEdit());
         d2Label2.setText(p.p2.toStringPairEdit());
-        currentPair = p;
         deathMatch.setDisable(true);
         NextOrSaveBtn.setDisable(true);
     }
@@ -130,6 +137,43 @@ public class PairEditController {
         deathMatch.setDisable(false);
         NextOrSaveBtn.setDisable(true);
     }
+
+    /*private void withEmptyMatch(){
+        p1ScoreRace1.setDisable(true);
+        p2ScoreRace1.setDisable(true);
+        p1ScoreRace2.setDisable(true);
+        p2ScoreRace2.setDisable(true);
+        p1ScoreRace1.setText("");
+        p2ScoreRace1.setText("");
+        p1ScoreRace2.setText("");
+        p2ScoreRace2.setText("");
+        p1Score = 0;
+        p2Score = 0;
+        raceCount = 0;
+        roundCount++;
+        roundText.setText("Is ready to compete");
+
+        List<MenuItem> items = new ArrayList<>();
+        MenuItem yesItem = new MenuItem("Yes");
+        MenuItem noItem = new MenuItem("No");
+
+        yesItem.setOnAction(event -> ready());
+        noItem.setOnAction(event -> notReady());
+        items.add(yesItem);
+        items.add(noItem);
+
+        deathMatch.getItems().addAll(items);
+        deathMatch.setDisable(false);
+        NextOrSaveBtn.setDisable(true);
+    }
+
+    private void ready(){
+        p1Score = 100;
+    }
+
+    private void notReady(){
+
+    }*/
 
     private void saveAndExit(){
         if(p1Score > p2Score) {

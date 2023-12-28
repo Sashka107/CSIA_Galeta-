@@ -13,6 +13,9 @@ public class Pair {
     public Driver p1;
     public Driver p2;
 
+    public Pair() {
+    }
+
     public Pair(Driver p1, Driver p2, int pairNum) {
         this.p1 = p1;
         this.p2 = p2;
@@ -30,6 +33,9 @@ public class Pair {
     }
 
     public static List<Pair> createPairs(List<Driver> drivers){
+
+        drivers.forEach(System.out::println);
+
         List<String> res = new ArrayList<>();
         for(int i = 0, j = drivers.size()-1; i < drivers.size()/2; i++,j--){
             res.add(drivers.get(i).getNumber() + ":" + drivers.get(j).getNumber());
@@ -48,6 +54,13 @@ public class Pair {
         }
 
         return pairsRes;
+    }
+
+    public void addDriver(Driver d){
+        if(p1 == null)
+            p1 = d;
+        else
+            p2 = d;
     }
 
     private static List<String> reCalc(List<String> strPairs){
@@ -92,6 +105,13 @@ public class Pair {
 
     @Override
     public String toString() {
+        if(winner != null){
+            return  "pair #" + pairNum +
+                    "\t " + p1.getNameD() + " #" + p1.getNumber() +
+                    "\t " + p2.getNameD() + " #" + p2.getNumber() +
+                    "\t winner:" + winner.getNameD() + " #" + winner.getNumber();
+        }
+
         return  "pair #" + pairNum +
                 "\t " + p1.getNameD() + " #" + p1.getNumber() +
                 "\t " + p2.getNameD() + " #" + p2.getNumber();
