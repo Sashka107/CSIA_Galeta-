@@ -2,19 +2,10 @@
   "allCompetitions": [
     {
       "competitionName": "EEE",
-      "competitionState": "Pairs run in Progress",
+      "competitionState": "Competition Done",
       "competitionDate": "28-Dec-2023",
       "amountOfQualifyingRounds": 1,
       "listOfDrivers": [
-        {
-          "driverName": "11",
-          "driverSurname": "11",
-          "number": 11,
-          "team": "11",
-          "qualificationScore": [
-            89
-          ]
-        },
         {
           "driverName": "77",
           "driverSurname": "77",
@@ -31,6 +22,15 @@
           "team": "66",
           "qualificationScore": [
             60
+          ]
+        },
+        {
+          "driverName": "11",
+          "driverSurname": "11",
+          "number": 11,
+          "team": "11",
+          "qualificationScore": [
+            89
           ]
         },
         {
@@ -55,64 +55,21 @@
           2
         ]
       },
-      "listOfPairs": [
-        {
-          "pairNum": 1,
-          "p1": {
-            "driverName": "77",
-            "driverSurname": "77",
-            "number": 77,
-            "team": "77",
-            "qualificationScore": [
-              70
-            ]
-          },
-          "p2": {
-            "driverName": "55",
-            "driverSurname": "55",
-            "number": 55,
-            "team": "55",
-            "qualificationScore": [
-              57
-            ]
-          }
-        },
-        {
-          "pairNum": 2,
-          "p1": {
-            "driverName": "11",
-            "driverSurname": "11",
-            "number": 11,
-            "team": "11",
-            "qualificationScore": [
-              89
-            ]
-          },
-          "p2": {
-            "driverName": "66",
-            "driverSurname": "66",
-            "number": 66,
-            "team": "66",
-            "qualificationScore": [
-              60
-            ]
-          }
-        }
-      ]
+      "listOfPairs": []
     },
     {
       "competitionName": "WWW",
-      "competitionState": "Pairs run in Progress",
+      "competitionState": "Competition Done",
       "competitionDate": "29-Dec-2023",
       "amountOfQualifyingRounds": 1,
       "listOfDrivers": [
         {
-          "driverName": "22",
-          "driverSurname": "22",
-          "number": 22,
-          "team": "22",
+          "driverName": "33",
+          "driverSurname": "33",
+          "number": 33,
+          "team": "33",
           "qualificationScore": [
-            89
+            0
           ]
         },
         {
@@ -125,21 +82,21 @@
           ]
         },
         {
+          "driverName": "22",
+          "driverSurname": "22",
+          "number": 22,
+          "team": "22",
+          "qualificationScore": [
+            89
+          ]
+        },
+        {
           "driverName": "44",
           "driverSurname": "44",
           "number": 44,
           "team": "44",
           "qualificationScore": [
             15
-          ]
-        },
-        {
-          "driverName": "33",
-          "driverSurname": "33",
-          "number": 33,
-          "team": "33",
-          "qualificationScore": [
-            0
           ]
         }
       ],
@@ -156,51 +113,205 @@
           1,
           2
         ]
+      }
+    },
+    {
+      "competitionName": "TestWin",
+      "competitionState": "Pairs run in Progress",
+      "competitionDate": "18-Jan-2024",
+      "amountOfQualifyingRounds": 1,
+      "listOfDrivers": [
+        {
+          "driverName": "44",
+          "driverSurname": "44",
+          "number": 44,
+          "team": "44",
+          "qualificationScore": [
+            79
+          ]
+        },
+        {
+          "driverName": "33",
+          "driverSurname": "33",
+          "number": 33,
+          "team": "33",
+          "qualificationScore": [
+            56
+          ]
+        },
+        {
+          "driverName": "11",
+          "driverSurname": "11",
+          "number": 11,
+          "team": "11",
+          "qualificationScore": [
+            34
+          ]
+        },
+        {
+          "driverName": "22",
+          "driverSurname": "22",
+          "number": 22,
+          "team": "22",
+          "qualificationScore": [
+            25
+          ]
+        }
+      ],
+      "listOfJudges": [],
+      "qualification": {
+        "randIndexes": [
+          0,
+          2,
+          3,
+          1
+        ]
       },
       "listOfPairs": [
         {
-          "pairNum": 1,
-          "p1": {
-            "driverName": "22",
-            "driverSurname": "22",
-            "number": 22,
-            "team": "22",
-            "qualificationScore": [
-              89
-            ]
-          },
-          "p2": {
-            "driverName": "11",
-            "driverSurname": "11",
-            "number": 11,
-            "team": "11",
-            "qualificationScore": [
-              57
-            ]
-          }
+          "pairNum": 1
         },
         {
           "pairNum": 2,
           "p1": {
-            "driverName": "33",
-            "driverSurname": "33",
-            "number": 33,
-            "team": "33",
-            "qualificationScore": [
-              0
-            ]
-          },
-          "p2": {
             "driverName": "44",
             "driverSurname": "44",
             "number": 44,
             "team": "44",
             "qualificationScore": [
-              15
+              79
+            ]
+          },
+          "p2": {
+            "driverName": "33",
+            "driverSurname": "33",
+            "number": 33,
+            "team": "33",
+            "qualificationScore": [
+              56
             ]
           }
         }
       ]
+    },
+    {
+      "competitionName": "EEEE-12",
+      "competitionState": "Competition Done",
+      "competitionDate": "27-Jan-2024",
+      "amountOfQualifyingRounds": 1,
+      "listOfDrivers": [
+        {
+          "driverName": "99",
+          "driverSurname": "99",
+          "number": 99,
+          "team": "99",
+          "qualificationScore": [
+            99
+          ]
+        },
+        {
+          "driverName": "10",
+          "driverSurname": "10",
+          "number": 10,
+          "team": "10",
+          "qualificationScore": [
+            90
+          ]
+        },
+        {
+          "driverName": "22",
+          "driverSurname": "22",
+          "number": 22,
+          "team": "22",
+          "qualificationScore": [
+            46
+          ]
+        },
+        {
+          "driverName": "77",
+          "driverSurname": "77",
+          "number": 77,
+          "team": "77",
+          "qualificationScore": [
+            44
+          ]
+        }
+      ],
+      "listOfJudges": [],
+      "qualification": {
+        "randIndexes": [
+          2,
+          7,
+          4,
+          1,
+          9,
+          0,
+          3,
+          6,
+          5,
+          8
+        ]
+      },
+      "listOfPairs": []
+    },
+    {
+      "competitionName": "TTTTT",
+      "competitionState": "Competition Done",
+      "competitionDate": "12-Jan-2024",
+      "amountOfQualifyingRounds": 1,
+      "listOfDrivers": [
+        {
+          "driverName": "34",
+          "driverSurname": "34",
+          "number": 34,
+          "team": "34",
+          "qualificationScore": [
+            67
+          ]
+        },
+        {
+          "driverName": "45",
+          "driverSurname": "54",
+          "number": 45,
+          "team": "55",
+          "qualificationScore": [
+            39
+          ]
+        },
+        {
+          "driverName": "11",
+          "driverSurname": "11",
+          "number": 11,
+          "team": "11",
+          "qualificationScore": [
+            33
+          ]
+        },
+        {
+          "driverName": "23",
+          "driverSurname": "23",
+          "number": 23,
+          "team": "23",
+          "qualificationScore": [
+            45
+          ]
+        }
+      ],
+      "listOfJudges": [
+        {
+          "judgeName": "11",
+          "judgeSurname": "11"
+        }
+      ],
+      "qualification": {
+        "randIndexes": [
+          1,
+          0,
+          2,
+          3
+        ]
+      },
+      "listOfPairs": []
     }
   ]
 }

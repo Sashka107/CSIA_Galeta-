@@ -35,11 +35,6 @@ public class PairEditController {
     public void load(Pair p){
         currentPair = p;
 
-        /*if(p.p2.equals(Driver.EMPTY_DRIVER)){
-            withEmptyMatch();
-            return;
-        }*/
-
         d1Label.setText(p.p1.toStringPairEdit());
         d1Label2.setText(p.p1.toStringPairEdit());
         d2Label.setText(p.p2.toStringPairEdit());
@@ -49,6 +44,13 @@ public class PairEditController {
     }
 
     public void setScoreRace1(){
+        if(!checkRaceScores(p1ScoreRace1) && !checkRaceScores(p2ScoreRace1)){
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setHeaderText("Incorrect scores. Please provide from 0 to 10 and press enter");
+            alert.show();
+            return;
+        }
+
         if(!p1ScoreRace1.getText().isEmpty()){
             int p1Score = Integer.parseInt(p1ScoreRace1.getText());
             p2ScoreRace1.setText(10 - p1Score + "");
@@ -69,6 +71,13 @@ public class PairEditController {
     }
 
     public void setScoreRace2(){
+        if(!checkRaceScores(p1ScoreRace2) && !checkRaceScores(p2ScoreRace2)){
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setHeaderText("Incorrect scores. Please provide from 0 to 10 and press enter");
+            alert.show();
+            return;
+        }
+
         if(!p1ScoreRace2.getText().isEmpty()){
             int p1Score = Integer.parseInt(p1ScoreRace2.getText());
             p2ScoreRace2.setText(10 - p1Score + "");
@@ -86,6 +95,14 @@ public class PairEditController {
         raceCount++;
         NextOrSaveBtn.setDisable(true);
         checkForRound();
+    }
+
+    private boolean checkRaceScores(TextField field){
+        if(field.getText().isEmpty() || !field.getText().matches("[0-9]+"))
+            return false;
+
+        int score = Integer.parseInt(field.getText());
+        return score >= 0 && score <= 10;
     }
 
     public void checkForRound(){
@@ -137,43 +154,6 @@ public class PairEditController {
         deathMatch.setDisable(false);
         NextOrSaveBtn.setDisable(true);
     }
-
-    /*private void withEmptyMatch(){
-        p1ScoreRace1.setDisable(true);
-        p2ScoreRace1.setDisable(true);
-        p1ScoreRace2.setDisable(true);
-        p2ScoreRace2.setDisable(true);
-        p1ScoreRace1.setText("");
-        p2ScoreRace1.setText("");
-        p1ScoreRace2.setText("");
-        p2ScoreRace2.setText("");
-        p1Score = 0;
-        p2Score = 0;
-        raceCount = 0;
-        roundCount++;
-        roundText.setText("Is ready to compete");
-
-        List<MenuItem> items = new ArrayList<>();
-        MenuItem yesItem = new MenuItem("Yes");
-        MenuItem noItem = new MenuItem("No");
-
-        yesItem.setOnAction(event -> ready());
-        noItem.setOnAction(event -> notReady());
-        items.add(yesItem);
-        items.add(noItem);
-
-        deathMatch.getItems().addAll(items);
-        deathMatch.setDisable(false);
-        NextOrSaveBtn.setDisable(true);
-    }
-
-    private void ready(){
-        p1Score = 100;
-    }
-
-    private void notReady(){
-
-    }*/
 
     private void saveAndExit(){
         if(p1Score > p2Score) {

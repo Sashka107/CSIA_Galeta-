@@ -23,9 +23,6 @@ public class DriverQualificationAddController {
     private MenuButton menuButton;
 
     @FXML
-    private Button saveBtn;
-
-    @FXML
     private Button exitBtn;
 
 
@@ -59,9 +56,7 @@ public class DriverQualificationAddController {
         if(roundSelected < editDriver.getLastCompletedQRound() + 1 && editDriver.getQualificationScore().get(roundSelected-1) != null){
             driverScore.setText(editDriver.getQualificationScore().get(roundSelected-1) + "");
             driverScore.setEditable(false);
-            saveBtn.setDisable(true);
         }else if(roundSelected != editDriver.getLastCompletedQRound() + 1){
-            saveBtn.setDisable(false);
             roundSelected = editDriver.getLastCompletedQRound() + 1;
         }
 
@@ -72,33 +67,40 @@ public class DriverQualificationAddController {
         }catch (IndexOutOfBoundsException ex){
             driverScore.setText("");
             driverScore.setEditable(true);
-            saveBtn.setDisable(false);
         }
     }
 
     @FXML
-    private void saveForRound(){
+    private boolean saveForRound(){
         if(roundSelected == -1){
             Alert alertWarning = new Alert(Alert.AlertType.WARNING);
             alertWarning.setTitle("Round not Selected");
             alertWarning.setContentText("ROUND NOT SELECTED - please select it");
             alertWarning.show();
-            return;
+            return false;
+        }
+
+        if(driverScore.getText().isEmpty() || !driverScore.getText().matches("[0-9]+")){
+            Alert alertWarning = new Alert(Alert.AlertType.WARNING);
+            alertWarning.setTitle("Incorrect value");
+            alertWarning.setContentText("Provide value from 0 to 100");
+            alertWarning.show();
+            return false;
         }
 
         editDriver.addDriverScoreForQRound(Integer.parseInt(driverScore.getText()));
         CompetitionSingleton.saveCurrentCompetition();
-        Alert alertSuccess = new Alert(Alert.AlertType.INFORMATION);
-        alertSuccess.setTitle("Round Score Saved");
-        alertSuccess.setContentText("SUCCESSFULLY SAVED SCORES FOR ROUND: " + roundSelected);
-        alertSuccess.show();
         driverScore.setEditable(false);
-        saveBtn.setDisable(true);
+        return true;
     }
 
 
     @FXML
     private void exitToQList() {
+
+        if(!saveForRound())
+            return;
+
         QualificationController controller = SceneOpener.openSceneAndReturnController("QualificationView.fxml",
                 "Qualification",
                 exitBtn.getScene().getWindow());

@@ -79,6 +79,11 @@ public class CreateEditCompetitionController {
         if(!saveCompetition(false))
             return;
 
+        if(CompetitionSingleton.getTmpCompetition().getListOfDrivers().size() <= 3){
+            showWarning("Can`t save competition with 1 player. Minimum Players: 4", false);
+            return;
+        }
+
         CompetitionSingleton.getTmpCompetition().setCompetitionStateQualificationInProgress();
         CompetitionSingleton.addQualificationToTmpCompetition(new Qualification(CompetitionSingleton.getTmpCompetition().getListOfDrivers()));
         CompetitionSingleton.saveTmpCompetition();
@@ -92,6 +97,11 @@ public class CreateEditCompetitionController {
     private void saveCompetitionOnClick(){
         if(!saveCompetition(false))
             return;
+
+        if(CompetitionSingleton.getTmpCompetition().getListOfDrivers().size() <= 3){
+            showWarning("Can`t save competition with 1 player. Minimum Players: 4", false);
+            return;
+        }
 
         CompetitionSingleton.getTmpCompetition().setCompetitionStatePlanned();
         CompetitionSingleton.saveTmpCompetition();

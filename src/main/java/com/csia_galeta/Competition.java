@@ -21,7 +21,7 @@ public class Competition {
 
     private String competitionDate;
     private byte amountOfQualifyingRounds;
-    private ArrayList<Driver> listOfDrivers = new ArrayList<>();
+    private List<Driver> listOfDrivers = new ArrayList<>();
 
     private ArrayList<Judge> listOfJudges = new ArrayList<>();
 
@@ -68,7 +68,7 @@ public class Competition {
         return qualification;
     }
 
-    public ArrayList<Driver> getListOfDrivers() {
+    public List<Driver> getListOfDrivers() {
         return listOfDrivers;
     }
 
@@ -120,8 +120,8 @@ public class Competition {
         this.competitionState = CompetitionStates.QUALIFICATION_IN_PROGRESS;
     }
 
-    public void setCompetitionStateQualificationDone() {
-        this.competitionState = CompetitionStates.QUALIFICATION_DONE;
+    public void setCompetitionStateFinalRound() {
+        this.competitionState = CompetitionStates.FINAL_ROUND;
     }
 
     public void setCompetitionStateRunInPairsInProgress() {
@@ -132,14 +132,16 @@ public class Competition {
         this.competitionState = CompetitionStates.COMPETITION_DONE;
     }
 
+    public void setListOfDrivers(List<Driver> listOfDrivers) {
+        this.listOfDrivers = listOfDrivers;
+    }
+
     @Override
     public String toString() {
-        return "Competition{" +
-                "competitionName='" + competitionName + '\'' +
-                ", amountOfQualifyingRounds=" + amountOfQualifyingRounds +
-                ", listOfDrivers=" + listOfDrivers +
-                ", listOfJudges=" + listOfJudges +
-                '}';
+        return "Name: " + competitionName +
+                " rounds: " + amountOfQualifyingRounds +
+                " | drivers compete: " + listOfDrivers.size() +
+                " | state: " + competitionState;
     }
 
     @Override

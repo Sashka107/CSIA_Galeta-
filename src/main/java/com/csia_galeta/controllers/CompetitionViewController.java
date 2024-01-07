@@ -28,8 +28,6 @@ public class CompetitionViewController {
 
     @FXML
     private Button playBtn;
-    @FXML
-    private Button editBtn;
 
     @FXML
     private Button backBtn;
@@ -65,16 +63,21 @@ public class CompetitionViewController {
                 CreateEditCompetitionController controller = SceneOpener.openSceneAndReturnController(
                         "CreateOrEditCompetition.fxml",
                         "Edit Competition",
-                        editBtn.getScene().getWindow());
+                        playBtn.getScene().getWindow());
                 controller.loadToEditCompetition();
             }
-            case CompetitionStates.RUN_IN_PAIRS_IN_PROGRESS ->{
+            case CompetitionStates.RUN_IN_PAIRS_IN_PROGRESS, CompetitionStates.FINAL_ROUND -> {
                     System.out.println("RUN IN PAIRS OPEN");
 
                     P2PController controller2 = SceneOpener.openSceneAndReturnController("PairToPairView.fxml",
                         "Runs in pairs",
                         playBtn.getScene().getWindow());
                     controller2.load();
+            }
+            case CompetitionStates.COMPETITION_DONE -> {
+                FinalResultsController controller = SceneOpener.openSceneAndReturnController("FinalAfterPair.fxml", "Final Results"
+                        , backBtn.getScene().getWindow());
+                controller.load();
             }
             default -> {
                 Alert alertWarning = new Alert(Alert.AlertType.WARNING);

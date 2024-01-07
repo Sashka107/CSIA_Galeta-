@@ -126,4 +126,8 @@ public class Driver {
         return driverName.replace(driverName.charAt(0), firstLetterName) + " " + Character.toUpperCase(driverSurname.charAt(0)) + " " + number + " " + team; // Alex G 777 OOO
 
     }
+
+    public String toStringWinner(){
+        return driverName + " " + Character.toUpperCase(driverName.charAt(0)) + " | " + number;
+    }
 }
