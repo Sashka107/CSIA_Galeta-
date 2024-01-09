@@ -39,9 +39,15 @@
             <Font size="20.0" />
          </font>
       </Label>
-      <TextField fx:id="competitionName" layoutX="104.0" layoutY="147.0" prefHeight="32.0" prefWidth="100.0" />
-      <TextField fx:id="countOfCF" layoutX="336.0" layoutY="502.0" prefHeight="32.0" prefWidth="42.0" />
-      <ListView fx:id="listView" layoutX="32.0" layoutY="243.0" prefHeight="236.0" prefWidth="599.0" />
+      <TextField fx:id="competitionName" layoutX="104.0" layoutY="147.0" prefHeight="32.0" prefWidth="100.0">
+         <font>
+            <Font size="20.0" />
+         </font></TextField>
+      <TextField fx:id="countOfCF" layoutX="337.0" layoutY="499.0" prefHeight="32.0" prefWidth="42.0">
+         <font>
+            <Font size="20.0" />
+         </font></TextField>
+      <ListView fx:id="listView" layoutX="32.0" layoutY="243.0" prefHeight="236.0" prefWidth="599.0" style="-fx-font-size: 20.0" />
       <Button fx:id="startQualification" layoutX="384.0" layoutY="559.0" mnemonicParsing="false" onAction="#startCompetition" prefHeight="39.0" prefWidth="143.0" text="Start stage ">
          <font>
             <Font size="20.0" />
@@ -50,7 +56,7 @@
          <font>
             <Font size="20.0" />
          </font></Button>
-      <DatePicker fx:id="datePicked" layoutX="312.0" layoutY="147.0" prefHeight="32.0" prefWidth="191.0" />
+      <DatePicker fx:id="datePicked" layoutX="312.0" layoutY="147.0" prefHeight="32.0" prefWidth="191.0" style="-fx-font-size: 20.0" />
       <Label layoutX="33.0" layoutY="195.0" text="Judges :">
          <font>
             <Font size="20.0" />

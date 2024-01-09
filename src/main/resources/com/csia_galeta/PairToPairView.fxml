@@ -7,7 +7,7 @@
 <?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="413.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.csia_galeta.P2PController">
-   <ListView fx:id="pairListView" layoutX="17.0" layoutY="53.0" onMouseClicked="#handleClickOnPair" prefHeight="280.0" prefWidth="566.0" />
+   <ListView fx:id="pairListView" layoutX="17.0" layoutY="53.0" onMouseClicked="#handleClickOnPair" prefHeight="280.0" prefWidth="566.0" style="-fx-font-size: 20.0"/>
    <Label layoutX="260.0" layoutY="21.0" prefHeight="26.0" prefWidth="80.0" text="Pair Runs" fx:id="windowTitle">
       <font>
          <Font size="20.0" />

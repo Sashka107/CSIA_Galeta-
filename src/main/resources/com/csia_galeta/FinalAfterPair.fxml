@@ -54,7 +54,7 @@
          </font>
       </Label>
       <Rectangle arcWidth="5.0" height="13.0" layoutY="360.0" stroke="BLACK" strokeType="INSIDE" width="601.0" />
-      <Button onAction="#toMainMenu" layoutX="161.0" layoutY="445.0" mnemonicParsing="false" style="-fx-background-color: black;" text="Back to main menu" textFill="WHITE">
+      <Button layoutX="202.0" layoutY="445.0" mnemonicParsing="false" onAction="#toMainMenu" style="-fx-background-color: black;" text="Back to main menu" textFill="WHITE">
          <font>
             <Font size="20.0" />
          </font>

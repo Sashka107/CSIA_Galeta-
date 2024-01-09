@@ -8,7 +8,7 @@
 
 <AnchorPane prefHeight="491.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.csia_galeta.PrevCompetitionsController">
    <children>
-      <ListView fx:id="savedCompetitions" layoutX="17.0" layoutY="72.0" prefHeight="326.0" prefWidth="566.0" />
+      <ListView fx:id="savedCompetitions" layoutX="17.0" layoutY="72.0" prefHeight="326.0" prefWidth="566.0" style="-fx-font-size: 20.0"/>
       <Label layoutX="208.0" layoutY="28.0" text="Previous competitions">
          <font>
             <Font size="20.0" />
