@@ -25,11 +25,18 @@ public class P2PController {
 
     @FXML
     public void handleClickOnPair(MouseEvent mouseEvent){
-        System.out.println(pairListView.getSelectionModel().getSelectedItem().toString());
         Pair p = pairListView.getSelectionModel().getSelectedItem();
 
-        if(p != null)
+        if(p != null){
+            if(p.getWinner() != null){
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.setContentText("This pair already get scores");
+                alert.setHeaderText("Pair can`t be edited");
+                alert.show();
+                return;
+            }
             editPair(p);
+        }
     }
 
     public void load(){

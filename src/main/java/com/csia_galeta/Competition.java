@@ -22,6 +22,7 @@ public class Competition {
     private String competitionDate;
     private byte amountOfQualifyingRounds;
     private List<Driver> listOfDrivers = new ArrayList<>();
+    private List<Driver> qualificationOfDrivers = new ArrayList<>();
 
     private ArrayList<Judge> listOfJudges = new ArrayList<>();
 
@@ -31,6 +32,14 @@ public class Competition {
 
     public void setCompetitionName(String competitionName){ // Set competition name
     this.competitionName = competitionName;
+    }
+
+    public List<Driver> getQualificationOfDrivers() {
+        return qualificationOfDrivers;
+    }
+
+    public void setQualificationOfDrivers(List<Driver> qualificationOfDrivers) {
+        this.qualificationOfDrivers = new ArrayList<>(qualificationOfDrivers);
     }
 
     public String getCompetitionName (){ // Get competition name
@@ -129,7 +138,7 @@ public class Competition {
     }
 
     public void setCompetitionStateFullDone() {
-        this.competitionState = CompetitionStates.COMPETITION_DONE;
+        this.competitionState = CompetitionStates.COMPETITION_IS_FINISHED;
     }
 
     public void setListOfDrivers(List<Driver> listOfDrivers) {
