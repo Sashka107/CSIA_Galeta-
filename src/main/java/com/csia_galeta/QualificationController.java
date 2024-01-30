@@ -65,6 +65,8 @@ public class QualificationController  {
         }
 
         getBestAndSort(drivers);
+        CompetitionSingleton.getCurrentCompetition().setQualificationOfDrivers(drivers);
+        CompetitionSingleton.saveCurrentCompetition();
         ChooseCompetitionTable.prepareDriversForPairRuns(drivers);
         CompetitionSingleton.getCurrentCompetition().setCompetitionStateRunInPairsInProgress();
         CompetitionSingleton.saveCurrentCompetition();

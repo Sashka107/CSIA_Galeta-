@@ -144,11 +144,12 @@ public class PairEditController {
 
         List<MenuItem> items = new ArrayList<>();
 
-        for(int i = 0; i < 2; i++){
-            MenuItem item = new MenuItem("Player " + (i+1));
-            item.setOnAction(event -> setWinnerDeathMetch(event));
-            items.add(item);
-        }
+        MenuItem item1 = new MenuItem("P" + 1 + ": " + currentPair.getP1().toStringSimple());
+        MenuItem item2 = new MenuItem("P" + 2 + ": " + currentPair.getP2().toStringSimple());
+        item1.setOnAction(this::setWinnerDeathMetch);
+        item2.setOnAction(this::setWinnerDeathMetch);
+        items.add(item1);
+        items.add(item2);
 
         deathMatch.getItems().addAll(items);
         deathMatch.setDisable(false);
@@ -170,7 +171,7 @@ public class PairEditController {
     private void setWinnerDeathMetch(ActionEvent event){
         MenuItem n = (MenuItem) event.getSource();
 
-        if(n.getText().equals("Player 1"))
+        if(n.getText().startsWith("P1"))
             currentPair.setWinner(currentPair.getP1());
         else
             currentPair.setWinner(currentPair.getP2());

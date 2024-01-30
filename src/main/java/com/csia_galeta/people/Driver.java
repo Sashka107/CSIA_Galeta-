@@ -130,4 +130,8 @@ public class Driver {
     public String toStringWinner(){
         return driverName + " " + Character.toUpperCase(driverName.charAt(0)) + " | " + number;
     }
+
+    public String toStringSimple(){
+        return driverName + " " + Character.toUpperCase(driverName.charAt(0));
+    }
 }

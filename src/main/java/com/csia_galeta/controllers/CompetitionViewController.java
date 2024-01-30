@@ -74,7 +74,7 @@ public class CompetitionViewController {
                         playBtn.getScene().getWindow());
                     controller2.load();
             }
-            case CompetitionStates.COMPETITION_DONE -> {
+            case CompetitionStates.COMPETITION_IS_FINISHED -> {
                 FinalResultsController controller = SceneOpener.openSceneAndReturnController("FinalAfterPair.fxml", "Final Results"
                         , backBtn.getScene().getWindow());
                 controller.load();

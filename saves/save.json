@@ -1,60 +1,108 @@
 {
   "allCompetitions": [
     {
-      "competitionName": "UDRC1",
-      "competitionState": "Competition Done",
-      "competitionDate": "10-Jan-2024",
+      "competitionName": "Test 1",
+      "competitionState": "Competition is Finished",
+      "competitionDate": "12-Jan-2024",
       "amountOfQualifyingRounds": 1,
       "listOfDrivers": [
         {
-          "driverName": "Dmitry ",
-          "driverSurname": "Bondar ",
-          "number": 47,
-          "team": "DIZRC",
+          "driverName": "Lesik",
+          "driverSurname": "Test",
+          "number": 78,
+          "team": "TT",
           "qualificationScore": [
-            87
+            67
           ]
         },
         {
-          "driverName": "Anton ",
-          "driverSurname": "Legron ",
-          "number": 77,
-          "team": "DIZRC",
+          "driverName": "Golf",
+          "driverSurname": "Pag",
+          "number": 34,
+          "team": "67",
           "qualificationScore": [
-            94
+            90
           ]
         },
         {
-          "driverName": "Sasha ",
-          "driverSurname": "Galeta ",
+          "driverName": "Sergey",
+          "driverSurname": "Skr",
+          "number": 7,
+          "team": "666",
+          "qualificationScore": [
+            89
+          ]
+        },
+        {
+          "driverName": "Erick",
+          "driverSurname": "Musk",
+          "number": 90,
+          "team": "Lol",
+          "qualificationScore": [
+            56
+          ]
+        }
+      ],
+      "qualificationOfDrivers": [
+        {
+          "driverName": "Golf",
+          "driverSurname": "Pag",
+          "number": 34,
+          "team": "67",
+          "qualificationScore": [
+            90
+          ]
+        },
+        {
+          "driverName": "Sergey",
+          "driverSurname": "Skr",
+          "number": 7,
+          "team": "666",
+          "qualificationScore": [
+            89
+          ]
+        },
+        {
+          "driverName": "Lesik",
+          "driverSurname": "Test",
+          "number": 78,
+          "team": "TT",
+          "qualificationScore": [
+            67
+          ]
+        },
+        {
+          "driverName": "Erick",
+          "driverSurname": "Musk",
+          "number": 90,
+          "team": "Lol",
+          "qualificationScore": [
+            56
+          ]
+        },
+        {
+          "driverName": "Alex",
+          "driverSurname": "Galeta",
           "number": 777,
-          "team": "DIZRC",
+          "team": "888",
           "qualificationScore": [
-            77
-          ]
-        },
-        {
-          "driverName": "Pavel ",
-          "driverSurname": "bavel ",
-          "number": 17,
-          "team": "DIZRC",
-          "qualificationScore": [
-            92
+            23
           ]
         }
       ],
       "listOfJudges": [
         {
-          "judgeName": "Oleksandr",
-          "judgeSurname": "Vasyliev"
+          "judgeName": "Alex",
+          "judgeSurname": "Rfs"
         }
       ],
       "qualification": {
         "randIndexes": [
           3,
-          0,
+          2,
+          4,
           1,
-          2
+          0
         ]
       }
     }
