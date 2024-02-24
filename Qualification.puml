@@ -1,0 +1,31 @@
+@startuml
+
+class CompetitionSingleton
+class Competition
+class Qualification
+class QualificationController
+class Driver
+class SceneOpener
+class DriverQualificationAddController
+class CompetitionStates
+class ChooseCompetitionTable
+class P2PController
+
+CompetitionSingleton "1" --* "1" Competition : Composition
+CompetitionSingleton -- Qualification : Uses
+CompetitionSingleton -- Driver : Uses
+CompetitionSingleton -- SceneOpener : Uses
+CompetitionSingleton -- DriverQualificationAddController : Uses
+CompetitionSingleton -- CompetitionStates : Uses
+Competition -- Driver : Association
+Competition -- Qualification : Association
+Qualification -- QualificationController : Association
+Driver -- DriverQualificationAddController : Association
+Driver -- P2PController : Association
+ChooseCompetitionTable -- P2PController : Uses
+P2PController -- ChooseCompetitionTable : Association
+P2PController -- Competition : Association
+P2PController -- Driver : Association
+
+
+@enduml

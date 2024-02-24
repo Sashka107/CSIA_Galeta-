@@ -1,6 +1,6 @@
 package com.csia_galeta;
 
-import com.csia_galeta.people.Driver;
+
 import com.csia_galeta.people.Pair;
 import com.csia_galeta.ser.SceneOpener;
 import javafx.event.ActionEvent;
@@ -144,12 +144,11 @@ public class PairEditController {
 
         List<MenuItem> items = new ArrayList<>();
 
-        MenuItem item1 = new MenuItem("P" + 1 + ": " + currentPair.getP1().toStringSimple());
-        MenuItem item2 = new MenuItem("P" + 2 + ": " + currentPair.getP2().toStringSimple());
-        item1.setOnAction(this::setWinnerDeathMetch);
-        item2.setOnAction(this::setWinnerDeathMetch);
-        items.add(item1);
-        items.add(item2);
+        for(int i = 0; i < 2; i++){
+            MenuItem item = new MenuItem("Player " + (i+1));
+            item.setOnAction(event -> setWinnerDeathMatch(event));
+            items.add(item);
+        }
 
         deathMatch.getItems().addAll(items);
         deathMatch.setDisable(false);
@@ -168,10 +167,10 @@ public class PairEditController {
         controller2.load();
     }
 
-    private void setWinnerDeathMetch(ActionEvent event){
+    private void setWinnerDeathMatch(ActionEvent event){
         MenuItem n = (MenuItem) event.getSource();
 
-        if(n.getText().startsWith("P1"))
+        if(n.getText().equals("Player 1"))
             currentPair.setWinner(currentPair.getP1());
         else
             currentPair.setWinner(currentPair.getP2());

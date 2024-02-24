@@ -1,0 +1,73 @@
+@startuml
+
+class DataSaverAndReader {
+    - pathToSave: String
+    - gsonSaver: Gson
+    + saveStringToFile(fileName: String, data: String): void
+    + saveJsonStringToFile(fileName: String, data: Object): void
+    + readDataFromJson<T>(clazz: Class<T>, pathToFile: String): T
+}
+
+class CompetitionListWrapper {
+    - allCompetitions: List<Competition>
+    + CompetitionListWrapper(pathToSave: String)
+    + addCompetition(c: Competition): void
+    + getCompetitions(): List<Competition>
+}
+
+class CompetitionSingleton {
+    - competitionListWrapper: CompetitionListWrapper
+    - tmpCompetition: Competition
+    - currentCompetition: Competition
+    - OnDriverAdded: Consumer<Driver>
+    + getInstance(): CompetitionListWrapper
+    + getDriverByNumber(num: short): Driver
+    + driverAddHandler(func: Consumer<Driver>): void
+    + saveTmpCompetition(): void
+    + saveCurrentCompetition(): void
+    + addDriverToTmpCompetition(d: Driver): void
+    + addJudgeToTmpCompetition(j: Judge): void
+    + addQualificationToTmpCompetition(q: Qualification): void
+    + addCountOfRounds(count: int): void
+    + getTmpCompetition(): Competition
+    + getCurrentCompetition(): Competition
+    + addToTmpCompetitionName(name: String): void
+    + setCurrentCompetition(currentCompetition: Competition): void
+    + setTmpCompetition(tmpCompetition: Competition): void
+    - bubbleSort(drivers: List<Driver>): void
+}
+
+class BinarySearch {
+    + binarySearch(drivers: List<Driver>, number: short): Driver
+}
+
+class CompetitionViewController {
+    - competitionName: Label
+    - dateText: Label
+    - judgesNames: Label
+    - plannedStatus: Label
+    - qRounds: Label
+    - listView: ListView<Driver>
+    - playBtn: Button
+    - backBtn: Button
+    + load(competition: Competition): void
+    + back(): void
+    + playCompetition(): void
+}
+
+class RC_DriftController {
+    - prevCompetitionBtn: Button
+    - addCompetitionBtn: Button
+    + openPrevCompetitions(): void
+    + openAddCompetitionWindow(): void
+}
+
+DataSaverAndReader --> CompetitionListWrapper: Creates
+CompetitionListWrapper --> DataSaverAndReader: Uses
+CompetitionSingleton --> CompetitionListWrapper: Creates
+CompetitionSingleton --> DataSaverAndReader: Uses
+CompetitionViewController --> CompetitionSingleton: Uses
+RC_DriftController --> CompetitionSingleton: Uses
+
+
+@enduml

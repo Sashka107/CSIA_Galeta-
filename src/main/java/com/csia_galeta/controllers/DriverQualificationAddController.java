@@ -29,6 +29,8 @@ public class DriverQualificationAddController {
     private Driver editDriver;
     private int roundSelected = -1;
 
+    private boolean isAssessed = false;
+
     public void load(Driver d){
 
         editDriver = d;
@@ -56,8 +58,10 @@ public class DriverQualificationAddController {
         if(roundSelected < editDriver.getLastCompletedQRound() + 1 && editDriver.getQualificationScore().get(roundSelected-1) != null){
             driverScore.setText(editDriver.getQualificationScore().get(roundSelected-1) + "");
             driverScore.setEditable(false);
+            isAssessed = true;
         }else if(roundSelected != editDriver.getLastCompletedQRound() + 1){
             roundSelected = editDriver.getLastCompletedQRound() + 1;
+            isAssessed = false;
         }
 
         menuButton.setText("Round #" + roundSelected);
@@ -80,7 +84,7 @@ public class DriverQualificationAddController {
             return false;
         }
 
-        if(driverScore.getText().isEmpty() || !driverScore.getText().matches("[0-9]+")){
+        if(driverScore.getText().isEmpty() || !driverScore.getText().matches("\\b(?:[0-9]|[1-9][0-9]|100)\\b")){
             Alert alertWarning = new Alert(Alert.AlertType.WARNING);
             alertWarning.setTitle("Incorrect value");
             alertWarning.setContentText("Provide value from 0 to 100");
@@ -88,7 +92,10 @@ public class DriverQualificationAddController {
             return false;
         }
 
-        editDriver.addDriverScoreForQRound(Integer.parseInt(driverScore.getText()));
+       if (!isAssessed){
+           editDriver.addDriverScoreForQRound(Integer.parseInt(driverScore.getText()));
+       }
+
         CompetitionSingleton.saveCurrentCompetition();
         driverScore.setEditable(false);
         return true;

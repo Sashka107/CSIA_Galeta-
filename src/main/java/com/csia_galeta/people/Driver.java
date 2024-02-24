@@ -45,7 +45,7 @@ public class Driver {
             this.number = Short.parseShort(number);
             return true;
         }
-        System.out.println("Please check whether entered data is a is a valid surname and less or equal to 55 characters.");
+        System.out.println("Please check whether entered data is a is a valid number and is less than a 10000.");
         return false;
     }
 

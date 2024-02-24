@@ -104,7 +104,883 @@
           1,
           0
         ]
+      },
+      "listOfPairs": []
+    },
+    {
+      "competitionName": "First Test ",
+      "competitionState": "Competition is Finished",
+      "competitionDate": "31-Jan-2024",
+      "amountOfQualifyingRounds": 1,
+      "listOfDrivers": [
+        {
+          "driverName": "asdasd",
+          "driverSurname": "adsasd",
+          "number": 12,
+          "team": "sewe",
+          "qualificationScore": [
+            56
+          ]
+        },
+        {
+          "driverName": "sfaf",
+          "driverSurname": "asfasfa",
+          "number": 34,
+          "team": "fasfas",
+          "qualificationScore": [
+            0
+          ]
+        },
+        {
+          "driverName": "asdasd",
+          "driverSurname": "adsasd",
+          "number": 12,
+          "team": "sewe",
+          "qualificationScore": [
+            56
+          ]
+        },
+        {
+          "driverName": "asdasd",
+          "driverSurname": "adsasd",
+          "number": 12,
+          "team": "sewe",
+          "qualificationScore": [
+            56
+          ]
+        }
+      ],
+      "qualificationOfDrivers": [
+        {
+          "driverName": "asdasd",
+          "driverSurname": "adsasd",
+          "number": 12,
+          "team": "sewe",
+          "qualificationScore": [
+            56
+          ]
+        },
+        {
+          "driverName": "sdasda",
+          "driverSurname": "sdasda",
+          "number": 12,
+          "team": "dasda",
+          "qualificationScore": [
+            53
+          ]
+        },
+        {
+          "driverName": "Oleksandr ",
+          "driverSurname": "Galeta ",
+          "number": 12,
+          "team": "qqd",
+          "qualificationScore": [
+            45
+          ]
+        },
+        {
+          "driverName": "sfaf",
+          "driverSurname": "asfasfa",
+          "number": 34,
+          "team": "fasfas",
+          "qualificationScore": [
+            0
+          ]
+        }
+      ],
+      "listOfJudges": [
+        {
+          "judgeName": "Peter",
+          "judgeSurname": "Anastasia "
+        }
+      ],
+      "qualification": {
+        "randIndexes": [
+          1,
+          3,
+          2,
+          0
+        ]
+      },
+      "listOfPairs": []
+    },
+    {
+      "competitionName": "COMPETITION 1",
+      "competitionState": "Competition is Finished",
+      "competitionDate": "01-Feb-2024",
+      "amountOfQualifyingRounds": 1,
+      "listOfDrivers": [
+        {
+          "driverName": "Petra ",
+          "driverSurname": "Fortunati ",
+          "number": 7,
+          "team": "DIZRC",
+          "qualificationScore": [
+            100
+          ]
+        },
+        {
+          "driverName": "Sasha ",
+          "driverSurname": "Galeta ",
+          "number": 17,
+          "team": "DIZRC",
+          "qualificationScore": [
+            98
+          ]
+        },
+        {
+          "driverName": "wrqqwr",
+          "driverSurname": "rqwrq",
+          "number": 87,
+          "team": "qwrqw",
+          "qualificationScore": [
+            56
+          ]
+        },
+        {
+          "driverName": "qwrwq",
+          "driverSurname": "wqrqwrq",
+          "number": 45,
+          "team": "qwq",
+          "qualificationScore": [
+            113713813,
+            113713813
+          ]
+        }
+      ],
+      "qualificationOfDrivers": [
+        {
+          "driverName": "qwrwq",
+          "driverSurname": "wqrqwrq",
+          "number": 45,
+          "team": "qwq",
+          "qualificationScore": [
+            113713813,
+            113713813
+          ]
+        },
+        {
+          "driverName": "Petra ",
+          "driverSurname": "Fortunati ",
+          "number": 7,
+          "team": "DIZRC",
+          "qualificationScore": [
+            100
+          ]
+        },
+        {
+          "driverName": "Sasha ",
+          "driverSurname": "Galeta ",
+          "number": 17,
+          "team": "DIZRC",
+          "qualificationScore": [
+            98
+          ]
+        },
+        {
+          "driverName": "eqqwr",
+          "driverSurname": "qwrqwr",
+          "number": 14,
+          "team": "rqwrqw",
+          "qualificationScore": [
+            56,
+            56
+          ]
+        },
+        {
+          "driverName": "wrqqwr",
+          "driverSurname": "rqwrq",
+          "number": 87,
+          "team": "qwrqw",
+          "qualificationScore": [
+            56
+          ]
+        },
+        {
+          "driverName": "asfa",
+          "driverSurname": "asfa",
+          "number": 14,
+          "team": "sfaf",
+          "qualificationScore": [
+            45
+          ]
+        },
+        {
+          "driverName": "qwrq",
+          "driverSurname": "rqrw",
+          "number": 56,
+          "team": "wrq",
+          "qualificationScore": [
+            43
+          ]
+        },
+        {
+          "driverName": "asfasf",
+          "driverSurname": "fasfa",
+          "number": 11,
+          "team": "afafa",
+          "qualificationScore": [
+            23
+          ]
+        }
+      ],
+      "listOfJudges": [
+        {
+          "judgeName": "Florian",
+          "judgeSurname": "Liar"
+        }
+      ],
+      "qualification": {
+        "randIndexes": [
+          2,
+          4,
+          6,
+          7,
+          0,
+          1,
+          3,
+          5
+        ]
+      },
+      "listOfPairs": []
+    },
+    {
+      "competitionName": "TESTING",
+      "competitionState": "Competition is Finished",
+      "competitionDate": "22-Feb-2024",
+      "amountOfQualifyingRounds": 1,
+      "listOfDrivers": [
+        {
+          "driverName": "sdfsdgss",
+          "driverSurname": "dgsgs",
+          "number": 9,
+          "team": "gsdgsg",
+          "qualificationScore": [
+            53
+          ]
+        },
+        {
+          "driverName": "sdgdsg",
+          "driverSurname": "dgsdgs",
+          "number": 67,
+          "team": "gsgsd",
+          "qualificationScore": [
+            23
+          ]
+        },
+        {
+          "driverName": "ljlkjk",
+          "driverSurname": "lkjkljkl",
+          "number": 45,
+          "team": "ljlkjkl",
+          "qualificationScore": [
+            89
+          ]
+        },
+        {
+          "driverName": "ffsdgs",
+          "driverSurname": "gsdgsdg",
+          "number": 87,
+          "team": "sdgsdg",
+          "qualificationScore": [
+            535
+          ]
+        }
+      ],
+      "qualificationOfDrivers": [
+        {
+          "driverName": "ffsdgs",
+          "driverSurname": "gsdgsdg",
+          "number": 87,
+          "team": "sdgsdg",
+          "qualificationScore": [
+            535
+          ]
+        },
+        {
+          "driverName": "ljlkjk",
+          "driverSurname": "lkjkljkl",
+          "number": 45,
+          "team": "ljlkjkl",
+          "qualificationScore": [
+            89
+          ]
+        },
+        {
+          "driverName": "sdfsdgss",
+          "driverSurname": "dgsgs",
+          "number": 9,
+          "team": "gsdgsg",
+          "qualificationScore": [
+            53
+          ]
+        },
+        {
+          "driverName": "sdgdsg",
+          "driverSurname": "dgsdgs",
+          "number": 67,
+          "team": "gsgsd",
+          "qualificationScore": [
+            23
+          ]
+        },
+        {
+          "driverName": "zxczxcz",
+          "driverSurname": "xczxcz",
+          "number": 77,
+          "team": "xczxcz",
+          "qualificationScore": [
+            23
+          ]
+        },
+        {
+          "driverName": "asdfa",
+          "driverSurname": "asfasfa",
+          "number": 23,
+          "team": "fasf",
+          "qualificationScore": [
+            5
+          ]
+        },
+        {
+          "driverName": "vcnvc",
+          "driverSurname": "ncvncnv",
+          "number": 921,
+          "team": "cvncvn",
+          "qualificationScore": [
+            4
+          ]
+        }
+      ],
+      "listOfJudges": [
+        {
+          "judgeName": "dafa",
+          "judgeSurname": "fafsa"
+        }
+      ],
+      "qualification": {
+        "randIndexes": [
+          5,
+          0,
+          3,
+          2,
+          6,
+          4,
+          1
+        ]
+      },
+      "listOfPairs": []
+    },
+    {
+      "competitionName": "fsfafa",
+      "competitionState": "Competition is Finished",
+      "competitionDate": "21-Feb-2024",
+      "amountOfQualifyingRounds": 1,
+      "listOfDrivers": [
+        {
+          "driverName": "fwfwf",
+          "driverSurname": "fwefwe",
+          "number": 23,
+          "team": "wwfwe",
+          "qualificationScore": [
+            45
+          ]
+        },
+        {
+          "driverName": "wfrwef",
+          "driverSurname": "wefwfwefw",
+          "number": 233,
+          "team": "fwefwe",
+          "qualificationScore": [
+            56
+          ]
+        },
+        {
+          "driverName": "erqrwq",
+          "driverSurname": "qrwqwrq",
+          "number": 24,
+          "team": "wrqrwqr",
+          "qualificationScore": [
+            78
+          ]
+        }
+      ],
+      "qualificationOfDrivers": [],
+      "listOfJudges": [
+        {
+          "judgeName": "afasf",
+          "judgeSurname": "asfasf"
+        }
+      ],
+      "qualification": {
+        "randIndexes": [
+          2,
+          1,
+          0,
+          3
+        ]
+      },
+      "listOfPairs": []
+    },
+    {
+      "competitionName": "zzzzzz",
+      "competitionState": "Competition is Finished",
+      "competitionDate": "21-Feb-2024",
+      "amountOfQualifyingRounds": 1,
+      "listOfDrivers": [
+        {
+          "driverName": "rfafa",
+          "driverSurname": "fasfas",
+          "number": 23,
+          "team": "fasfas",
+          "qualificationScore": [
+            4
+          ]
+        },
+        {
+          "driverName": "fsaf",
+          "driverSurname": "sffasfasfa",
+          "number": 56,
+          "team": "sfasfa",
+          "qualificationScore": [
+            9
+          ]
+        },
+        {
+          "driverName": "asfaf",
+          "driverSurname": "asfas",
+          "number": 67,
+          "team": "fasfaf",
+          "qualificationScore": [
+            7
+          ]
+        },
+        {
+          "driverName": "wafasf",
+          "driverSurname": "asfas",
+          "number": 9,
+          "team": "fasfasf",
+          "qualificationScore": [
+            0
+          ]
+        }
+      ],
+      "qualificationOfDrivers": [
+        {
+          "driverName": "fsaf",
+          "driverSurname": "sffasfasfa",
+          "number": 56,
+          "team": "sfasfa",
+          "qualificationScore": [
+            9
+          ]
+        },
+        {
+          "driverName": "asfaf",
+          "driverSurname": "asfas",
+          "number": 67,
+          "team": "fasfaf",
+          "qualificationScore": [
+            7
+          ]
+        },
+        {
+          "driverName": "rfafa",
+          "driverSurname": "fasfas",
+          "number": 23,
+          "team": "fasfas",
+          "qualificationScore": [
+            4
+          ]
+        },
+        {
+          "driverName": "wafasf",
+          "driverSurname": "asfas",
+          "number": 9,
+          "team": "fasfasf",
+          "qualificationScore": [
+            0
+          ]
+        }
+      ],
+      "listOfJudges": [
+        {
+          "judgeName": "fsafa",
+          "judgeSurname": "sfasfa"
+        }
+      ],
+      "qualification": {
+        "randIndexes": [
+          2,
+          0,
+          1,
+          3
+        ]
+      },
+      "listOfPairs": []
+    },
+    {
+      "competitionName": "Competition17",
+      "competitionState": "Competition is Finished",
+      "competitionDate": "28-Feb-2024",
+      "amountOfQualifyingRounds": 4,
+      "listOfDrivers": [
+        {
+          "driverName": "hjsfaf",
+          "driverSurname": "afasfa",
+          "number": 17,
+          "team": "faf",
+          "qualificationScore": [
+            45,
+            45,
+            89,
+            89,
+            89,
+            89
+          ]
+        },
+        {
+          "driverName": "hjsfaf",
+          "driverSurname": "afasfa",
+          "number": 17,
+          "team": "faf",
+          "qualificationScore": [
+            45,
+            45,
+            89,
+            89,
+            89,
+            89
+          ]
+        },
+        {
+          "driverName": "afasf",
+          "driverSurname": "asfasfa",
+          "number": 67,
+          "team": "fafasf",
+          "qualificationScore": [
+            424,
+            24,
+            24,
+            3
+          ]
+        },
+        {
+          "driverName": "fasfaf",
+          "driverSurname": "afafsafa",
+          "number": 87,
+          "team": "fafasfa89",
+          "qualificationScore": [
+            33,
+            33,
+            34,
+            879
+          ]
+        }
+      ],
+      "qualificationOfDrivers": [
+        {
+          "driverName": "fasfaf",
+          "driverSurname": "afafsafa",
+          "number": 87,
+          "team": "fafasfa89",
+          "qualificationScore": [
+            33,
+            33,
+            34,
+            879
+          ]
+        },
+        {
+          "driverName": "afasf",
+          "driverSurname": "asfasfa",
+          "number": 67,
+          "team": "fafasf",
+          "qualificationScore": [
+            424,
+            24,
+            24,
+            3
+          ]
+        },
+        {
+          "driverName": "hjsfaf",
+          "driverSurname": "afasfa",
+          "number": 17,
+          "team": "faf",
+          "qualificationScore": [
+            45,
+            45,
+            89,
+            89,
+            89,
+            89
+          ]
+        },
+        {
+          "driverName": "jhgjhsgdfs",
+          "driverSurname": "dfsfsfsfds",
+          "number": 17,
+          "team": "fassfasf",
+          "qualificationScore": [
+            23,
+            32,
+            42,
+            42
+          ]
+        }
+      ],
+      "listOfJudges": [],
+      "qualification": {
+        "randIndexes": [
+          0,
+          2,
+          1,
+          3
+        ]
       }
+    },
+    {
+      "competitionName": "EVENT1",
+      "competitionState": "Competition is Finished",
+      "competitionDate": "22-Feb-2024",
+      "amountOfQualifyingRounds": 1,
+      "listOfDrivers": [
+        {
+          "driverName": "Stella ",
+          "driverSurname": "Bonaldo ",
+          "number": 17,
+          "team": "ITALIA",
+          "qualificationScore": [
+            78,
+            78,
+            78
+          ]
+        },
+        {
+          "driverName": "Sasha ",
+          "driverSurname": "Galeta ",
+          "number": 77,
+          "team": "DIZRC",
+          "qualificationScore": [
+            100
+          ]
+        },
+        {
+          "driverName": "sfgfsdg",
+          "driverSurname": "sdgsgsd",
+          "number": 28,
+          "team": "gsdgs",
+          "qualificationScore": [
+            65
+          ]
+        },
+        {
+          "driverName": "dsdgsd",
+          "driverSurname": "gsdgsdg",
+          "number": 98,
+          "team": "sdgsdg",
+          "qualificationScore": [
+            34
+          ]
+        }
+      ],
+      "qualificationOfDrivers": [
+        {
+          "driverName": "Sasha ",
+          "driverSurname": "Galeta ",
+          "number": 77,
+          "team": "DIZRC",
+          "qualificationScore": [
+            100
+          ]
+        },
+        {
+          "driverName": "Stella ",
+          "driverSurname": "Bonaldo ",
+          "number": 17,
+          "team": "ITALIA",
+          "qualificationScore": [
+            78,
+            78,
+            78
+          ]
+        },
+        {
+          "driverName": "vxzbcx",
+          "driverSurname": "xcbxbc",
+          "number": 23,
+          "team": "xcbxcb",
+          "qualificationScore": [
+            78
+          ]
+        },
+        {
+          "driverName": "Matteo ",
+          "driverSurname": "Garzon ",
+          "number": 78,
+          "team": "fgfsd",
+          "qualificationScore": [
+            76
+          ]
+        },
+        {
+          "driverName": "sfgfsdg",
+          "driverSurname": "sdgsgsd",
+          "number": 28,
+          "team": "gsdgs",
+          "qualificationScore": [
+            65
+          ]
+        },
+        {
+          "driverName": "dsdgsd",
+          "driverSurname": "gsdgsdg",
+          "number": 98,
+          "team": "sdgsdg",
+          "qualificationScore": [
+            34
+          ]
+        },
+        {
+          "driverName": "dsgs",
+          "driverSurname": "dsgsdg",
+          "number": 78,
+          "team": "sdgsdg",
+          "qualificationScore": [
+            23
+          ]
+        },
+        {
+          "driverName": "fafgdsg",
+          "driverSurname": "sdgsdgs",
+          "number": 45,
+          "team": "dgsdgsd",
+          "qualificationScore": [
+            9
+          ]
+        }
+      ],
+      "listOfJudges": [
+        {
+          "judgeName": "Ludovica ",
+          "judgeSurname": "Celli"
+        }
+      ],
+      "qualification": {
+        "randIndexes": [
+          3,
+          7,
+          0,
+          1,
+          5,
+          6,
+          4,
+          2
+        ]
+      },
+      "listOfPairs": []
+    },
+    {
+      "competitionName": "hdjasha",
+      "competitionState": "Competition is Finished",
+      "competitionDate": "16-Feb-2024",
+      "amountOfQualifyingRounds": 1,
+      "listOfDrivers": [
+        {
+          "driverName": "etwt",
+          "driverSurname": "etwetetw",
+          "number": 90,
+          "team": "ewtw",
+          "qualificationScore": [
+            67,
+            67,
+            67
+          ]
+        },
+        {
+          "driverName": "rwqrq",
+          "driverSurname": "wrqwrqw",
+          "number": 67,
+          "team": "rqwrqwr",
+          "qualificationScore": [
+            0
+          ]
+        },
+        {
+          "driverName": "wertw",
+          "driverSurname": "ewtwetwetw",
+          "number": 89,
+          "team": "etwetw",
+          "qualificationScore": [
+            100
+          ]
+        },
+        {
+          "driverName": "fwqr",
+          "driverSurname": "wrqwrq",
+          "number": 54,
+          "team": "rqwrq",
+          "qualificationScore": [
+            100
+          ]
+        }
+      ],
+      "qualificationOfDrivers": [
+        {
+          "driverName": "fwqr",
+          "driverSurname": "wrqwrq",
+          "number": 54,
+          "team": "rqwrq",
+          "qualificationScore": [
+            100
+          ]
+        },
+        {
+          "driverName": "wertw",
+          "driverSurname": "ewtwetwetw",
+          "number": 89,
+          "team": "etwetw",
+          "qualificationScore": [
+            100
+          ]
+        },
+        {
+          "driverName": "etwt",
+          "driverSurname": "etwetetw",
+          "number": 90,
+          "team": "ewtw",
+          "qualificationScore": [
+            67,
+            67,
+            67
+          ]
+        },
+        {
+          "driverName": "rwqrq",
+          "driverSurname": "wrqwrqw",
+          "number": 67,
+          "team": "rqwrqwr",
+          "qualificationScore": [
+            0
+          ]
+        }
+      ],
+      "listOfJudges": [
+        {
+          "judgeName": "dafsa",
+          "judgeSurname": "faf"
+        }
+      ],
+      "qualification": {
+        "randIndexes": [
+          3,
+          0,
+          1,
+          2
+        ]
+      },
+      "listOfPairs": []
     }
   ]
 }

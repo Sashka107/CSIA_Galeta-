@@ -114,7 +114,7 @@ public class P2PController {
             if(pair.getWinner() != null)
                 newDrivers.add(pair.getWinner());
             else
-                throw new NullPointerException("Winner in pair is null for create next net drivers list");
+                throw new NullPointerException("Winner in pair is null to create next net drivers list");
         }
 
         CompetitionSingleton.getCurrentCompetition().setListOfDrivers(newDrivers);

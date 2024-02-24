@@ -45,11 +45,11 @@ public class CreateEditCompetitionController {
     protected boolean saveCompetition(boolean notCheckWarnings){
         boolean hasWarning = false;
 
-        if (checkCountOfCF(countOfCF.getText())){
+        if (checkCountOfQ(countOfCF.getText())){
             CompetitionSingleton.addCountOfRounds(Integer.parseInt(countOfCF.getText()));
         } else {
             hasWarning = true;
-            showWarning("Please check whether entered data is a number from 1 to 127.", notCheckWarnings);
+            showWarning("Please check whether entered data is a number from 1 to 5.", notCheckWarnings);
         }
 
         if (checkCompetitionName(competitionName.getText())){
@@ -141,11 +141,11 @@ public class CreateEditCompetitionController {
         return date != null;
     }
 
-    private boolean checkCountOfCF (String amountToBeChecked){
-        if(amountToBeChecked == null)
+    private boolean checkCountOfQ (String amountToBeChecked){
+        if(amountToBeChecked == null && !amountToBeChecked.matches("[0-9]+"))
             return false;
-
-        return amountToBeChecked.matches("^\\b([1-9]|[1-9][0-9]|1[01][0-9]|12[0-7])\\b$");
+        int correctAmountOFQ = Integer.parseInt(amountToBeChecked);
+        return correctAmountOFQ > 0 && correctAmountOFQ <= 5;
     }
 
     private boolean checkCompetitionName (String nameToBeChecked){

@@ -1,0 +1,37 @@
+@startuml
+
+class CompetitionStates
+class AddDriverController
+class AddJudgeController
+class QualificationController
+class Driver
+class Judge
+
+class RC_DriftController
+class CreateEditCompetitionController
+class CompetitionSingleton
+class SceneOpener
+class Competition
+class Qualification
+
+RC_DriftController --> CompetitionSingleton: Uses
+CreateEditCompetitionController --> CompetitionSingleton: Uses
+CreateEditCompetitionController --> SceneOpener: Uses
+AddDriverController --> CompetitionSingleton: Uses
+AddDriverController --> CreateEditCompetitionController: Uses
+AddJudgeController --> CompetitionSingleton: Uses
+AddJudgeController --> CreateEditCompetitionController: Uses
+QualificationController --> CompetitionSingleton: Uses
+QualificationController --> SceneOpener: Uses
+
+CompetitionStates -- AddDriverController: Association
+CompetitionStates -- AddJudgeController: Association
+CompetitionStates -- QualificationController: Association
+
+Driver --> AddDriverController: Association
+Judge --> AddJudgeController: Association
+
+Competition --> CompetitionSingleton: Uses
+Qualification --> Competition: Has
+
+@enduml
