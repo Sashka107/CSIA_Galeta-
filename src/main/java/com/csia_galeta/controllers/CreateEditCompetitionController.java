@@ -146,6 +146,8 @@ public class CreateEditCompetitionController {
                 startQualification.getScene().getWindow());
     }
 
+
+
     /**
      * Метод для отображения предупреждения если это нужно
      *
