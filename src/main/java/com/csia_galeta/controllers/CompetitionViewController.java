@@ -10,42 +10,37 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 
-/**
- * Class CompetitionViewController
- * Отвечает за поведение окна отображения уже созданного ранее соревнования
- *
- * @author Alexander G.
+/*
+ Class CompetitionViewController
+ responsible for the behavior of the window displaying a previously created competition.
  */
 public class CompetitionViewController {
 
     @FXML
-    private Label competitionName; // Переменная-ссылка на поле для отображения текста названия
+    private Label competitionName; // Variable - a reference to the field for displaying the title text.
     @FXML
-    private Label dateText; // Переменная-ссылка на поле для отображения текста даты
+    private Label dateText; // Variable - a reference to the field for displaying the date text.
     @FXML
-    private Label judgesNames; // Переменная-ссылка на поле для отображения текста имен судий
+    private Label judgesNames; // Variable - a reference to the field for displaying the text of judges' names.
     @FXML
-    private Label plannedStatus; // Переменная-ссылка на поле для отображения текста статуса
+    private Label plannedStatus; // Variable - a reference to the field for displaying the text of the status.
     @FXML
-    private Label qRounds; // Переменная-ссылка на поле для отображения текста количества раундов
+    private Label qRounds; // Variable - a reference to the field for displaying the text of the round count.
+    @FXML
+    private ListView<Driver> listView; // Variable - a reference to the list for displaying participants.
+    @FXML
+    private Button playBtn; // Variable - a reference to the button to start the competition.
+    @FXML
+    private Button backBtn; // Variable - a reference to the button to go back to the list of created competitions.
 
-    @FXML
-    private ListView<Driver> listView; // Переменная-ссылка на список для отображения участников
+    /*
+     This method is needed to load up-to-date information about the selected competition
+     into all the UI reference variables listed above.
 
-    @FXML
-    private Button playBtn; // Переменная-ссылка на кнопку по которой можно начать соревнование
-
-    @FXML
-    private Button backBtn; // Переменная-ссылка на кнопку по которой можно выйти назад к списку созданных соревнований
-
-    /**
-     * Метод нужен для того, чтобы загружать актуальную информацию о выбранном соревновании
-     * во все перечисленные выше переменные-ссылки UI
-     *
-     * @param competition - соревнование выбранное из списка уже созданных
+     @param competition - the competition selected from the list of already created ones.
      */
     public void load(Competition competition){
-        CompetitionSingleton.setCurrentCompetition(competition); // устанавливаем в текущее соревнование выбранное
+        CompetitionSingleton.setCurrentCompetition(competition); //  Set the selected competition into the current competition.
         competitionName.setText(competition.getCompetitionName());
         qRounds.setText(competition.getAmountOfQualifyingRounds() + "");
         dateText.setText(competition.getCompetitionDate());
@@ -54,38 +49,37 @@ public class CompetitionViewController {
         listView.getItems().addAll(competition.getListOfDrivers());
     }
 
-    /**
-     * Метод, который отвечает за выход назад к окну выбора соревнований из списка уже созданных,
-     * срабатывает по назатии на кнопку назад
+    /*
+     The method responsible for going back to the window for selecting competitions from the list of already created ones,
+     triggered by pressing the back button.
      */
     @FXML
     private void back(){
-        // получаем контроллер предыдущей сцены и закрываем текущую
+        // Getting the controller of the previous scene and close the current one.
         PrevCompetitionsController controller =
                 SceneOpener.openSceneAndReturnController("PrevCompetitions.fxml",
                 "All Saved Competitions",
                 backBtn.getScene().getWindow());
 
-        // открываем сцену
+        // Open the scene
         controller.showCompetitions(CompetitionSingleton.getInstance().getCompetitions());
     }
 
-
-    /**
-     * Метод срабатывает при нажатии на кнопку "начать соревнование" и открывает его в зависимости
-     * от текущего статуса завершенности
+    /*
+     This method is triggered when the "Start Competition" button is pressed and opens it depending on
+     the current completion status.
      */
     @FXML
     private void playCompetition(){
-        // в зависимости от статуса открываем разные сцены
+        // Depending on the status, different scenes are opened.
         switch (CompetitionSingleton.getCurrentCompetition().getCompetitionState()) {
-            case CompetitionStates.QUALIFICATION_IN_PROGRESS -> { // открываем квалификацию
+            case CompetitionStates.QUALIFICATION_IN_PROGRESS -> { // Qualifications are opened.
                 QualificationController controller = SceneOpener.openSceneAndReturnController("QualificationView.fxml",
                         "Qualification",
                         playBtn.getScene().getWindow());
                 controller.loadWindow();
             }
-            case CompetitionStates.PLANNED -> { // открываем редактирование
+            case CompetitionStates.PLANNED -> { // Competition editing is opened.
                 CreateEditCompetitionController controller = SceneOpener.openSceneAndReturnController(
                         "CreateOrEditCompetition.fxml",
                         "Edit Competition",
@@ -93,7 +87,7 @@ public class CompetitionViewController {
                 controller.loadToEditCompetition();
             }
             case CompetitionStates.RUN_IN_PAIRS_IN_PROGRESS, CompetitionStates.FINAL_ROUND ->
-            { // открываем парные заезды
+            { // Pair runs are opened.
                     System.out.println("RUN IN PAIRS OPEN");
 
                     P2PController controller2 = SceneOpener.openSceneAndReturnController("PairToPairView.fxml",
@@ -101,12 +95,12 @@ public class CompetitionViewController {
                         playBtn.getScene().getWindow());
                     controller2.load();
             }
-            case CompetitionStates.COMPETITION_IS_FINISHED -> { // открываем финальное окно результатов
+            case CompetitionStates.COMPETITION_IS_FINISHED -> { // Final window is opened.
                 FinalResultsController controller = SceneOpener.openSceneAndReturnController("FinalAfterPair.fxml", "Final Results"
                         , backBtn.getScene().getWindow());
                 controller.load();
             }
-            default -> { // на всякий случай обрабатываем случай если что-то пошло не правильно в статусах
+            default -> { // As a precaution, handling the case if something went wrong with the states.
                 Alert alertWarning = new Alert(Alert.AlertType.WARNING);
                 alertWarning.setTitle("Can`t Play!");
                 alertWarning.setContentText("You can`t play:\nCompetition already FINISHED");
@@ -114,5 +108,4 @@ public class CompetitionViewController {
             }
         }
     }
-
 }

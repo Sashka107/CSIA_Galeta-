@@ -9,82 +9,77 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
-
-/**
- * Class AddDriverController
- * Отвечает за добавления водителя к соревнованию
- *
- * @author Alexander G.
+/*
+ The AddDriverController class is responsible for adding a driver to the competition.
  */
 public class AddDriverController {
 
     @FXML
-    private TextField driverName; // переменная-ссылка на текстовое поле для ввода имени
+    private TextField driverName; // Variable - a reference to the text field for entering the name.
 
     @FXML
-    private TextField driverSurname; // переменная-ссылка на текстовое поле для ввода фамилии
+    private TextField driverSurname; // Variable - a reference to the text field for entering the surname.
 
     @FXML
-    private TextField driverNumber; // переменная-ссылка на текстовое поле для ввода номера
+    private TextField driverNumber; // Variable - a reference to the text field for entering the number.
 
     @FXML
-    private TextField driverTeam; // переменная-ссылка на текстовое поле для ввода команды
+    private TextField driverTeam; // Variable - a reference to the text field for entering the team.
 
     @FXML
-    private Button addDriverBtn; // переменная-ссылка на на кнопку, которая добавляет водителя
+    private Button addDriverBtn; // Variable - a reference to the button that adds a driver.
 
 
-    /**
-     * Функция вызывается при нажатии кнопки дабавить водителя и выполняет действие добавления
-     * водителя к текущему соревнованию
+    /*
+     The function is called when the "Add Driver" button is pressed
+     and performs the action of adding a driver to the current competition.
      */
     @FXML
     public void addDriver(){
-        Driver driver = new Driver(); // временный объект водителя для добавления
-        byte nSuccess = 0; // переменная для отслеживания успешных вводов данных о водителе
+        Driver driver = new Driver(); // Temporary driver object for addition.
+        byte nSuccess = 0; // Variable for tracking successful inputs of driver data.
 
-        if(driver.setNameD(driverName.getText())) // пробуем установить водителю текст с поля
-            nSuccess++; // если все хорошо - повышаем количество удачных вводов
+        if(driver.setNameD(driverName.getText())) // Attempting to set the driver's text from the input field.
+            nSuccess++; // If everything is good - increase the count of successful inputs.
         else
-            showWarning("Your name is incorrect"); // вызываем функцию отбражения ошибки
+            showWarning("Your name is incorrect"); // Calling the function to display an error.
 
-        if(driver.setSurnameD(driverSurname.getText())) // аналогично как выше
+        if(driver.setSurnameD(driverSurname.getText())) // Similarly as above.
             nSuccess++;
         else
             showWarning("Your surname is incorrect");
 
-        if(driver.setNumber(driverNumber.getText())) // аналогично как выше
+        if(driver.setNumber(driverNumber.getText())) // Similarly as above.
             nSuccess++;
         else
             showWarning("Number incorrect");
 
-        if(driver.setTeam(driverTeam.getText())) // аналогично как выше
+        if(driver.setTeam(driverTeam.getText())) // Similarly as above.
             nSuccess++;
         else
             showWarning("Your name is incorrect");
 
-        if(nSuccess == 4){ // если все поля про водителя введены правильно, то:
-            CompetitionSingleton.addDriverToTmpCompetition(driver); // добавляем водителя в текущее соревнование
+        if(nSuccess == 4){ // If all the fields regarding the driver are entered correctly, then:
+            CompetitionSingleton.addDriverToTmpCompetition(driver); // We add the driver to the current competition.
             System.out.println("Close driver window");
             Stage stage = (Stage) addDriverBtn.getScene().getWindow();
-            stage.close(); // закрываем окно добавления драйвера
+            stage.close(); // Close the driver addition window.
 
-            // открываем снова окно создания/редактирование соревнования
+            // Reopen the competition creation/editing window.
             CreateEditCompetitionController controller = SceneOpener.openSceneAndReturnController("CreateOrEditCompetition.fxml", "Create New Competition");
             controller.loadTmpCompetition();
         }
     }
 
+    /*
+     Function for displaying an error in case the driver's data contains errors.
 
-    /**
-     * Функция для отображения ошибки в случае если данные о водителе содержат ошибки
-     * @param message - строка с предупреждением в зависимости от места где ошибка возникает
+     @param message - a string with a warning depending on where the error occurs.
      */
     private void showWarning(String message){
         Alert warningsAlert = new Alert(Alert.AlertType.WARNING);
         warningsAlert.setHeaderText("Incorrect data");
         warningsAlert.setContentText(message);
-        warningsAlert.show(); // показываем ошибку-предупреждение
+        warningsAlert.show(); // Displaying an error-warning.
     }
-
 }

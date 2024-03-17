@@ -1,55 +1,50 @@
 package com.csia_galeta;
 
-
 import com.csia_galeta.people.Pair;
 import com.csia_galeta.ser.SceneOpener;
 import javafx.event.ActionEvent;
 import javafx.scene.control.*;
-
 import java.util.ArrayList;
 import java.util.List;
 
 
-/**
- * Class PairEditController
- * Этот класс является контроллером окна оценивания пары в заездах.
- * Описывает логику оценивания по заездам и также DeathMatch
- *
- * @author Alexander G.
+/*
+ Class PairEditController
+ This class serves as the controller for the pair evaluation window in races.
+ It describes the logic of evaluation during races and also DeathMatch.
  */
 public class PairEditController {
 
-    public TextField p1ScoreRace1; // переменная-ссылка для поля оценки первого игрока в первом заезде
-    public TextField p2ScoreRace1; // переменная-ссылка для поля оценки второго игрока в первом заезде
-    public TextField p2ScoreRace2; // переменная-ссылка для поля оценки второго игрока во втором заезде
-    public TextField p1ScoreRace2; // переменная-ссылка для поля оценки первого игрока во втором заезде
-    public MenuButton deathMatch; // переменная-ссылка для кнопки-меню deathMatch
-    public Label roundText; // переменная-ссылка для поля текущего заезда пары
-    public Button NextOrSaveBtn; // переменная-ссылка для кнопки "Сохранить или следующий заезд"
-    public Label d1Label; // переменная-ссылка для поля с информацией про первого игрока в первой гонке
-    public Label d2Label; // переменная-ссылка для поля с информацией про второго игрока в первой гонке
-    public Label d2Label2; // переменная-ссылка для поля с информацией про второго игрока во второй гонке
-    public Label d1Label2; // переменная-ссылка для поля с информацией про первого игрока во второй гонке
+    public TextField p1ScoreRace1; // Variable - reference to the field for evaluating the first player in the first race.
+    public TextField p2ScoreRace1; // Variable - reference to the field for evaluating the second player in the first race.
+    public TextField p2ScoreRace2; // Variable - reference to the field for evaluating the second player in the second race.
+    public TextField p1ScoreRace2; // Variable - reference to the field for evaluating the first player in the second race.
+    public MenuButton deathMatch; // Variable - reference to the DeathMatch menu button.
+    public Label roundText; // Variable - reference to the field for the current race of the pair.
+    public Button NextOrSaveBtn; // Variable - reference to the "Save or Next Race" button.
+    public Label d1Label; // Variable - reference to the field for information about the first player in the first race.
+    public Label d2Label; // Variable - reference to the field for information about the second player in the first race.
+    public Label d2Label2; // Variable - reference to the field for information about the second player in the second race.
+    public Label d1Label2; // Variable - reference to the field for information about the first player in the second race.
+    private int p1Score; // Score of the first driver.
+    private int p2Score; // Score of the second driver.
 
-    private int p1Score; // оценка первого игрока
-    private int p2Score; // оценка второго игрока
+    private int raceCount = 0; // Number of rounds within a pair.
+    private int roundCount = 1; // Number of races.
 
-    private int raceCount = 0; // количество заездов пары
-    private int roundCount = 1; // количество раундов
+    private Pair currentPair; // Pair which is being assessed.
 
-    private Pair currentPair; // пара, которая оценивается
+    /*
+     Method for loading information into the UI window about the pair.
 
-    /**
-     * метод для загрузки информации в UI окно про пару
-     *
-     * @param p пара для заездов и оценки
+     @param p the pair for races and evaluation
      */
     public void load(Pair p){
 
-        // сохраняем пару в переменную
+        // Saving into a variable.
         currentPair = p;
 
-        // устанавливаем текст в текстовые поля и выключаем не нужные кнопки
+        // Set text in text fields and disable unnecessary buttons.
         d1Label.setText(p.p1.toStringPairEdit());
         d1Label2.setText(p.p1.toStringPairEdit());
         d2Label.setText(p.p2.toStringPairEdit());
@@ -58,50 +53,48 @@ public class PairEditController {
         NextOrSaveBtn.setDisable(true);
     }
 
-    /**
-     * Метод устанавливает очки за первую гонку
-     */
+     // Method sets points for the first race.
     public void setScoreRace1(){
 
-        // если очки выставлены не корректно
+        // If the points are set incorrectly.
         if(!checkRaceScores(p1ScoreRace1) && !checkRaceScores(p2ScoreRace1)){
-            // высвечиваем предупреждение
+            // Display a warning.
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setHeaderText("Incorrect scores. Please provide from 0 to 10 and press enter");
             alert.show();
-            return; // выходим из функции
+            return; // Exit from the function.
         }
 
-        // если поле очков первого игрока в первом заезде не пустое
+        // If the first player's points field in the first race is not empty:
         if(!p1ScoreRace1.getText().isEmpty()){
-            // то преобразовываем текст из поля и устанавливаем в переменную для очков
+            // Then convert the text from the field and set it to the variable for points.
             int p1Score = Integer.parseInt(p1ScoreRace1.getText());
-            // второму игроку ставим остаток от очков, расчитывается так: 10 - очки первого игрока
+            // Set the remainder from the points to the second player, calculated as: 10 - points of the first player.
             p2ScoreRace1.setText(10 - p1Score + "");
 
-            // плюсуем общие очки за заезд для обоих участников
+            // Adding up the total points for the race for both participants.
             this.p1Score += p1Score;
             this.p2Score += 10 - p1Score;
-        }else if(!p2ScoreRace1.getText().isEmpty()){ // делаем то же самое только наоборот участники
+        }else if(!p2ScoreRace1.getText().isEmpty()){ // Doing the same thing but for the participants in reverse
             int p2Score = Integer.parseInt(p2ScoreRace1.getText());
             p1ScoreRace1.setText(10 - p2Score + "");
             this.p2Score += p2Score;
             this.p1Score += 10 - p2Score;
         }
 
-        // выключаем не нужные кнопки
+        // Switching off unnecessary buttons.
         p1ScoreRace1.setDisable(true);
         p2ScoreRace1.setDisable(true);
-        raceCount++; // увиличиваем количество заездов
+        raceCount++; // Increasing the amount of races.
         NextOrSaveBtn.setDisable(true);
 
-        // проверяем не окончен ли раунд
+        // Check whether the round is finished.
         checkForRound();
     }
 
-    /**
-     * Метод устанавливает очки за вторую гонку
-     * Метод полностью аналогичен методу выше, только делает для второго заезда
+    /*
+     Method for setting points for the second race
+     This method is completely analogous to the one above, but it does it for the second race
      */
     public void setScoreRace2(){
         if(!checkRaceScores(p1ScoreRace2) && !checkRaceScores(p2ScoreRace2)){
@@ -130,128 +123,124 @@ public class PairEditController {
         checkForRound();
     }
 
-    /**
-     * Метод для проверки правильности ввода очков для заезд для участника
-     *
-     * @return true - если очки корректны, false - если нет
+    /*
+     Method for checking the correctness of entering race points for a participant
+
+     @return true if the points are correct, false otherwise
      */
     private boolean checkRaceScores(TextField field){
 
-        // проверяем пусто поле и содержит ли оно не только цифры
+        // Checking if the field is empty and if it contains anything other than digits.
         if(field.getText().isEmpty() || !field.getText().matches("[0-9]+"))
-            return false; // если да - false
+            return false; // If yes - false
 
-        // если условия выше соблюдены - преобразовываем число
+        // If the above conditions are met, convert the number.
         int score = Integer.parseInt(field.getText());
-        return score >= 0 && score <= 10; // и проверяем находится ли число в диапазоне от 0 до 10
+        return score >= 0 && score <= 10; // And check if the number is within the range from 0 to 10.
     }
 
-    /**
-     * Метод для проверки сколько раундов уже сыграно парой
-     */
+
+    // Method for checking how many rounds have already been played by a pair.
     public void checkForRound(){
 
-        // елси раундов меньше или 2, то выходим из функции
+        // If the number of rounds is less than 2, then exit the function.
         if (raceCount != 2)
             return;
 
         System.out.println("P1 score = " + p1Score);
         System.out.println("P2 score = " + p2Score);
 
-        // если раундов 3 и очков по равну у обоих
+        // If there are 3 rounds and the points are equal for both:
         if(roundCount == 3 && p1Score == p2Score){
-            // то запускаем Death-Match
+            // Then initiate a Death-Match
             NextOrSaveBtn.setText("Death-Match");
             NextOrSaveBtn.setDisable(false);
             NextOrSaveBtn.setOnAction(actionEvent -> deathMatch());
-        } else if (p1Score == p2Score){ // если в раунде одинаково очков
-            // то продолжаем заезды как OMT
+        } else if (p1Score == p2Score){ // If the points are equal in the round:
+            // Then continue the races as OMT (One More Time).
             NextOrSaveBtn.setText("OMT");
             NextOrSaveBtn.setDisable(false);
             NextOrSaveBtn.setOnAction(actionEvent -> clearWindow());
         } else {
-            // в инном случае сохраняем результаты, то есть это означает
-            // что у кого-то больше очков а у кого-то меньше
+            // Otherwise, save the results, which means that someone
+            // has more points and someone has fewer.
             NextOrSaveBtn.setText("Save pair results");
             NextOrSaveBtn.setDisable(false);
             NextOrSaveBtn.setOnAction(actionEvent -> saveAndExit());
         }
     }
 
-    /**
-     * Метод для запуска death-match
-     */
+    // Method for Death-match initiation.
     private void deathMatch(){
 
-        // выключаем ненужные кнопки
+        // Disable unnecessary buttons.
         p1ScoreRace1.setDisable(true);
         p2ScoreRace1.setDisable(true);
         p1ScoreRace2.setDisable(true);
         p2ScoreRace2.setDisable(true);
 
-        // убераем все очки из полей
+        // Clear all points from the fields.
         p1ScoreRace1.setText("");
         p2ScoreRace1.setText("");
         p1ScoreRace2.setText("");
         p2ScoreRace2.setText("");
 
-        // обнуляем все переменные
+        // Reset all variables to zero.
         p1Score = 0;
         p2Score = 0;
         raceCount = 0;
         roundCount++;
 
-        // устанавливаем заголовок
+        // Set the title.
         roundText.setText("Death-match");
 
         List<MenuItem> items = new ArrayList<>();
 
-        // формируем выбор кто выиграл в кнопку-меню
+        // Formulate the selection of the winner in the menu button.
         for(int i = 0; i < 2; i++){
             MenuItem item = new MenuItem("Player " + (i+1));
             item.setOnAction(event -> setWinnerDeathMatch(event));
             items.add(item);
         }
 
-        // добавляем пункты меню, кто выиграл
+        // Add menu items for determining the winner.
         deathMatch.getItems().addAll(items);
 
-        // включаем и выключаем кнопки
+        // Enabling and disabling buttons.
         deathMatch.setDisable(false);
         NextOrSaveBtn.setDisable(true);
     }
 
 
-    /**
-     * Метод для сохранения и выхода из окна оценки участников пары
-     */
+
+    // Method for saving and exiting the assessment window for pair participants.
     private void saveAndExit(){
 
-        // проверяем кто выиграл - того и ставим победителем пары
+        // Check who won - the one who won is set as the winner of the pair.
         if(p1Score > p2Score) {
             currentPair.setWinner(currentPair.getP1());
         } else {
             currentPair.setWinner(currentPair.getP2());
         }
 
-        // возвращаемся на окно всех пар
+        // Return to the window with all pairs.
         P2PController controller2 = SceneOpener.openSceneAndReturnController("PairToPairView.fxml",
                 "Runs in pairs",
                 p1ScoreRace1.getScene().getWindow());
         controller2.load();
     }
 
-    /**
-     * Метод для установки кто выиграл в death-match
-     *
-     * @param event событие при клике на кнопку
+    /*
+     Method for setting the winner in a Death-Match
+
+     @param event the event when clicking on the button
      */
     private void setWinnerDeathMatch(ActionEvent event){
 
-        // получаем пункт из кнопки-меню из события нажатия
+        // Retrieve the item from the menu button from the click event.
         MenuItem n = (MenuItem) event.getSource();
 
-        // проверяем кого было выбрано и ставим победителем
+        // Check who was selected and set them as the winner.
         if(n.getText().equals("Player 1"))
             currentPair.setWinner(currentPair.getP1());
         else
@@ -259,46 +248,42 @@ public class PairEditController {
 
         deathMatch.setText(n.getText());
 
-        // ставим текст в кнопку и разрешаем нажатие
+        // Set text in the button and enable clicking.
         NextOrSaveBtn.setText("Save and exit");
         NextOrSaveBtn.setDisable(false);
         NextOrSaveBtn.setOnAction(actionEvent -> saveAndExitAfterDeathMatch());
     }
 
-    /**
-     * Метод для сохранения и выхода после death-match
-     */
+    // Method for saving and exiting after a Death-Match.
     private void saveAndExitAfterDeathMatch(){
-        // далаем возврат к окну с парами
+        // Return to the window with pairs.
         P2PController controller2 = SceneOpener.openSceneAndReturnController("PairToPairView.fxml",
                 "Runs in pairs",
                 p1ScoreRace1.getScene().getWindow());
         controller2.load();
     }
 
-    /**
-     * Метод для отчистки окна оценки пары, используется между заездами пары OMT
-     */
+    // Method for clearing the pair assessment window, used between OMT pair races.
     private void clearWindow(){
-        // включаем нужные поля для ввода очков
+        // Enable the necessary fields for entering points.
         p1ScoreRace1.setDisable(false);
         p2ScoreRace1.setDisable(false);
         p1ScoreRace2.setDisable(false);
         p2ScoreRace2.setDisable(false);
 
-        // убераем текст из полей для очков
+        // Remove the text from the score fields.
         p1ScoreRace1.setText("");
         p2ScoreRace1.setText("");
         p1ScoreRace2.setText("");
         p2ScoreRace2.setText("");
 
-        // обнуляем переменные
+        // Reset variables to zero.
         p1Score = 0;
         p2Score = 0;
         raceCount = 0;
         roundCount++;
 
-        // меняем текст и выключаем кнопку
+        // Changing text and disabling button.
         roundText.setText("Round: " + roundCount);
         NextOrSaveBtn.setDisable(true);
     }

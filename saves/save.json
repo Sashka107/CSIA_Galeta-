@@ -984,47 +984,229 @@
       "listOfPairs": []
     },
     {
-      "competitionName": "TEEEE",
-      "competitionState": "Planned",
-      "competitionDate": "08-Feb-2024",
-      "amountOfQualifyingRounds": 2,
+      "competitionName": "Hello",
+      "competitionState": "Qualification In Progress",
+      "competitionDate": "21-Mar-2024",
+      "amountOfQualifyingRounds": 5,
       "listOfDrivers": [
         {
           "driverName": "11",
           "driverSurname": "11",
-          "number": 323,
-          "team": "21",
-          "qualificationScore": []
+          "number": 11,
+          "team": "11",
+          "qualificationScore": [
+            45,
+            23,
+            12
+          ]
         },
         {
-          "driverName": "23",
-          "driverSurname": "33",
-          "number": 33,
-          "team": "33",
+          "driverName": "22",
+          "driverSurname": "22",
+          "number": 22,
+          "team": "22",
           "qualificationScore": []
         },
         {
           "driverName": "33",
           "driverSurname": "33",
-          "number": 44,
+          "number": 33,
           "team": "33",
+          "qualificationScore": [
+            100,
+            30,
+            54,
+            45,
+            45
+          ]
+        },
+        {
+          "driverName": "44",
+          "driverSurname": "44",
+          "number": 44,
+          "team": "44",
           "qualificationScore": []
         },
         {
-          "driverName": "23",
-          "driverSurname": "22",
-          "number": 34,
-          "team": "34234",
+          "driverName": "55",
+          "driverSurname": "55",
+          "number": 55,
+          "team": "55",
           "qualificationScore": []
         }
       ],
       "qualificationOfDrivers": [],
       "listOfJudges": [
         {
-          "judgeName": "32",
-          "judgeSurname": "32"
+          "judgeName": "442",
+          "judgeSurname": "424"
         }
       ],
+      "qualification": {
+        "randIndexes": [
+          2,
+          0,
+          4,
+          1,
+          3
+        ]
+      },
+      "listOfPairs": []
+    },
+    {
+      "competitionName": "Тест ",
+      "competitionState": "Qualification In Progress",
+      "competitionDate": "21-Mar-2024",
+      "amountOfQualifyingRounds": 1,
+      "listOfDrivers": [
+        {
+          "driverName": "11",
+          "driverSurname": "11",
+          "number": 11,
+          "team": "11",
+          "qualificationScore": [
+            54
+          ]
+        },
+        {
+          "driverName": "11",
+          "driverSurname": "11",
+          "number": 11,
+          "team": "11",
+          "qualificationScore": [
+            45
+          ]
+        },
+        {
+          "driverName": "22",
+          "driverSurname": "22",
+          "number": 22,
+          "team": "22",
+          "qualificationScore": [
+            56
+          ]
+        },
+        {
+          "driverName": "22",
+          "driverSurname": "22",
+          "number": 22,
+          "team": "22",
+          "qualificationScore": [
+            89
+          ]
+        }
+      ],
+      "qualificationOfDrivers": [],
+      "listOfJudges": [
+        {
+          "judgeName": "енг",
+          "judgeSurname": "про"
+        }
+      ],
+      "qualification": {
+        "randIndexes": [
+          2,
+          3,
+          0,
+          1
+        ]
+      },
+      "listOfPairs": []
+    },
+    {
+      "competitionName": "wfr",
+      "competitionState": "Planned",
+      "competitionDate": "13-Mar-2025",
+      "amountOfQualifyingRounds": 1,
+      "listOfDrivers": [
+        {
+          "driverName": "23",
+          "driverSurname": "23",
+          "number": 23,
+          "team": "23",
+          "qualificationScore": []
+        },
+        {
+          "driverName": "23",
+          "driverSurname": "23",
+          "number": 23,
+          "team": "23",
+          "qualificationScore": []
+        },
+        {
+          "driverName": "23",
+          "driverSurname": "232",
+          "number": 23,
+          "team": "23",
+          "qualificationScore": []
+        },
+        {
+          "driverName": "23",
+          "driverSurname": "23",
+          "number": 23,
+          "team": "23",
+          "qualificationScore": []
+        }
+      ],
+      "qualificationOfDrivers": [],
+      "listOfJudges": [
+        {
+          "judgeName": "wr",
+          "judgeSurname": "rw"
+        }
+      ],
+      "listOfPairs": []
+    },
+    {
+      "competitionName": "dfs",
+      "competitionState": "Qualification In Progress",
+      "competitionDate": "21-Mar-2024",
+      "amountOfQualifyingRounds": 1,
+      "listOfDrivers": [
+        {
+          "driverName": "34",
+          "driverSurname": "34",
+          "number": 34,
+          "team": "34",
+          "qualificationScore": []
+        },
+        {
+          "driverName": "34",
+          "driverSurname": "34",
+          "number": 4,
+          "team": "343",
+          "qualificationScore": []
+        },
+        {
+          "driverName": "3434",
+          "driverSurname": "343",
+          "number": 34,
+          "team": "4",
+          "qualificationScore": []
+        },
+        {
+          "driverName": "3434",
+          "driverSurname": "3434",
+          "number": 343,
+          "team": "3434",
+          "qualificationScore": []
+        }
+      ],
+      "qualificationOfDrivers": [],
+      "listOfJudges": [
+        {
+          "judgeName": "fsf",
+          "judgeSurname": "sfdsf"
+        }
+      ],
+      "qualification": {
+        "randIndexes": [
+          3,
+          1,
+          0,
+          2
+        ]
+      },
       "listOfPairs": []
     }
   ]

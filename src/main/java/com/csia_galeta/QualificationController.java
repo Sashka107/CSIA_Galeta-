@@ -9,121 +9,112 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.input.MouseEvent;
-
 import java.util.List;
 
-/**
- * Class QualificationController
- * Этот класс является контроллером для окна квалификации,
- * описывает свойства и функционал квалификации
- *
- * @author Alexander G.
+/*
+ Class QualificationController
+ This class is the controller for the qualification window,
+ describing the properties and functionality of the qualification
  */
 public class QualificationController  {
 
     @FXML
-    private ListView<Driver> listView; // переменная-ссылка на список водителей
+    private ListView<Driver> listView; // Variable-reference to the list of drivers.
 
     @FXML
-    private Button saveAndExitBtn; // переменная-ссылка на кнопку выйти
+    private Button saveAndExitBtn; // Variable-reference to the exit button.
 
-    /**
-     * метод для загрузки данных в окно UI
-     */
+    // Method for loading data into the UI window.
     public void loadWindow(){
-        // получаем текущее соревнование
+        // Getting the current competition.
         Competition c = CompetitionSingleton.getCurrentCompetition();
 
-        // берем из соревнования список водителей
+        // Taking the list of drivers from the competition.
         List<Driver> driversFromCompetition = c.getListOfDrivers();
 
-        // добавляем водителей по случайным индексам в UI
+        // Adding drivers to the UI based on random indices.
         for(int i = 0; i < driversFromCompetition.size(); i++){
             listView.getItems().addAll(driversFromCompetition.get(c.getQualification().getRandNums()[i]));
         }
     }
 
-    /**
-     * Метод для отслеживания клика по водителю в окне квалификации
-     *
-     * @param mouseEvent событие, которое срабатывает при нажатии на водителя
+    /*
+     Method for tracking clicks on a driver in the qualification window
+
+     @param mouseEvent - the event triggered when clicking on a driver
      */
     @FXML
     public void handleClickOnDriver(MouseEvent mouseEvent){
         System.out.println(listView.getSelectionModel().getSelectedItem().toString());
 
-        // запускаем функцию изменения очков для выбранного водителя
+        // Initiating the function to change points for the selected driver.
         changeQScores(listView.getSelectionModel().getSelectedItem());
     }
 
-    /**
-     * Метод для изменение очков для выбранного водителя
-     *
-     * @param d водитель, которого будем оценивать квалификацию
+    /*
+     Method for changing points for the selected driver
+
+     @param d - the driver to evaluate in the qualification
      */
     @FXML
     public void changeQScores(Driver d){
-        // открываем окно оценки квалификации
+        // Opening the qualification assessment window.
         DriverQualificationAddController controller = SceneOpener.openSceneAndReturnController("UserQualificationAddScore.fxml",
                 "Change Driver Q Scores",
                 listView.getScene().getWindow());
         controller.load(d);
     }
 
-    /**
-     * Метод для сохранения и выхода по нажатию на кнопку назад
-     */
+    // Method for saving and exiting when the back button is pressed.
     @FXML
     private void saveAndExit(){
-        // сохраняет текущее соревнование
+        // Save the current competition.
         CompetitionSingleton.saveCurrentCompetition();
 
-        // выходит на главный экран
+        // Navigate to the main screen.
         SceneOpener.openSceneAndReturnController("RC_Drift.fxml", "Main View", saveAndExitBtn.getScene().getWindow());
     }
 
-    /**
-     * Метод, который отвечает за переход на окно парных заездов
-     */
+    // Method responsible for transitioning to the paired races window.
     @FXML
     private void proceedToRunInPairs(){
-        // получаем список участников в квалификации
+        // Getting the list of participants in the qualification
         List<Driver> drivers = CompetitionSingleton.getCurrentCompetition().getListOfDrivers();
 
-        // проверяем у всех ли поставлена оценка за все заезды квалификации
+        // Checking if everyone has been scored for all qualification races.
         for(Driver d : drivers){
-            // если у кого-то не поставлена
+            // If someone hasn't been scored.
             if(d.getLastCompletedQRound() < CompetitionSingleton.getCurrentCompetition().getAmountOfQualifyingRounds()){
-                // высвечиваем ошибку
+                // Throwing an error.
                 Alert warn = new Alert(Alert.AlertType.ERROR);
                 warn.setContentText("Fill all qualification scores for all drivers");
                 warn.show();
-                return; // выходим из функции
+                return; // Exit the function.
             }
         }
 
-        // если у всех есть все оценки,то:
-        // сортируем список от большей оценки до меньшей
+        // If everyone has all scores:
+        // Sort the list from highest score to lowest.
         getBestAndSort(drivers);
 
-        // проводим необходимые обновления данных и сохранения
+        // Perform necessary data updates and saves.
         CompetitionSingleton.getCurrentCompetition().setQualificationOfDrivers(drivers);
         CompetitionSingleton.saveCurrentCompetition();
         ChooseCompetitionTable.prepareDriversForPairRuns(drivers);
         CompetitionSingleton.getCurrentCompetition().setCompetitionStateRunInPairsInProgress();
         CompetitionSingleton.saveCurrentCompetition();
 
-        // открываем окно парных заездов
+        // Open the window of pair runs.
         P2PController controller = SceneOpener.openSceneAndReturnController("PairToPairView.fxml",
                 "Run in pairs",
                 listView.getScene().getWindow());
         controller.load();
     }
 
-    /**
-     * Метод для сортировки и вывода на консоль водителей по лучшим оценкам
-     *
-     * @param drivers список водителей для сортировки и вывода
+    /*
+     Method for sorting and printing drivers to the console based on their best scores.
+
+     @param drivers the list of drivers to be sorted and printed
      */
     public void getBestAndSort(List<Driver> drivers) {
         System.out.println("This is a sorted array of driver's best scores: ");
@@ -133,11 +124,11 @@ public class QualificationController  {
         }
     }
 
-    /**
-     * Метод, который выполяет сортировку водителей по алгоритму Selection Sort
-     * По параметру лучших очков в квалификации от большего к меньшему
-     *
-     * @param drivers список водителей для сортировки
+    /*
+     Method that performs sorting of drivers using the Selection Sort algorithm
+     Based on the parameter of best scores in the qualification from largest to smallest.
+
+     @param drivers - the list of drivers to be sorted
      */
     public void selectionSort(List<Driver> drivers) {
         int n = drivers.size();

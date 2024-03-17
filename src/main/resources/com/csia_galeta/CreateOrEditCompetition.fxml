@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- XML declaration specifying encoding and version -->
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.DatePicker?>
@@ -7,63 +8,114 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
+<!-- Imports for JavaFX classes used in the FXML -->
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="648.0" prefWidth="663.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.csia_galeta.controllers.CreateEditCompetitionController">
+   <!-- AnchorPane element with specific attributes for size and controller class -->
+
    <children>
+      <!-- Child elements of the AnchorPane -->
+
       <Label fx:id="mainText" layoutX="265.0" layoutY="31.0" prefHeight="26.0" prefWidth="143.0" text="New competition">
+         <!-- Label element for displaying "New competition" with specific layout positions and size -->
          <font>
             <Font name="System Bold" size="20.0" />
+            <!-- Font properties for the label -->
          </font>
       </Label>
-      <Button fx:id="addDrivers" layoutX="33.0" layoutY="82.0" mnemonicParsing="false" onAction="#openAddDrivers" prefHeight="39.0" prefWidth="121.0" text="Add driver ">
-         <font>
-            <Font size="20.0" />
-         </font></Button>
-      <Button fx:id="addJudges" layoutX="177.0" layoutY="82.0" mnemonicParsing="false" onAction="#addJudges" prefHeight="39.0" prefWidth="121.0" text="Add judge ">
-         <font>
-            <Font size="20.0" />
-         </font></Button>
-      <Label layoutX="31.0" layoutY="505.0" text="Set a number of qualifying rounds :">
-         <font>
-            <Font size="20.0" />
 
+      <Button fx:id="addDrivers" layoutX="33.0" layoutY="82.0" mnemonicParsing="false" onAction="#openAddDrivers" prefHeight="39.0" prefWidth="121.0" text="Add driver ">
+         <!-- Button element for adding drivers with specific ID, layout positions, action event handler, text, and size -->
+         <font>
+            <Font size="20.0" />
+            <!-- Font properties for the button text -->
+         </font>
+      </Button>
+
+      <Button fx:id="addJudges" layoutX="177.0" layoutY="82.0" mnemonicParsing="false" onAction="#addJudges" prefHeight="39.0" prefWidth="121.0" text="Add judge ">
+         <!-- Button element for adding judges with specific ID, layout positions, action event handler, text, and size -->
+         <font>
+            <Font size="20.0" />
+            <!-- Font properties for the button text -->
+         </font>
+      </Button>
+
+      <Label layoutX="31.0" layoutY="505.0" text="Set a number of qualifying rounds :">
+         <!-- Label element for displaying "Set a number of qualifying rounds :" with specific layout positions and size -->
+         <font>
+            <Font size="20.0" />
+            <!-- Font properties for the label text -->
          </font>
       </Label>
+
       <Label layoutX="251.0" layoutY="150.0" text="Date :">
+         <!-- Label element for displaying "Date :" with specific layout positions and size -->
          <font>
             <Font size="20.0" />
+            <!-- Font properties for the label text -->
          </font>
       </Label>
+
       <Label layoutX="33.0" layoutY="150.0" text="Name :">
+         <!-- Label element for displaying "Name :" with specific layout positions and size -->
          <font>
             <Font size="20.0" />
+            <!-- Font properties for the label text -->
          </font>
       </Label>
+
       <TextField fx:id="competitionName" layoutX="104.0" layoutY="147.0" prefHeight="32.0" prefWidth="100.0">
+         <!-- TextField element for entering competition name with specific ID, layout positions, and size -->
          <font>
             <Font size="20.0" />
-         </font></TextField>
+            <!-- Font properties for the text field -->
+         </font>
+      </TextField>
+
       <TextField fx:id="countOfCF" layoutX="337.0" layoutY="499.0" prefHeight="32.0" prefWidth="42.0">
+         <!-- TextField element for entering count of qualifying rounds with specific ID, layout positions, and size -->
          <font>
             <Font size="20.0" />
-         </font></TextField>
+            <!-- Font properties for the text field -->
+         </font>
+      </TextField>
+
       <ListView fx:id="listView" layoutX="32.0" layoutY="243.0" prefHeight="236.0" prefWidth="599.0" style="-fx-font-size: 20.0" />
+      <!-- ListView element for displaying a list of items with specific ID, layout positions, and size -->
+
       <Button fx:id="startQualification" layoutX="384.0" layoutY="559.0" mnemonicParsing="false" onAction="#startCompetition" prefHeight="39.0" prefWidth="143.0" text="Start stage ">
+         <!-- Button element for starting the competition with specific ID, layout positions, action event handler, text, and size -->
          <font>
             <Font size="20.0" />
-         </font></Button>
+            <!-- Font properties for the button text -->
+         </font>
+      </Button>
+
       <Button layoutX="98.0" layoutY="559.0" mnemonicParsing="false" onAction="#saveCompetitionOnClick" prefHeight="39.0" prefWidth="232.0" text="Save competition ">
+         <!-- Button element for saving the competition with specific layout positions, action event handler, text, and size -->
          <font>
             <Font size="20.0" />
-         </font></Button>
+            <!-- Font properties for the button text -->
+         </font>
+      </Button>
+
       <DatePicker fx:id="datePicked" layoutX="312.0" layoutY="147.0" prefHeight="32.0" prefWidth="191.0" style="-fx-font-size: 20.0" />
+      <!-- DatePicker element for selecting a date with specific ID, layout positions, and size -->
+
       <Label layoutX="33.0" layoutY="195.0" text="Judges :">
+         <!-- Label element for displaying "Judges :" with specific layout positions and size -->
          <font>
             <Font size="20.0" />
-         </font></Label>
+            <!-- Font properties for the label text -->
+         </font>
+      </Label>
+
       <Label fx:id="judgesLabel" layoutX="123.0" layoutY="195.0" prefHeight="26.0" prefWidth="508.0">
+         <!-- Label element for displaying judges with specific ID, layout positions, and size -->
          <font>
             <Font size="20.0" />
-         </font></Label>
+            <!-- Font properties for the label text -->
+         </font>
+      </Label>
    </children>
 </AnchorPane>

@@ -8,41 +8,38 @@ import javafx.stage.Window;
 
 import java.io.IOException;
 
-/**
- * Class SceneOpener
- * Этот утилитарный класс содержит методы для открытия окон
- * программы и обращения к их контроллерам
- *
- * @author Alexander G.
+/*
+ Class SceneOpener
+ This utility class contains methods for opening windows
+ of the program and accessing their controllers.
  */
 public class SceneOpener {
 
-    /**
-     * Этот статический метод открывает сцену/окно и возвращает её контроллер
-     * для дальнейшего управления
-     *
-     * @return контроллер сцены, которая будет открыта
-     * @param fxmlName название окна, которое нужно открыть
-     * @param sceneTitle название окна, которое нужно установить для открываемого окна
-     * @param sceneToClose сцена, которую нужно закрыть - предыдущая сцена/окно
+    /*
+     This static method opens the scene/window and returns its controller
+     for further management.
+
+     @return The controller of the scene that will be opened
+     @param fxmlName The name of the window to be opened
+     @param sceneTitle The title of the window to be set for the opened window
+     @param sceneToClose The scene to be closed - the previous scene/window
      */
     public static <T> T openSceneAndReturnController(String fxmlName, String sceneTitle, Window sceneToClose){
 
-        // загружаем разметку открываемой сцены
+        // Load the layout of the scene to be opened
         FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource(fxmlName));
 
-        // создаем, но не инициализируем объект сцены
+        // Create but do not initialize the scene object
         Scene scene;
 
-        // пробуем инициализировать/загрузить сцену по названию файла разметки
+        // Attempt to initialize/load the scene by the markup file name
         try{
             scene = new Scene(fxmlLoader.load());
-        } catch (IOException e) { // если не получилось
+        } catch (IOException e) { // If unsuccessful.
             throw new RuntimeException(e);
         }
 
-        // если все получилось, то выполняем открытие сцены, установку заголовка,
-        // закрытие прошлой сцены и возврат контроллера
+        // If successful, open the scene, set the title, close the previous scene, and return the controller.
         Stage newStage = new Stage();
         newStage.setTitle(sceneTitle);
         newStage.setScene(scene);
@@ -51,31 +48,31 @@ public class SceneOpener {
         return fxmlLoader.getController();
     }
 
-    /**
-     * Этот статический метод открывает сцену/окно и возвращает её контроллер
-     * для дальнейшего управления. Не закрывает прошлую сцену/окно
-     *
-     * @return контроллер сцены, которая будет открыта
-     * @param fxmlName название окна, которое нужно открыть
-     * @param sceneTitle название окна, которое нужно установить для открываемого окна
+    /*
+     This static method opens the scene/window and returns its controller for further management.
+     It does not close the previous scene/window.
+
+     @return The controller of the scene that will be opened.
+     @param fxmlName The name of the window to be opened.
+     @param sceneTitle The title of the window to be set for the opened window.
      */
     public static <T> T openSceneAndReturnController(String fxmlName, String sceneTitle){
 
-        // загружаем разметку открываемой сцены
+        // Load the layout of the scene to be opened.
         FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource(fxmlName));
 
-        // создаем, но не инициализируем объект сцены
+        // Create but do not initialize the scene object.
         Scene scene;
 
-        // пробуем инициализировать/загрузить сцену по названию файла разметки
+        // Try to initialize/load the scene using the FXML file name.
         try{
             scene = new Scene(fxmlLoader.load());
-        } catch (IOException e) { // если не получилось
+        } catch (IOException e) { // If unsuccessful.
             throw new RuntimeException(e);
         }
 
-        // если все получилось, то выполняем открытие сцены, установку заголовка
-        // и возврат контроллера, без закрытия прошлой сцены
+        // If successful, open the scene, set the title,
+        // and return the controller without closing the previous scene
         Stage newStage = new Stage();
         newStage.setTitle(sceneTitle);
         newStage.setScene(scene);

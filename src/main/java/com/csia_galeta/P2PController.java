@@ -15,37 +15,35 @@ import javafx.scene.input.MouseEvent;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Class P2PController
- * Этот класс является контроллером окна парных заездов и содержит в себе логику и функционал
- * переключения между сетками турнира и самим процессом парных заездов до самого завершения соревнования
- *
- * @author Alexander G.
+/*
+ Class P2PController
+ This class serves as the controller for the pair runs window and contains the logic and functionality
+ for switching between tournament grids and the runs in pair process until the competition is completed.
  */
 public class P2PController {
 
-    public Button saveAndExitBtn; // переменная-ссылка на кнопку выхода
-    public Button nextNet; // переменная-ссылка на кнопку к следующему этапу
-    public Label windowTitle; // переменная-ссылка на поле отображающее заголовок окна
+    public Button saveAndExitBtn; // Variable - reference to the exit button.
+    public Button nextNet; // Variable - reference to the button for proceeding to the next stage.
+    public Label windowTitle; // Variable - reference to the field displaying the window title.
     @FXML
-    private ListView<Pair> pairListView = new ListView<>(); // переменная-ссылка на список пар
+    private ListView<Pair> pairListView = new ListView<>(); // Variable - reference to the list of pairs.
 
-    /**
-     * Метод, который срабатывает при нажатии на пару из списка
-     * Открывает пару для оценивания и т.д.
-     *
-     * @param mouseEvent событие клика по паре
+    /*
+     Method triggered when a pair is clicked from the list.
+     Opens the pair for evaluation, etc.
+
+     @param mouseEvent - the mouse click event on the pair
      */
     @FXML
     public void handleClickOnPair(MouseEvent mouseEvent){
 
-        // получаем объект пары по которой было нажатие
+        // Obtain the pair object that was clicked.
         Pair p = pairListView.getSelectionModel().getSelectedItem();
 
-        // если пара не пуста
+        // If pair is not empty.
         if(p != null){
-            if(p.getWinner() != null){ // если есть победитель
-                // отображаем предупреждение и выходим из метода
+            if(p.getWinner() != null){ // If the winner exists.
+                // Display a warning and exit the method.
                 Alert alert = new Alert(Alert.AlertType.WARNING);
                 alert.setContentText("This pair already get scores");
                 alert.setHeaderText("Pair can`t be edited");
@@ -53,85 +51,82 @@ public class P2PController {
                 return;
             }
 
-            // если победителя ещё нет - открываем оценивание пары
+            // If there is no winner yet, open the evaluation of the pair.
             editPair(p);
         }
     }
 
-    /**
-     * Метод для загрузки информации для парных заездов в окно UI
-     */
+
+    // Method for loading information for head-to-head races into the UI window.
     public void load(){
-        // если соревнование же на финальном раунде
+        // If the competition is in the final round:
         if(CompetitionSingleton.getCurrentCompetition().getCompetitionState()
                 .equals(CompetitionStates.FINAL_ROUND)){
 
-            // то устанавливаем все необходимые поля UI нужный текст
+            // Set all necessary UI fields to the required text.
             windowTitle.setText("Final");
-            saveAndExitBtn.setDisable(true); // выключаем кнопку выхода, запрещаем выход
+            saveAndExitBtn.setDisable(true); // Disable the exit button and prohibit exiting.
             nextNet.setText("Finish competition");
 
-            // устанавливаем на кнопку "К следующему этапу" выполнение другой функции завершения
+            // Set a different function execution for the "Next Stage" button.
             nextNet.setOnAction(event -> finish());
 
-            // загружаем и ставим в UI список всех пар
+            // Load and set the list of all pairs in the UI.
             pairListView.getItems().setAll(CompetitionSingleton.getCurrentCompetition().getListOfPairs());
             return;
         }
 
-        // если список пар ещё не был создан или был пуст
+        // If the list of pairs has not been created or is empty:
         if(CompetitionSingleton.getCurrentCompetition().getListOfPairs() == null ||
                 CompetitionSingleton.getCurrentCompetition().getListOfPairs().isEmpty()){
 
-            // то создаем список пар
+            // Then create the list of pairs.
             CompetitionSingleton.getCurrentCompetition().setListOfPairs(Pair.createPairs(CompetitionSingleton.getCurrentCompetition().getListOfDrivers()));
 
-            // и сохраняем его в файл JSON вместе с соревнованием
+            // And save it to a JSON file along with the competition.
             CompetitionSingleton.saveCurrentCompetition();
         }
 
-        // загружаем и ставим в UI список всех пар
+        // Load and set the list of all pairs in the UI.
         pairListView.getItems().setAll(CompetitionSingleton.getCurrentCompetition().getListOfPairs());
     }
 
-    /**
-     * Метод для перехода к следующему этапу парных заездов
-     */
+
+    // Method for advancing to the next stage of head-to-head races.
     public void toNextNet(){
         System.out.println("Next net activate");
 
-        // проверка все-ли пары не были оценены
+        // Check if all pairs have been evaluated.
         if(!checkAllWinners()){
-            // если не оценены - высвечиваем предупреждение
+            // If not evaluated, display a warning.
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setHeaderText("Not all pairs has winners");
             alert.show();
-            return; // выходим из функции
+            return; // Exit the method.
         }
 
-        // если участников осталось 4 - запускаем последнюю игру
+        // If there are 4 participants left, start the final game.
         if(CompetitionSingleton.getCurrentCompetition().getListOfDrivers().size() == 4){
             finalPlay();
-            return; // выходим из функции
+            return; // Exit from method.
         }
 
-        // создаем следующую сетку заездов пар
+        // Create the next pair race grid.
         generateNextNet();
     }
 
-    /**
-     * Метод для финальных заездов пар в соревновании
-     */
+
+    // Method for final head-to-head races in the competition.
     private void finalPlay(){
         System.out.println("final play");
 
-        // формируем пары для финала и заезда за 3-е место
+        // Form pairs for the final and the race for 3rd place.
         Pair winners = new Pair();
         winners.setPairNum(1);
         Pair losers = new Pair();
         losers.setPairNum(2);
 
-        // победители в пару за финал и проигравших в пару за 3-е место из пар полуфинала
+        // Winners into the final pair and losers into the 3rd place pair from the semifinal pairs.
         for(var pair : CompetitionSingleton.getCurrentCompetition().getListOfPairs()){
             winners.addDriver(pair.winner);
             if(pair.p1.equals(pair.winner)){
@@ -141,37 +136,36 @@ public class P2PController {
             }
         }
 
-        // создаем новый список пар для финала
+        // Create a new list of pairs for the final.
         List<Pair> newPairs = new ArrayList<>(2);
         newPairs.add(winners);
         newPairs.add(losers);
 
-        // заменяем прошлый список пар финальным списком, сохраняем все
+        // Replace the previous list of pairs with the final list, then save everything.
         CompetitionSingleton.getCurrentCompetition().setListOfPairs(newPairs);
         CompetitionSingleton.getCurrentCompetition().setCompetitionStateFinalRound();
         CompetitionSingleton.saveCurrentCompetition();
 
-        // устанавливаем все необходимые поля UI нужный текст
+        // Set all necessary UI fields to the required text.
         windowTitle.setText("Final");
         saveAndExitBtn.setDisable(true);
         nextNet.setText("Finish competition");
 
-        // устанавливаем на кнопку "К следующему этапу" выполнение другой функции завершения
+        // Set a different function execution for the "Next Stage" button.
         nextNet.setOnAction(event -> finish());
 
-        // подгружаем в окно заново информацию о парах, теперь уже финал
+        // Reload the information about pairs into the window, now for the final.
         load();
     }
 
-    /**
-     * Метод для генерации следующей сетки парных заездов
-     */
+
+    // Method for generating the next grid of head-to-head races.
     private void generateNextNet(){
         System.out.println("Generating next net");
 
         List<Driver> newDrivers = new ArrayList<>();
 
-        // формируем пары из победителей из прошлой сетки
+        // Form pairs from the winners of the previous grid.
         for(var pair : CompetitionSingleton.getCurrentCompetition().getListOfPairs()){
             if(pair.getWinner() != null)
                 newDrivers.add(pair.getWinner());
@@ -179,51 +173,51 @@ public class P2PController {
                 throw new NullPointerException("Winner in pair is null to create next net drivers list");
         }
 
-        // делаем необходимые сохранения и обновления в списке участников
+        // Perform necessary saving and updates in the participants list.
         CompetitionSingleton.getCurrentCompetition().setListOfDrivers(newDrivers);
         CompetitionSingleton.getCurrentCompetition().setListOfPairs(null);
         CompetitionSingleton.saveCurrentCompetition();
 
-        // подгружаем в окно заново информацию о парах
+        // Reload the information about pairs into the window.
         load();
     }
 
-    /**
-     * Метод нужен для проверки, что все пары были оценены
-     *
-     * @return true - если все были оценены, false - если хоть одна пара не оценена
+    /*
+     Method is needed to check if all pairs have been evaluated.
+
+     @return true if all pairs have been evaluated, false if at least one pair is not evaluated
      */
     private boolean checkAllWinners(){
 
-        // перебираем все пары и смотрим победителя
+        // Iterate through all pairs and check the winner.
         for(var pair : CompetitionSingleton.getCurrentCompetition().getListOfPairs()){
-            if(pair.getWinner() == null) // если нет победителя
-                return false; // возвращаем false
+            if(pair.getWinner() == null) // If there is no winner.
+                return false; // Return false.
         }
 
         return true;
     }
 
-    /**
-     * Метод, который срабатывает при нажатии на кнопку "finish"
-     * Формирует список победителей и открывает окно результатов
+    /*
+     Method triggered when the "finish" button is clicked.
+     Forms the list of winners and opens the results window.
      */
     private void finish(){
         System.out.println("Finish competition");
 
-        // проверяем, что все пары не были оценены
+        // Check that all pairs have not been evaluated.
         if(!checkAllWinners()){
-            // если не оценены все, то предупреждаем об этом
+            // If not all pairs are evaluated, warn about it.
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setHeaderText("Not all pairs has winners");
             alert.show();
-            return; // выходим из функции
+            return; // Exit from method.
         }
 
-        // если все оценены выше, создаем финальный список победителей для 4х участников
+        // If all pairs are evaluated above, create a final list of winners for 4 participants.
         List<Driver> winnersDrivers = new ArrayList<>(4);
 
-        // перебираем список пар и формируем победителей
+        // Iterate through the list of pairs and form the winners.
         for(var pair : CompetitionSingleton.getCurrentCompetition().getListOfPairs()){
             winnersDrivers.add(pair.getWinner());
             if(pair.getP1().equals(pair.winner)){
@@ -233,39 +227,39 @@ public class P2PController {
             }
         }
 
-        // делаем сохранение и обновление в соревновании
+        // Perform saving and updating in the competition.
         CompetitionSingleton.getCurrentCompetition().setListOfDrivers(winnersDrivers);
         CompetitionSingleton.getCurrentCompetition().setListOfPairs(null);
         CompetitionSingleton.getCurrentCompetition().setCompetitionStateFullDone();
         CompetitionSingleton.saveCurrentCompetition();
 
-        // открываем окно результатов
+        // Open the  final results window.
         FinalResultsController controller = SceneOpener.openSceneAndReturnController("FinalAfterPair.fxml", "Final Results", pairListView.getScene().getWindow());
         controller.load();
     }
 
-    /**
-     * Метод для редактирования\оценки пары
-     *
-     * @param pair пара для редактирования
+    /*
+     Method for editing/evaluating a pair.
+
+     @param pair the pair to be edited
      */
     private void editPair(Pair pair){
 
-        // открываем окно редактирования пары
+        // Open the pair editing window.
         PairEditController controller = SceneOpener.openSceneAndReturnController("PairEdit.fxml", "Pair Edit", pairListView.getScene().getWindow());
         controller.load(pair);
     }
 
-    /**
-     * Метод для сохранения и выхода из окна парных заездов
-     *
-     * @param actionEvent событие при нажатии на кнопку
+    /*
+     Method for saving and exiting the head-to-head races window.
+
+     @param actionEvent the button click event
      */
     public void saveAndExit(ActionEvent actionEvent) {
-        // сохраняем текущее соревнование
+        // Save current competition.
         CompetitionSingleton.saveCurrentCompetition();
 
-        // открываем главное меню
+        // Open main menu.
         SceneOpener.openSceneAndReturnController("RC_Drift.fxml", "Main View", saveAndExitBtn.getScene().getWindow());
     }
 }

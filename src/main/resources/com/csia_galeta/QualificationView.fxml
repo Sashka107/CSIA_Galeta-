@@ -1,23 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- XML declaration specifying encoding and version -->
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
+<!-- Imports for JavaFX classes used in the FXML -->
 
 <AnchorPane prefHeight="419.0" prefWidth="626.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.csia_galeta.QualificationController">
+   <!-- AnchorPane element with specific attributes for preferred height, width, and controller class -->
+
    <ListView fx:id="listView" layoutX="30.0" layoutY="57.0" onMouseClicked="#handleClickOnDriver" prefHeight="280.0" prefWidth="566.0" style="-fx-font-size: 20.0"/>
+   <!-- ListView element for displaying a list of items with specific layout positions, size, style, and event handler -->
+
    <Label layoutX="259.0" layoutY="21.0" prefHeight="26.0" prefWidth="109.0" text="Qualification">
+      <!-- Label element for displaying "Qualification" with specific layout positions and size -->
       <font>
          <Font size="20.0" />
-      </font></Label>
+         <!-- Font properties for the label text -->
+      </font>
+   </Label>
+
    <Button fx:id="saveAndExitBtn" layoutX="122.0" layoutY="356.0" mnemonicParsing="false" onAction="#saveAndExit" style="-fx-background-color: black;" text="Save and Exit" textFill="WHITE">
+      <!-- Button element for saving and exiting with specific layout positions, action event handler, text, and style -->
       <font>
          <Font size="20.0" />
-      </font></Button>
+         <!-- Font properties for the button text -->
+      </font>
+   </Button>
+
    <Button fx:id="proceedToPairsBtn" layoutX="291.0" layoutY="358.0" mnemonicParsing="false" onAction="#proceedToRunInPairs" style="-fx-background-color: black;" text="Proceed to run in Pairs" textFill="WHITE">
+      <!-- Button element for proceeding to run in pairs with specific layout positions, action event handler, text, and style -->
       <font>
          <Font size="20.0" />
-      </font></Button>
+         <!-- Font properties for the button text -->
+      </font>
+   </Button>
+
 </AnchorPane>

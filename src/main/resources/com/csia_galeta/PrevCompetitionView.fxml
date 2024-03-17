@@ -1,66 +1,113 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- XML declaration specifying encoding and version -->
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
+<!-- Imports for JavaFX classes used in the FXML -->
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="632.0" prefWidth="590.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.csia_galeta.controllers.CompetitionViewController">
+   <!-- AnchorPane element with specific attributes for preferred height, width, and controller class -->
+
    <Label fx:id="competitionName" layoutX="218.0" layoutY="21.0" text="CompetitionName">
+      <!-- Label element for displaying the competition name with specific layout positions and an ID for referencing in the controller -->
       <font>
          <Font size="20.0" />
+         <!-- Font properties for the label text -->
       </font>
    </Label>
-   <Label layoutX="33.0" layoutY="165.0" text="Numver of qualifying Rounds:">
+
+   <Label layoutX="33.0" layoutY="165.0" text="Number of qualifying Rounds:">
+      <!-- Label element for displaying the number of qualifying rounds with specific layout positions -->
       <font>
          <Font size="20.0" />
+         <!-- Font properties for the label text -->
       </font>
    </Label>
+
    <Label layoutX="31.0" layoutY="70.0" text="Date :">
+      <!-- Label element for displaying the competition date with specific layout positions -->
       <font>
          <Font size="20.0" />
+         <!-- Font properties for the label text -->
       </font>
    </Label>
-   <ListView fx:id="listView" layoutX="32.0" layoutY="340.0" prefHeight="200.0" prefWidth="526.0" style="-fx-font-size: 20.0"/>
+
+   <ListView fx:id="listView" layoutX="32.0" layoutY="340.0" prefHeight="200.0" prefWidth="526.0" style="-fx-font-size: 20.0" />
+   <!-- ListView element for displaying a list of items with specific layout positions, size, and style, with an ID for referencing in the controller -->
+
    <Label fx:id="qRounds" layoutX="299.0" layoutY="165.0" prefHeight="20.0" prefWidth="36.0" text="1">
+      <!-- Label element for displaying the number of qualifying rounds with specific layout positions and an ID for referencing in the controller -->
       <font>
          <Font size="20.0" />
+         <!-- Font properties for the label text -->
       </font>
    </Label>
+
    <Label fx:id="dateText" layoutX="96.0" layoutY="70.0" prefHeight="25.0" prefWidth="175.0" text="22.02.2022">
+      <!-- Label element for displaying the competition date with specific layout positions and an ID for referencing in the controller -->
       <font>
          <Font size="20.0" />
+         <!-- Font properties for the label text -->
       </font>
    </Label>
+
    <Label layoutX="262.0" layoutY="213.0" prefHeight="26.0" prefWidth="69.0" text="Judges">
+      <!-- Label element for displaying "Judges" with specific layout positions -->
       <font>
          <Font size="20.0" />
+         <!-- Font properties for the label text -->
       </font>
    </Label>
+
    <Label fx:id="judgesNames" layoutX="34.0" layoutY="255.0" prefHeight="26.0" prefWidth="526.0" text="Label">
+      <!-- Label element for displaying judge names with specific layout positions and an ID for referencing in the controller -->
       <font>
          <Font size="20.0" />
-      </font></Label>
-   <Label layoutX="265.0" layoutY="297.0" prefHeight="17.0" prefWidth="60.0" text="Drivers">
-      <font>
-         <Font size="20.0" />
+         <!-- Font properties for the label text -->
       </font>
    </Label>
+
+   <Label layoutX="265.0" layoutY="297.0" prefHeight="17.0" prefWidth="60.0" text="Drivers">
+      <!-- Label element for displaying "Drivers" with specific layout positions -->
+      <font>
+         <Font size="20.0" />
+         <!-- Font properties for the label text -->
+      </font>
+   </Label>
+
    <Label layoutX="30.0" layoutY="116.0" text="Status:">
+      <!-- Label element for displaying "Status" with specific layout positions -->
       <font>
          <Font size="20.0" />
-      </font></Label>
+         <!-- Font properties for the label text -->
+      </font>
+   </Label>
+
    <Label fx:id="plannedStatus" layoutX="107.0" layoutY="116.0" text="Planned">
+      <!-- Label element for displaying the competition status with specific layout positions and an ID for referencing in the controller -->
       <font>
          <Font size="20.0" />
-      </font></Label>
+         <!-- Font properties for the label text -->
+      </font>
+   </Label>
+
    <Button fx:id="playBtn" layoutX="386.0" layoutY="566.0" mnemonicParsing="false" onAction="#playCompetition" style="-fx-background-color: black;" text="Load competition" textFill="WHITE">
+      <!-- Button element for loading the competition with specific layout positions, action event handler, text, and style -->
       <font>
          <Font size="20.0" />
-      </font></Button>
+         <!-- Font properties for the button text -->
+      </font>
+   </Button>
+
    <Button fx:id="backBtn" layoutX="34.0" layoutY="566.0" mnemonicParsing="false" onAction="#back" style="-fx-background-color: black;" text="Back" textFill="WHITE">
+      <!-- Button element for going back with specific layout positions, action event handler, text, and style -->
       <font>
          <Font size="20.0" />
-      </font></Button>
+         <!-- Font properties for the button text -->
+      </font>
+   </Button>
+
 </AnchorPane>

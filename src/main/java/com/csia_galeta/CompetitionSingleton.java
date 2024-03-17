@@ -7,178 +7,174 @@ import com.csia_galeta.ser.DataSaverAndReader;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.function.Consumer;
 
-/**
- * Class CompetitionSingleton
- * Этот класс реализован по патерну программирования Singleton для того,
- * чтобы хранить всю информацию нужную для работы программы в одном экземпляре как хранилище,
- * пока программа работает и запущена
- *
- * @author Alexander G.
+/*
+ Class CompetitionSingleton
+ This class is implemented using the Singleton design pattern to store all the information necessary for the program to work in a single instance as a storage,
+ while the program is running and active
  */
 public class CompetitionSingleton {
 
-    // обьект для хранения обертки со всеми соревнованиями
+    // оObject for storing the wrapper with all competitions.
     private static CompetitionListWrapper competitionListWrapper = null;
 
-    // объект для временного сохранения соревнования - например: при создании и редактировании
+    // Object for temporarily storing a competition - for example: during creation and editing.
     private static Competition tmpCompetition = new Competition();
 
-    // объект для хранения текущего соревнования, которое сейчас идет
+    // Object for storing the current competition in progress.
     private static Competition currentCompetition = new Competition();
 
-    /**
-     * Скрытый от доступа конструктор, чтобы нельзя было создать объекты
-     */
+
+    // A hidden constructor inaccessible to prevent the creation of objects.
+
     private CompetitionSingleton(){}
 
-    static { // статический блок инициализации для получения данных в Singleton
+    static { // Static initialisation block for retrieving data in Singleton.
         getInstance();
     }
 
-    /**
-     * Метод для получения данных в Singleton из JSON файла
-     *
-     * @return объект-обертку с списком всех соревнований
+    /*
+     Method for retrieving data in Singleton from a JSON file
+
+     @return a wrapper object with the list of all competitions
      */
     public static CompetitionListWrapper getInstance(){
 
-        // если обертка соревнований была пуста
+        // If the competition wrapper was empty:
         if(competitionListWrapper == null)
-            // считываем из файла информацию
+            // Read information from the file.
             competitionListWrapper = new CompetitionListWrapper("save.json");
 
-        // если не пуста возвращаем обертку
+        // If not empty, return the wrapper.
         return competitionListWrapper;
     }
 
-    /**
-     * Getter для получения водителя его номеру
-     *
-     * @return водителя с нужным номером
-     * @param num номер по которому должен быть выполнен поиск
+    /*
+     Getter for retrieving a driver by their number
+
+     @param num the number to search for
+     @return the driver with the specified number
      */
     public static Driver getDriverByNumber(short num){
         List<Driver> listOfDriversForNumSearch = new ArrayList<>(currentCompetition.getListOfDrivers());
-        bubbleSort(listOfDriversForNumSearch); // сортируем список
-        return BinarySearch.binarySearch(listOfDriversForNumSearch, num); // ищем с помощью бинарного поиска
+        bubbleSort(listOfDriversForNumSearch); // Sorting the list.
+        return BinarySearch.binarySearch(listOfDriversForNumSearch, num); // Searching using binary search.
     }
 
-    /**
-     * Метод для сохранения промежуточного соревнования
-     * Сохраняет всю обертку с соревнованиями на файл, тем самым перезаписывая старую версию
+    /*
+     Method for saving an intermediate competition
+     Saves the entire competition wrapper to a file, thereby overwriting the old version.
      */
     public static void saveTmpCompetition(){
-        competitionListWrapper.addCompetition(tmpCompetition); // добавляем соревнование
+        competitionListWrapper.addCompetition(tmpCompetition); // Adding the competition.
 
-        // сохраняем обертку с соревнованиями
+        // Saving the competition wrapper.
         DataSaverAndReader.saveJsonStringToFile("save.json", competitionListWrapper);
 
-        // в текущее соревнование записываем временное
+        // Assigning the temporary competition to the current competition.
         currentCompetition = tmpCompetition;
 
-        // обнуляем временное соревнование и пересоздаем его объект
+        // Resetting the temporary competition and recreating its object.
         tmpCompetition = null;
         tmpCompetition = new Competition();
     }
 
-    /**
-     * Метод для сохранения текущего соревнования
-     * Сохраняет всю обертку с соревнованиями на файл, тем самым перезаписывая старую версию
+    /*
+     Method for saving the current competition
+     Saves the entire competition wrapper to a file, thereby overwriting the old version.
      */
     public static void saveCurrentCompetition(){
-        competitionListWrapper.addCompetition(currentCompetition); // добавляем соревнование
+        competitionListWrapper.addCompetition(currentCompetition); // Adding a competition.
 
-        // сохраняем обертку с соревнованиями
+        // Saving the competition wrapper.
         DataSaverAndReader.saveJsonStringToFile("save.json", competitionListWrapper);
     }
 
-    /**
-     * Метод добавляет водителя к временному соревнованию
-     *
-     * @param d водитель для добавления
+    /*
+     Method for adding a driver to the temporary competition
+
+     @param d the driver to add
      */
     public static void addDriverToTmpCompetition(Driver d){
         tmpCompetition.addDriverToList(d);
     }
 
-    /**
-     * Метод добавляет судью к временному соревнованию
-     *
-     * @param j судья для добавления
+    /*
+     Method for adding a judge to the temporary competition
+
+     @param j the judge to add
      */
     public static void addJudgeToTmpCompetition(Judge j){
         tmpCompetition.addJudgeToList(j);
     }
 
-    /**
-     * Метод добавляет квалификацию к временному соревнованию
-     *
-     * @param q объект квалификации для добавления
+    /*
+     Method for adding qualification to the temporary competition
+
+     @param q - the qualification object to add
      */
     public static void addQualificationToTmpCompetition(Qualification q){
         tmpCompetition.setQualification(q);
     }
 
-    /**
-     * Метод добавляет количество квалификационных раундов к временному соревнованию
-     *
-     * @param count количество для добавления
+    /*
+     Method for adding the number of qualification rounds to the temporary competition
+
+     @param count the number to add
      */
     public static void addCountOfRounds(int count){
         tmpCompetition.setAmountOfQualifyingRounds((byte) count);
     }
 
-    /**
-     * Getter для получения временного соревнования
-     *
-     * @return объект временного соревнования
+    /*
+     Getter for retrieving the temporary competition
+
+     @return the temporary competition object
      */
     public static Competition getTmpCompetition() {
         return tmpCompetition;
     }
 
-    /**
-     * Getter для получения текущего соревнования
-     *
-     * @return объект текущего соревнования
+    /*
+     Getter for obtaining the current competition
+
+     @return the current competition object
      */
     public static Competition getCurrentCompetition() {
         return currentCompetition;
     }
 
-    /**
-     * Метод добавляет название к временному соревнованию
-     *
-     * @param name название соревнования для добавления
+    /*
+     Method adds a name to the temporary competition.
+
+     @param name - the name of the competition to add
      */
     public static void addToTmpCompetitionName(String name){
         tmpCompetition.setCompetitionName(name);
     }
 
-    /**
-     * Setter для установки текущего соревнования
-     *
-     * @param currentCompetition соревнование для установки
+    /*
+     Setter for setting the current competition
+
+     @param currentCompetition - the competition to set
      */
     public static void setCurrentCompetition(Competition currentCompetition) {
         CompetitionSingleton.currentCompetition = currentCompetition;
     }
 
-    /**
-     * Setter для установки временного соревнования
-     *
-     * @param tmpCompetition соревнование для установки
+    /*
+     Setter for setting the temporary competition
+
+     @param tmpCompetition the competition to set
      */
     public static void setTmpCompetition(Competition tmpCompetition) {
         CompetitionSingleton.tmpCompetition = tmpCompetition;
     }
 
-    /**
-     * Метод для сортировки с помощью алгоритма BubbleSort по номеру водителя
-     *
-     * @param drivers список, который будет отсортирован
+    /*
+     Method for sorting using the BubbleSort algorithm by driver number
+
+     @param drivers the list to be sorted
      */
     public static void bubbleSort(List<Driver> drivers) {
         int i, j;

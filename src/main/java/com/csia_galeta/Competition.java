@@ -12,268 +12,256 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Objects;
 
-/**
- * Class Competition
- * Этот класс описывает свойства и функционал соревнования
- * для корректного функционаирования в программе
- *
- * @author Alexander G.
+/*
+ Class Competition
+ This class describes the properties and functionality of a competition
+ for proper functioning within the program.
  */
 public class Competition {
 
-    private String competitionName; // переменная для хранения названия соревнования
-    private String competitionState; // переменная для хранения состояния соревнования
-    private String competitionDate; // переменная для хранения даты соревнования
-    private byte amountOfQualifyingRounds; // переменная для хранения количества раундов квалицикации
-    private List<Driver> listOfDrivers = new ArrayList<>(); // переменная для хранения списка всех водителей
-    private List<Driver> qualificationOfDrivers = new ArrayList<>(); // список водителей в квалификации
-    private ArrayList<Judge> listOfJudges = new ArrayList<>(); // список судий
-    private Qualification qualification; // объект квалификации
-    private List<Pair> listOfPairs = new ArrayList<>(); // список пар для парных заездов
+    private String competitionName; // Variable for storing the name of the competition.
+    private String competitionState; // Variable for storing the state of the competition.
+    private String competitionDate; // Variable for storing the date of the competition.
+    private byte amountOfQualifyingRounds; // Variable for storing the number of qualification rounds.
+    private List<Driver> listOfDrivers = new ArrayList<>(); // List for storing a list of all drivers.
+    private List<Driver> qualificationOfDrivers = new ArrayList<>(); // List of drivers in the qualification.
+    private ArrayList<Judge> listOfJudges = new ArrayList<>(); // List of judges.
+    private Qualification qualification; // Qualification object.
+    private List<Pair> listOfPairs = new ArrayList<>(); // List of pairs for runs in pairs.
 
-    /**
-     * Setter for competition name
-     *
-     * @param competitionName name of the competition
+    /*
+     Setter for competition name
+
+     @param competitionName name of the competition
      */
     public void setCompetitionName(String competitionName){
     this.competitionName = competitionName;
     }
 
-    /**
-     * Getter для списка водителей квалификации соревнования
-     *
-     * @return список квалификации в соревновании
+    /*
+     Getter for the list of drivers in the competition's qualification
+
+     @return the list of drivers in the competition's qualification
      */
     public List<Driver> getQualificationOfDrivers() {
         return qualificationOfDrivers;
     }
 
-    /**
-     * Setter for competition list of qualification drivers
-     *
-     * @param qualificationOfDrivers list of drivers for qualification
+    /*
+     Setter for competition list of qualification drivers
+
+     @param qualificationOfDrivers list of drivers for qualification
      */
     public void setQualificationOfDrivers(List<Driver> qualificationOfDrivers) {
         this.qualificationOfDrivers = new ArrayList<>(qualificationOfDrivers);
     }
 
-    /**
-     * Getter для названия соревнования
-     *
-     * @return название соревнования
+    /*
+     Getter for the competition name
+
+     @return the name of the competition
      */
     public String getCompetitionName (){
         return competitionName;
     }
 
-    /**
-     * Setter for amount of qualification round in competition
-     *
-     * @param amountOfQualifyingRounds amount of rounds
+    /*
+     Setter for amount of qualification round in competition
+
+     @param amountOfQualifyingRounds amount of rounds
      */
     public  void setAmountOfQualifyingRounds (byte amountOfQualifyingRounds){
         this.amountOfQualifyingRounds = amountOfQualifyingRounds;
     }
 
-    /**
-     * Getter for competition date
-     *
-     * @return date of competition
+    /*
+     Getter for competition date
+
+     @return date of competition
      */
     public String getCompetitionDate() {
         return competitionDate;
     }
 
-    /**
-     * Getter для получения даты соревнования
-     *
-     * @return дату соревнования
+    /*
+     Getter for retrieving the date of the competition
+
+     @return the date of the competition
      */
     public LocalDate getCompetitionDateLocalDate() {
 
-        // создаем объект DateTimeFormatter для формата даты по шаблону
+        // Creating a DateTimeFormatter object for formatting dates according to a pattern.
         DateTimeFormatter oldFormat = DateTimeFormatter.ofPattern("dd-MMM-yyyy", Locale.UK);
 
-        if(competitionDate != null) // если дата не пуста, то пытаемся преобразовать из строки
+        if(competitionDate != null) // If the date is not empty, attempt to parse it from a string.
             return LocalDate.parse(competitionDate, oldFormat);
         else
             return null;
     }
 
-    /**
-     * Setter for competition date
-     *
-     * @param competitionDate date to set
+    /*
+     Setter for competition date
+
+     @param competitionDate date to set
      */
     public void setCompetitionDate(LocalDate competitionDate) {
 
-        // создаем объект DateTimeFormatter для формата даты по шаблону
+        // Creating a DateTimeFormatter object for formatting dates according to a pattern.
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MMM-yyyy", Locale.UK);
         this.competitionDate = competitionDate.format(formatter);
     }
 
-    /**
-     * Setter for qualification in competition
-     *
-     * @param qualification object of qualification
+    /*
+     Setter for qualification in competition
+
+     @param qualification object of qualification
      */
     public void setQualification(Qualification qualification) {
         this.qualification = qualification;
     }
 
-    /**
-     * Getter для квалификации соревнования
-     *
-     * @return квалификацию соревнования
+    /*
+     Getter for the qualification of  the competition
+
+     @return qualification of the competition
      */
     public Qualification getQualification() {
         return qualification;
     }
 
-    /**
-     * Getter для списка всех водителей соревнования
-     *
-     * @return список всех водителей
+    /*
+     Getter for the list of all drivers in the competition
+
+     @return list of all drivers
      */
     public List<Driver> getListOfDrivers() {
         return listOfDrivers;
     }
 
-    /**
-     * Getter для списка судий соревнования
-     *
-     * @return список судий
+    /*
+     Getter for the list of judges in the competition
+
+     @return list of judges
      */
     public ArrayList<Judge> getListOfJudges() {
         return listOfJudges;
     }
 
-    /**
-     * Getter для списка пар соревнования
-     *
-     * @return список пар для парных заездов
+    /*
+     Getter for the list of pairs of the competition
+
+     @return list of pairs for the pair runs
      */
     public List<Pair> getListOfPairs() {
         return listOfPairs;
     }
 
-    /**
-     * Setter for list of pairs in competition
-     *
-     * @param listOfPairs list of pairs
+    /*
+     Setter for list of pairs in competition
+
+     @param listOfPairs list of pairs
      */
     public void setListOfPairs(List<Pair> listOfPairs) {
         this.listOfPairs = listOfPairs;
     }
 
-    /**
-     * Getter для списка судий соревнования в формате строки удобной для отображения
-     *
-     * @return строка с информацией про судий
+    /*
+     Getter for the list of competition judges in a format suitable for display
+
+     @return a string containing information about the judges
      */
     public String getListOfJudgesString() {
 
-        // создаем объект StringBuilder для того, чтобы собрать всех судий в одну строку
+        // Creating a StringBuilder object to concatenate all judges into one string.
         StringBuilder stringBuilder = new StringBuilder();
-        for (Judge j : listOfJudges) { // собираем в одну строку
+        for (Judge j : listOfJudges) { // Concatenating into one string.
             stringBuilder.append(j.toString()).append(", ");
         }
 
-        // если объект StringBuilder не остался пустым
+        // If the StringBuilder object is not empty.
         if(stringBuilder.length() > 3)
-            // то производим замену последней запятой на точку
+            // Then replace the last comma with a period.
             stringBuilder.replace(stringBuilder.length()-2, stringBuilder.length()-1, ".");
 
-        // возвращаем собранную информацию про судий преобразовав её в строку
+        // Return the assembled information about the judges, converted into a string.
         return stringBuilder.toString();
     }
 
-    /**
-     * Getter для количества раундов квалификации соревнования
-     *
-     * @return количество раундов квалификации
+    /*
+     Getter for the number of qualification rounds in the competition
+
+     @return the number of qualification rounds
      */
     public byte getAmountOfQualifyingRounds (){
         return amountOfQualifyingRounds;
     }
 
-    /**
-     * Метод для добавления водителя к списку всех водителей
-     *
-     * @param driver водитель для добавления
+    /*
+     Method for adding a driver to the list of all drivers
+
+     @param driver - the driver to add
      */
     public void addDriverToList (Driver driver){
         listOfDrivers.add(driver);
     }
 
-    /**
-     * Метод для добавления судьи к списку всех судий
-     *
-     * @param judge судья для добавления
+    /*
+     Method for adding a judge to the list of all judges
+
+     @param judge - the judge to add
      */
     public void addJudgeToList (Judge judge){
         listOfJudges.add(judge);
     }
 
-    /**
-     * Getter для состояния соревнования
-     *
-     * @return текущее состояние соревнования
+    /*
+     Getter for the state of the competition
+
+     @return the current state of the competition
      */
     public String getCompetitionState() {
         return competitionState;
     }
 
-    /**
-     * Setter for state PLANNED in competition
-     */
+    // Setter for the PLANNED state in the competition.
     public void setCompetitionStatePlanned() {
         this.competitionState = CompetitionStates.PLANNED;
     }
 
-    /**
-     * Setter for state QUALIFICATION IN PROGRESS in competition
-     */
+    // Setter for the QUALIFICATION IN PROGRESS state in the competition.
     public void setCompetitionStateQualificationInProgress() {
         this.competitionState = CompetitionStates.QUALIFICATION_IN_PROGRESS;
     }
 
-    /**
-     * Setter for state FINAL ROUND in competition
-     */
+    // Setter for the FINAL ROUND state in the competition.
     public void setCompetitionStateFinalRound() {
         this.competitionState = CompetitionStates.FINAL_ROUND;
     }
 
-    /**
-     * Setter for state RUN IN PAIRS IN PROGRESS in competition
-     */
+     // Setter for state RUN IN PAIRS IN PROGRESS in competition.
     public void setCompetitionStateRunInPairsInProgress() {
         this.competitionState = CompetitionStates.RUN_IN_PAIRS_IN_PROGRESS;
     }
 
-    /**
-     * Setter for state COMPETITION IS FINISHED in competition
-     */
+    // Setter for state COMPETITION IS FINISHED in competition.
     public void setCompetitionStateFullDone() {
         this.competitionState = CompetitionStates.COMPETITION_IS_FINISHED;
     }
 
-    /**
-     * Setter for list of drivers in competition
-     *
-     * @param listOfDrivers list of drivers to set
+    /*
+     Setter for list of drivers in competition
+
+     @param listOfDrivers list of drivers to set
      */
     public void setListOfDrivers(List<Driver> listOfDrivers) {
         this.listOfDrivers = listOfDrivers;
     }
 
-    /**
-     * Метод собирает и возвращает самую нужную информацию
-     * о соревновании в формате строки
-     *
-     * @return строку с информацией о соревновании
+    /*
+     This method gathers and returns the most essential information
+     about the competition in string format
+
+     @return a string containing information about the competition
      */
     @Override
     public String toString() {
@@ -283,12 +271,11 @@ public class Competition {
                 " | state: " + competitionState;
     }
 
-    /**
-     * Переопределяем метод для того, чтобы иметь возможность
-     * сравнивать разные объекты класса Competition
-     *
-     * @param o объект для сравнения
-     * @return true - если объекты полностью идентичны и false - если есть разница
+    /*
+     Override the method to enable comparison between different Competition objects
+
+     @param o the object to compare
+     @return true if the objects are completely identical, false if there are differences
      */
     @Override
     public boolean equals(Object o) {
@@ -297,11 +284,10 @@ public class Competition {
         return Objects.equals(competitionName, that.competitionName);
     }
 
-    /**
-     * Переопределяем метод для того, чтобы иметь возможность
-     * получать хеш-код объектов класса Competition
-     *
-     * @return число, которое является хеш-кодом обьекта
+    /*
+     Override the method to enable obtaining hash codes of Competition objects
+
+     @return a number that is the hash code of the object
      */
     @Override
     public int hashCode() {

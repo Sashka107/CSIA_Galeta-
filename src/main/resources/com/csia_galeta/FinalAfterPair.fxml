@@ -1,69 +1,114 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- XML declaration specifying encoding and version -->
 
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
+<!-- Imports for JavaFX classes used in the FXML -->
 
 <AnchorPane prefHeight="576.0" prefWidth="602.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.csia_galeta.FinalResultsController">
+   <!-- AnchorPane element with specific attributes for preferred height, width, style, and controller class -->
+
    <children>
+      <!-- Child elements of the AnchorPane -->
+
       <Label layoutX="280.0" layoutY="57.0" prefHeight="58.0" prefWidth="27.0" text="1">
+         <!-- Label element for displaying "1" with specific layout positions and size -->
          <font>
             <Font size="60.0" />
+            <!-- Font properties for the label text -->
          </font>
       </Label>
+
       <Label layoutX="140.0" layoutY="116.0" text="2">
+         <!-- Label element for displaying "2" with specific layout positions -->
          <font>
             <Font size="60.0" />
+            <!-- Font properties for the label text -->
          </font>
       </Label>
+
       <Label layoutX="398.0" layoutY="160.0" text="3">
+         <!-- Label element for displaying "3" with specific layout positions -->
          <font>
             <Font size="60.0" />
+            <!-- Font properties for the label text -->
          </font>
       </Label>
+
       <Label layoutX="242.0" layoutY="16.0" text="Final Results">
+         <!-- Label element for displaying "Final Results" with specific layout positions -->
          <font>
             <Font size="20.0" />
+            <!-- Font properties for the label text -->
          </font>
       </Label>
+
       <Label fx:id="top1" layoutX="270.0" layoutY="130.0" text="Pilot 1 " textAlignment="CENTER">
+         <!-- Label element with an ID for displaying the top pilot's name with specific layout positions and alignment -->
          <font>
             <Font size="20.0" />
+            <!-- Font properties for the label text -->
          </font>
       </Label>
+
       <Label fx:id="top2" layoutX="126.0" layoutY="189.0" text="Pilot 2 " textAlignment="CENTER">
+         <!-- Label element with an ID for displaying the second top pilot's name with specific layout positions and alignment -->
          <font>
             <Font size="20.0" />
+            <!-- Font properties for the label text -->
          </font>
       </Label>
+
       <Label fx:id="top3" layoutX="384.0" layoutY="233.0" text="Pilot 3 " textAlignment="CENTER">
+         <!-- Label element with an ID for displaying the third top pilot's name with specific layout positions and alignment -->
          <font>
             <Font size="20.0" />
+            <!-- Font properties for the label text -->
          </font>
       </Label>
+
       <Label layoutX="77.0" layoutY="248.0" text="4">
+         <!-- Label element for displaying "4" with specific layout positions -->
          <font>
             <Font size="40.0" />
+            <!-- Font properties for the label text -->
          </font>
       </Label>
+
       <Label fx:id="top4" layoutX="69.0" layoutY="296.0" text="Pilot 4" textAlignment="CENTER">
+         <!-- Label element with an ID for displaying the fourth top pilot's name with specific layout positions and alignment -->
          <font>
             <Font size="14.0" />
+            <!-- Font properties for the label text -->
          </font>
       </Label>
+
       <Rectangle arcWidth="5.0" height="13.0" layoutX="1.0" layoutY="335.0" stroke="BLACK" strokeType="INSIDE" width="601.0" />
+      <!-- Rectangle element for drawing a separator line with specific layout positions and size -->
+
       <Button layoutX="202.0" layoutY="522.0" mnemonicParsing="false" onAction="#toMainMenu" style="-fx-background-color: black;" text="Back to main menu" textFill="WHITE">
+         <!-- Button element for going back to the main menu with specific layout positions, action event handler, text, and style -->
          <font>
             <Font size="20.0" />
+            <!-- Font properties for the button text -->
          </font>
       </Button>
+
       <Rectangle arcWidth="5.0" height="13.0" layoutY="57.0" stroke="BLACK" strokeType="INSIDE" width="601.0" />
+      <!-- Rectangle element for drawing a separator line with specific layout positions and size -->
+
       <Label layoutX="173.0" layoutY="355.0" text="Qualification Drivers Results">
+         <!-- Label element for displaying "Qualification Drivers Results" with specific layout positions -->
          <font>
             <Font size="18.0" />
+            <!-- Font properties for the label text -->
          </font>
       </Label>
+
       <ListView layoutX="14.0" layoutY="382.0" prefHeight="132.0" prefWidth="571.0" fx:id="qDriversList"/>
+      <!-- ListView element for displaying a list of qualification drivers with specific layout positions and size, with an ID for referencing in the controller -->
+
    </children>
 </AnchorPane>

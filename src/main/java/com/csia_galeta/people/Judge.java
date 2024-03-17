@@ -1,84 +1,82 @@
 package com.csia_galeta.people;
 
-/**
- * Class Judge
- * Этот класс описывает поведение и что содержит в себе судья для правильной
- * и полноценной работоспособности в этой программе
- *
- * @author Alexander G.
+/*
+ Class Judge
+ This class describes the behavior and contents of a judge for the proper
+ and full functionality in this program.
  */
 public class Judge {
 
-    private String judgeName; // переменная хранящая имя
-    private String judgeSurname; // переменная хранящая фамилию
+    private String judgeName; // Variable containing name.
+    private String judgeSurname; // Variable containing surname.
 
-    /**
-     * Метод setter для установки имени
-     *
-     * @return true - если имя успешно прошло проверку и установлено, false - если нет
-     * @param name - имя, которое должно быть установлено
+    /*
+     Setter method for setting the name.
+
+     @param name - the name to be set.
+     @return true - if the name successfully passed validation and set, false - otherwise.
      */
     public boolean setName (String name){
 
-        // если имя соответствует требованиям от 1 до 55 символов
+        // If the name meets the requirements of 1 to 55 characters.
         if (name.matches("^.{1,55}$")) {
             this.judgeName = name;
             return true;
         }
 
-        // если не соответствует
+        // If does not.
         System.out.println("Please check whether entered data is a is a valid name and less or equal to 55 characters.");
         return false;
     }
 
-    /**
-     * Getter for judge`s name
-     *
-     * @return name of the judge
+    /*
+     Getter for judge`s name
+
+     @return name of the judge
      */
     public String getName (){
         return judgeName;
     }
 
-    /**
-     * Метод setter для установки фамилии
-     *
-     * @return true - если фамилия успешно прошло проверку и установлено, false - если нет
-     * @param surname - фамилия, которая должна быть установлена
+    /*
+     Setter method for setting the surname.
+
+     @param surname - the surname to be set.
+     @return true - if the surname successfully passed validation and set, false - otherwise.
      */
     public boolean setSurname (String surname){
 
-        // если фамилия соответствует требованиям от 1 до 55 символов
+        // If the surname meets the requirements of 1 to 55 characters.
         if (surname.matches("^.{1,55}$")) {
             this.judgeSurname = surname;
             return true;
         }
 
-        // если не соответствует
+        // If does not.
         System.out.println("Please check whether entered data is a is a valid surname and less or equal to 55 characters.");
         return false;
     }
 
-    /**
-     * Getter for judge`s lastname
-     *
-     * @return lastname of the judge
+    /*
+     Getter for judge`s lastname
+
+     @return lastname of the judge
      */
     public String getSurname (){
         return judgeSurname;
     }
 
-    /**
-     * Метод собирает информациюю о судье и возвращает её в формате строки
-     *
-     * @return вся нужная информация о судье в виде строки
+    /*
+     Method gathers information about the judge and returns it as a string.
+
+     @return all necessary information about the judge as a string.
      */
     @Override
     public String toString() {
-        // получаем первую букву имени и делаем её в верхний регистр
+        //We get the first letter of the name and capitalise it.
         char firstLetterName = Character.toUpperCase(judgeName.charAt(0));
 
-        // возвращаем в формате: "Name L"
+        // Returning in the format: "Name L"
         return judgeName.replace(judgeName.charAt(0), firstLetterName) + " " + Character.toUpperCase(judgeSurname.charAt(0));
     }
 }

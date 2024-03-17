@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- XML declaration specifying encoding and version -->
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
@@ -6,32 +7,55 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
+<!-- Import statements for JavaFX classes used in the FXML -->
 
 <AnchorPane prefHeight="206.0" prefWidth="521.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.csia_galeta.controllers.DriverQualificationAddController">
+   <!-- AnchorPane element with specific attributes for preferred height, width, and controller class -->
+
    <children>
+      <!-- Child elements of the AnchorPane -->
+
       <MenuButton fx:id="menuButton" layoutX="28.0" layoutY="86.0" mnemonicParsing="false" style="-fx-background-color: black;" text="Select Round" textFill="WHITE">
-        <items>
-        </items>
+         <!-- MenuButton element for selecting the round with specific layout positions, style, text, and text fill -->
+         <items>
+         </items>
          <font>
             <Font size="20.0" />
+            <!-- Font properties for the menu button text -->
          </font>
       </MenuButton>
+
       <TextField fx:id="driverScore" layoutX="224.0" layoutY="86.0" prefHeight="31.0" prefWidth="168.0">
+         <!-- TextField element for entering driver score with specific layout positions, preferred height, and width -->
          <font>
             <Font size="20.0" />
-         </font></TextField>
+            <!-- Font properties for the text field text -->
+         </font>
+      </TextField>
+
       <Label fx:id="driverInfo" layoutX="113.0" layoutY="30.0" prefHeight="38.0" prefWidth="372.0" text="Label">
+         <!-- Label element for displaying driver information with specific layout positions, preferred height, width, and initial text -->
          <font>
             <Font size="20.0" />
-         </font></Label>
-      <Button fx:id="exitBtn" layoutX="152.0" layoutY="149.0" mnemonicParsing="false" onAction="#exitToQList" prefHeight="39.0" prefWidth="218.0" style="-fx-background-color: black;" text="Return to other drivers" textFill="WHITE">
-         <font>
-            <Font size="20.0" />
-         </font></Button>
-      <Label layoutX="27.0" layoutY="36.0" text="Driver :">
-         <font>
-            <Font size="20.0" />
+            <!-- Font properties for the label text -->
          </font>
       </Label>
+
+      <Button fx:id="exitBtn" layoutX="152.0" layoutY="149.0" mnemonicParsing="false" onAction="#exitToQList" prefHeight="39.0" prefWidth="218.0" style="-fx-background-color: black;" text="Return to other drivers" textFill="WHITE">
+         <!-- Button element for exiting to other drivers with specific layout positions, action event handler, preferred height, width, style, text, and text fill -->
+         <font>
+            <Font size="20.0" />
+            <!-- Font properties for the button text -->
+         </font>
+      </Button>
+
+      <Label layoutX="27.0" layoutY="36.0" text="Driver :">
+         <!-- Label element for displaying "Driver :" with specific layout positions and text -->
+         <font>
+            <Font size="20.0" />
+            <!-- Font properties for the label text -->
+         </font>
+      </Label>
+
    </children>
 </AnchorPane>

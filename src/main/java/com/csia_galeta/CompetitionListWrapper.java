@@ -5,56 +5,54 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Class CompetitionListWrapper
- * Этот класс-обертка помогает работать сразу с несколькими соревнованиями
- * и добавляет необходимый функционал для удобства
- *
- * @author Alexander G.
+/*
+ Class CompetitionListWrapper
+ This wrapper class helps to work with multiple competitions at once
+ and adds necessary functionality for convenience.
  */
 public class CompetitionListWrapper {
 
-    private List<Competition> allCompetitions; // список всех соревнований за все время
+    private List<Competition> allCompetitions; // List of all competitions throughout all time.
 
 
-    /**
-     * Конструктор, который загружает информацию о соревнованиях из файла JSON
-     *
-     * @param pathToSave путь к файлу с сохранениями в формате JSON
+    /*
+     Constructor that loads information about competitions from a JSON file
+
+     @param pathToSave - the path to the file with JSON format saves.
      */
     public CompetitionListWrapper(String pathToSave){
 
-        // создаем переменную класса-обертки для соревнований
+        // Creating a variable of the competition wrapper class.
         CompetitionListWrapper allCompetitionsFromFile;
-        try { // пробуем считать информацию из файла используя класс DataSaverAndReader
+        try { // Trying to read information from a file using the DataSaverAndReader class.
             allCompetitionsFromFile = DataSaverAndReader.readDataFromJson(CompetitionListWrapper.class, pathToSave);
-        } catch (FileNotFoundException e) { // если не получилось кидаем ошибку
+        } catch (FileNotFoundException e) { // If unsuccessful, throw an error.
             throw new RuntimeException(e);
         }
 
-        if(allCompetitionsFromFile != null) // если соревнования все-таки существовали в файле, то
-            // устанавливаем все соревнования из обертки в список всех соревнований текущего объекта
+        if(allCompetitionsFromFile != null) // If the competitions did exist in the file, then:
+            // Set all competitions from the wrapper into the list of all competitions of the current object.
             this.allCompetitions = allCompetitionsFromFile.getCompetitions();
         else
-            // если нет - то создаем пустой лист соревнований
+            // If not, then create an empty list of competitions.
             allCompetitions = new ArrayList<>();
     }
 
-    /**
-     * Метод для добавления соревнования к общему списку всех соревнований
-     *
-     * @param c соревнование для добавления
+    /*
+     Method for adding a competition to the overall list of all competitions
+
+     @param c the competition to add
      */
     public void addCompetition(Competition c){
 
-        if(allCompetitions == null) // если список не существует
-            allCompetitions = new ArrayList<>(); // инициализируем новый
+        if(allCompetitions == null) // If the list does not exist:
+            allCompetitions = new ArrayList<>(); // Initiate a new one.
 
-        // если список не содержит идентичного соревнования, то
+        // If the list does not contain an identical competition, then:
         if(!allCompetitions.contains(c))
-            allCompetitions.add(c); // добавляем соревнование в список
+            allCompetitions.add(c); // Add the competition to the list.
         else{
-            // если содержит, то делаем замену такого же соревнования, чтобы не было дубликатов
+            // If it does contain one, then replace the duplicate competition to avoid duplicates.
             for(int i = 0; i < allCompetitions.size(); i++){
                 if(allCompetitions.get(i).equals(c))
                     allCompetitions.set(i, c);
@@ -63,19 +61,19 @@ public class CompetitionListWrapper {
 
     }
 
-    /**
-     * Getter для списка всех соревнований
-     *
-     * @return список соревнований
+    /*
+     Getter for the list of all competitions
+
+     @return the list of competitions
      */
     public List<Competition> getCompetitions(){
         return allCompetitions;
     }
 
-    /**
-     * Метод для сбора и возврата информации об объекте в формате строки
-     *
-     * @return строку с необходимой информацией
+    /*
+     Method for gathering and returning information about the object in string format
+
+     @return a string with the necessary information
      */
     @Override
     public String toString() {

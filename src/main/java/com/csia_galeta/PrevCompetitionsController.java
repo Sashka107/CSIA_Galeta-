@@ -10,34 +10,32 @@ import javafx.scene.control.ListView;
 
 import java.util.List;
 
-/**
- * Class PrevCompetitionsController
- * Этот класс является контроллером окна предыдущих соревнований
- *
- * @author Alexander G.
+/*
+ Class PrevCompetitionsController
+ This class is the controller for the previous competitions window
  */
 public class PrevCompetitionsController {
 
     @FXML
-    public ListView<Competition> savedCompetitions = new ListView<>(); // переменная-ссылка на список соревнований
+    public ListView<Competition> savedCompetitions = new ListView<>(); // Variable-reference to the list of competitions.
 
     @FXML
-    private Button backBtn; // переменная-ссылка на кнопку Назад
+    private Button backBtn; // Variable-reference to the Back button.
 
-    /**
-     * метод для подгрузки соревнований в список на UI
-     *
-     * @param data список соревнований для загрузки на UI
+    /*
+     Method for loading competitions into the list on the UI
+
+     @param data the list of competitions to load onto the UI
      */
     public void showCompetitions(List<Competition> data) {
 
-        // ставим список на UI
+        // Set the list on the UI.
         savedCompetitions.getItems().addAll(data);
 
-        // ставим действие по клику на совернование в списке
+        // Set the action for clicking on a competition in the list.
         savedCompetitions.setOnMouseClicked(mouseEvent -> {
 
-            // при клике открываем окно с предпросмотром информации о соревновании
+            // Upon clicking, open a window with a preview of competition information.
             CompetitionViewController controller = SceneOpener.openSceneAndReturnController("PrevCompetitionView.fxml",
                     "Saved Competition View",
                     savedCompetitions.getScene().getWindow());
@@ -45,12 +43,11 @@ public class PrevCompetitionsController {
         });
     }
 
-    /**
-     * Метод для выхода назад в главное меню по нажатию на кнопку
-     */
+
+    // Method for returning to the main menu when the button is pressed.
     @FXML
     private void backToMainMenu(){
-        // открываем глвное окно
+        // Open main menu.
         SceneOpener.openSceneAndReturnController("RC_Drift.fxml", "Main View", backBtn.getScene().getWindow());
     }
 

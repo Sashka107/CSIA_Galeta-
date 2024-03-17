@@ -1,21 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- XML declaration specifying encoding and version -->
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
+<!-- Imports for JavaFX classes used in the FXML -->
 
 <AnchorPane prefHeight="491.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.csia_galeta.PrevCompetitionsController">
+   <!-- AnchorPane element with specific attributes for preferred height, width, and controller class -->
+
    <children>
+      <!-- Child elements of the AnchorPane -->
+
       <ListView fx:id="savedCompetitions" layoutX="17.0" layoutY="72.0" prefHeight="326.0" prefWidth="566.0" style="-fx-font-size: 20.0"/>
+      <!-- ListView element for displaying a list of saved competitions with specific layout positions, size, and style, with an ID for referencing in the controller -->
+
       <Label layoutX="208.0" layoutY="28.0" text="Previous competitions">
+         <!-- Label element for displaying "Previous competitions" with specific layout positions and size -->
          <font>
             <Font size="20.0" />
-         </font></Label>
+            <!-- Font properties for the label text -->
+         </font>
+      </Label>
+
       <Button fx:id="backBtn" layoutX="174.0" layoutY="425.0" mnemonicParsing="false" onAction="#backToMainMenu" style="-fx-background-color: black;" text="Return to the home screen " textFill="WHITE">
+         <!-- Button element for returning to the home screen with specific layout positions, action event handler, text, and style -->
          <font>
             <Font size="20.0" />
-         </font></Button>
+            <!-- Font properties for the button text -->
+         </font>
+      </Button>
+
    </children>
 </AnchorPane>

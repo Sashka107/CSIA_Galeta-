@@ -7,42 +7,35 @@ import com.csia_galeta.people.Driver;
 import com.csia_galeta.ser.SceneOpener;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
-
 import java.time.LocalDate;
 
-/**
- * Class CreateEditCompetitionController
- * Отвечает за поведение окна создания нового или редактирование соревнования в статусе PLANNED.
- * В зависимости от того, где и откуда этот контроллер был вызван будет продолжено редактирование
- * или создание нового
- *
- * @author Alexander G.
+/*
+ Class CreateEditCompetitionController
+ Responsible for the behavior of the window for creating a new competition or editing an existing one in the PLANNED status.
+ Depending on where and from where this controller was called, editing will be continued or a new one will be created.
  */
+
 public class CreateEditCompetitionController {
-    public DatePicker datePicked; // переменная-ссылка на окно выбора даты
-    public Label judgesLabel; // Переменная-ссылка на поле для отображения текста имен судий
+    public DatePicker datePicked; // Variable - reference to the date selection window.
+    public Label judgesLabel; // Variable - reference to the field for displaying the text of judges' names.
     @FXML
-    private TextField competitionName; // Переменная-ссылка на поле для ввода названия соревнования
+    private TextField competitionName; // Variable - reference to the field for entering the competition name.
+    @FXML
+    private TextField countOfCF; // Variable - reference to the field for entering the number of qualification rounds.
+    @FXML
+    private Button addJudges; // Variable - reference to the button for adding judges.
+    @FXML
+    private Button addDrivers; // Variable - reference to the button for adding participants.
+    @FXML
+    private Button startQualification; // Variable - reference to the button for starting the qualification.
+    @FXML
+    private Label mainText; // Variable - reference to the field for displaying the window title.
+    @FXML
+    private ListView<Driver> listView; // Variable - reference to the list for displaying participants.
 
-    @FXML
-    private TextField countOfCF; // Переменная-ссылка на поле для ввода количества раундов квалификации
-    @FXML
-    private Button addJudges; // Переменная-ссылка на кнопку для добавления судий
-    @FXML
-    private Button addDrivers; // Переменная-ссылка на кнопку для добавления участников
-
-    @FXML
-    private Button startQualification; // Переменная-ссылка на кнопку для начала квалификации
-
-    @FXML
-    private Label mainText; // Переменная-ссылка на поле для отображения заголовка окна
-
-    @FXML
-    private ListView<Driver> listView; // Переменная-ссылка на список для отображения участников
-
-    /**
-     * Метод, который запускается при нажатии на кнопку "Добавить водителя"
-     * Открывает окно для добавления водителя и закрывает текущее
+    /*
+     Method triggered when the "Add Driver" button is clicked.
+     Opens the window for adding a driver and closes the current one.
      */
     @FXML
     protected void openAddDrivers(){
@@ -52,26 +45,26 @@ public class CreateEditCompetitionController {
                 addDrivers.getScene().getWindow());
     }
 
-    /**
-     * Метод для выполнения проверок на корректность введенных данных о соревновании,
-     * когда это требуется
-     *
-     * @return true если все введено корректно, false - если нет
-     * @param notCheckWarnings - переменная, которая дает не выполнять некоторые проверки
+    /*
+     Method for performing checks on the correctness of the entered competition data,
+     when necessary.
+
+     @param notCheckWarnings - variable that indicates whether to skip some checks
+     @return true if all entered data is correct, false otherwise
      */
     protected boolean saveCompetition(boolean notCheckWarnings){
-        boolean hasWarning = false; // была ли хоть одна ошибка
+        boolean hasWarning = false; // Was there at least one error.
 
-        if (checkCountOfQ(countOfCF.getText())){ // проверяем количество раундов
-            // пытаемся добавить количество раундов в текущее соревнование
+        if (checkCountOfQ(countOfCF.getText())){ // Check the number of rounds.
+            // Try to add the number of rounds to the current competition.
             CompetitionSingleton.addCountOfRounds(Integer.parseInt(countOfCF.getText()));
         } else {
-            hasWarning = true; // да, была ошибка
-            // высвечиваем предупреждение
+            hasWarning = true; // Yes, there was an error.
+            // Show an error.
             showWarning("Please check whether entered data is a number from 1 to 5.", notCheckWarnings);
         }
 
-        // аналогично как выше
+        // Similarly as above.
         if (checkCompetitionName(competitionName.getText())){
             CompetitionSingleton.addToTmpCompetitionName(competitionName.getText());
         } else {
@@ -79,7 +72,7 @@ public class CreateEditCompetitionController {
             showWarning("Please check whether entered data is a is a valid name and less or equal to 55 characters.", notCheckWarnings);
         }
 
-        // аналогично как выше
+        // Similarly as above.
         if (checkDate(datePicked.getValue())){
             CompetitionSingleton.getTmpCompetition().setCompetitionDate(datePicked.getValue());
         } else {
@@ -87,32 +80,32 @@ public class CreateEditCompetitionController {
             showWarning("Date is incorrect", notCheckWarnings);
         }
 
-        // если нет ни одной ошибки
+        // If no errors at all.
         if (!hasWarning){
             System.out.println("Saving Competition...");
             return true;
         }
 
-        return false; // если есть хоть одна ошибка
+        return false; // If there is at least one error.
     }
 
-    /**
-     * Метод, который срабатывает при нажатии на кнопку "Начать соревнование".
-     * Запускает квалификацию если нет никаких ошибок в соревновании
+    /*
+     Method triggered when the "Start Competition" button is clicked.
+     Starts the qualification if there are no errors in the competition.
      */
     @FXML
     protected void startCompetition(){
-        // если были ошибки при заполнении полей соревнования
+        // If there were errors when filling in the competition fields.
         if(!saveCompetition(false))
-            return; // прекращаем запуск соревнования
+            return; // Stop the competition launch.
 
-        // если водителей меньше 4
+        // If less than 4 drivers.
         if(CompetitionSingleton.getTmpCompetition().getListOfDrivers().size() <= 3){
             showWarning("Can`t save competition with 1 player. Minimum Players: 4", false);
-            return; // прекращаем запуск соревнования
+            return; // Stop the competition launch.
         }
 
-        // делаем необходимые сохранения, меняем статус, открываем окно квалификации
+        // Perform necessary saving, change status, open qualification window.
         CompetitionSingleton.getTmpCompetition().setCompetitionStateQualificationInProgress();
         CompetitionSingleton.addQualificationToTmpCompetition(new Qualification(CompetitionSingleton.getTmpCompetition().getListOfDrivers()));
         CompetitionSingleton.saveTmpCompetition();
@@ -122,23 +115,23 @@ public class CreateEditCompetitionController {
         controller.loadWindow();
     }
 
-    /**
-     * Метод сохраняет соревнование по нажатию на кнопку "Сохранить соревнование"
-     * Сохранит только еесли все было ранее заполнено корректно
+    /*
+     Method saves the competition when the "Save Competition" button is clicked.
+     Will save only if everything was previously filled in correctly.
      */
     @FXML
     private void saveCompetitionOnClick(){
-        // если были ошибки при заполнении полей соревнования
+        // If there were errors when filling in the competition fields.
         if(!saveCompetition(false))
-            return; // прекращаем запуск соревнования
+            return; // Stop the competition launch.
 
-        // если водителей меньше 4
+        // If less than 4 drivers.
         if(CompetitionSingleton.getTmpCompetition().getListOfDrivers().size() <= 3){
             showWarning("Can`t save competition with 1 player. Minimum Players: 4", false);
-            return; // прекращаем запуск соревнования
+            return; // Stop the competition launch.
         }
 
-        // делаем необходимые сохранения, меняем статус, открываем главное окно
+        // Perform necessary saving, change status, open the main window.
         CompetitionSingleton.getTmpCompetition().setCompetitionStatePlanned();
         CompetitionSingleton.saveTmpCompetition();
         SceneOpener.openSceneAndReturnController("RC_Drift.fxml",
@@ -146,28 +139,25 @@ public class CreateEditCompetitionController {
                 startQualification.getScene().getWindow());
     }
 
+    /*
+     Method for displaying a warning if necessary.
 
-
-    /**
-     * Метод для отображения предупреждения если это нужно
-     *
-     * @param notShowWarn - когда не нужно отображать предупреждение
-     * @param message - сообщение, которое нужно отобразить
+     @param notShowWarn - when a warning should not be displayed
+     @param message - the message to display
      */
     private void showWarning(String message, boolean notShowWarn){
         if(notShowWarn)
             return;
 
-        // отображаем предупреждение
         Alert warningsAlert = new Alert(Alert.AlertType.WARNING);
         warningsAlert.setHeaderText("Incorrect data");
         warningsAlert.setContentText(message);
         warningsAlert.show();
     }
 
-    /**
-     * Метод для загрузки данных текущего создаваемого соревнования в окно редактивания
-     * Используется при открытии окна после добавления судий или водителей
+    /*
+     Method for loading data of the current competition being created into the editing window.
+     Used when opening the window after adding judges or drivers.
      */
     public void loadTmpCompetition(){
         competitionName.setText(CompetitionSingleton.getTmpCompetition().getCompetitionName());
@@ -177,9 +167,9 @@ public class CreateEditCompetitionController {
         judgesLabel.setText(CompetitionSingleton.getTmpCompetition().getListOfJudgesString());
     }
 
-    /**
-     * Метод отрабатывает в случае если окно открыть надо в режиме "редактировать соревнование",
-     * а не создать новое
+    /*
+     Method works if the window needs to be opened in "edit competition" mode,
+     not to create a new one.
      */
     public void loadToEditCompetition(){
         CompetitionSingleton.setTmpCompetition(CompetitionSingleton.getCurrentCompetition());
@@ -190,51 +180,51 @@ public class CreateEditCompetitionController {
         judgesLabel.setText(CompetitionSingleton.getTmpCompetition().getListOfJudgesString());
     }
 
-    /**
-     * Метод для проверки коррекности выбранной даты
-     *
-     * @return true если дата выбрана, false - если нет
-     * @param date - дата для проверки
+    /*
+     Method for checking the correctness of the selected date.
+
+     @param date - the date to check
+     @return true if the date is selected, false otherwise
      */
     private boolean checkDate(LocalDate date){
         return date != null;
     }
 
-    /**
-     * Метод для проверки коррекности количества раундов квалификации
-     *
-     * @return true если количество коррекно, false - если нет
-     * @param amountToBeChecked - введенное количество для проверки
+    /*
+     Method for checking the correctness of the number of qualification rounds.
+
+     @param amountToBeChecked - the entered number to be checked
+     @return true if the amount is correct, false otherwise
      */
     private boolean checkCountOfQ (String amountToBeChecked){
-        // если содержит не только числа или пустое
+        // If it contains not only numbers or is empty.
         if(amountToBeChecked == null || !amountToBeChecked.matches("[0-9]+"))
-            return false; // проверку не пройдено
+            return false;// Check not passed.
 
-        // выполняем преобразования
+        // Perform transformations.
         int correctAmountOFQ = Integer.parseInt(amountToBeChecked);
 
-        // если число в диапазоне от 1 до 5 - значит прошло проверку
+        // If the number is in the range from 1 to 5 - it passed the check.
         return correctAmountOFQ > 0 && correctAmountOFQ <= 5;
     }
 
-    /**
-     * Метод для проверки коррекности названия соревнования
-     *
-     * @return true если название коррекно, false - если нет
-     * @param nameToBeChecked - введенное имя для проверки
+    /*
+     Method for checking the correctness of the competition name.
+
+     @param nameToBeChecked - the entered name to be checked
+     @return true if the name is correct, false otherwise
      */
     private boolean checkCompetitionName (String nameToBeChecked){
         if(nameToBeChecked == null)
             return false;
 
-        // если имя содержит от 1 до 55 символов, значит корректно
+        // If the name contains from 1 to 55 characters, it is correct.
         return nameToBeChecked.matches("^.{1,55}$");
     }
 
-    /**
-     * Метод, который запускается при нажатии на кнопку "Добавить судью"
-     * Открывает окно для добавления судьи и закрывает текущее
+    /*
+     Method triggered when the "Add Judge" button is clicked.
+     Opens the window for adding a judge and closes the current one.
      */
     @FXML
     public void addJudges(){
@@ -243,5 +233,4 @@ public class CreateEditCompetitionController {
                 "Add New Judge",
                 addJudges.getScene().getWindow());
     }
-
 }

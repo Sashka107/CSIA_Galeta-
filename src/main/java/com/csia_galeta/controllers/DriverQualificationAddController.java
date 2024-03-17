@@ -11,105 +11,97 @@ import javafx.scene.control.*;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Class DriverQualificationAddController
- * Отвечает за поведение окна добавления очков за квалификацию для водителя
- *
- * @author Alexander G.
+/*
+ Class DriverQualificationAddController
+ Responsible for the behavior of the window for adding qualification points for a driver.
  */
 public class DriverQualificationAddController {
 
     @FXML
-    private TextField driverScore; // переменная-ссылка на поле для ввода очков
-
+    private TextField driverScore; // Variable - a reference to the field for entering points.
     @FXML
-    private Label driverInfo; // переменная-ссылка на поле для вывода информации о водителе
-
+    private Label driverInfo; // Variable - a reference to the field for displaying information about the driver.
     @FXML
-    private MenuButton menuButton; // переменная-ссылка на кнопку для выбора раунда
-
+    private MenuButton menuButton; // Variable - a reference to the button for selecting a round.
     @FXML
-    private Button exitBtn; // переменная-ссылка на кнопку для выхода из окна
+    private Button exitBtn; // Variable - a reference to the button for exiting the window.
+    private Driver editDriver; // Current driver for editing.
+    private int roundSelected = -1; // Default selected round.
+    private boolean isAssessed = false; // State if the driver has been previously evaluated.
 
+    /*
+     Method for loading the editing of qualification points for a driver.
 
-    private Driver editDriver; // текущий водитель для редактирования
-    private int roundSelected = -1; // по умолчанию выбранный раунд
-    private boolean isAssessed = false; // состояние был ли оценен водитель ранее
-
-    /**
-     * Метод для загрузки редактирования очков квалификации водителя
-     *
-     * @param d - водитель для редактирования
+     @param d - the driver for editing.
      */
     public void load(Driver d){
 
-        editDriver = d; // присваиваем параметр во внутренюю переменую
-        driverInfo.setText(editDriver.toString()); // отображаем информацию о водителе
+        editDriver = d; // Assigning the parameter to an internal variable.
+        driverInfo.setText(editDriver.toString()); // Displaying information about the driver.
 
-        // получаем сколько раундов квалификации для текущего соревнования
+        // Obtaining the number of qualification rounds for the current competition.
         int n = CompetitionSingleton.getCurrentCompetition().getAmountOfQualifyingRounds();
-
 
         List<MenuItem> items = new ArrayList<>();
 
-        // загружавем количество раундов в кнопку-меню выбора раунда
+        // Loading the number of rounds into the round selection menu button.
         for(int i = 1; i <= n; i++){
             MenuItem item = new MenuItem(i + "");
             items.add(item);
 
-            // устанавливаем метод для обработки нажатия
+            // Setting the method for handling button click.
             item.setOnAction(event -> selectRound(event));
         }
 
-        // добавляем все кнопки раундов в кнопку-меню
+        // Adding all round buttons to the round selection menu.
         menuButton.getItems().addAll(items);
     }
 
-    /**
-     * Метод для обработки нажатия по раунду из кнопки-меню
-     *
-     * @param event - событие нажатия, создаваемое системой JavaFX
+    /*
+     Method for handling a click on a round from the menu button.
+
+     @param event - the click event, created by the JavaFX system.
      */
     private void selectRound(ActionEvent event){
 
-        // получаем из события объект по которому было совершенно нажатие
+        // Obtaining the object from the event on which the click occurred.
         MenuItem n = (MenuItem) event.getSource();
 
-        // через текст раунда получаем число какой раунд выбран
+        // Through the text of the round, the number of the selected round is extracted.
         roundSelected = Integer.parseInt(n.getText());
 
-        // проверяем был ли уже заполнен раунд и если да - отображаем информацию об очках
+        // Check whether the round has already been filled, and if so, we display information about the points.
         if(roundSelected < editDriver.getLastCompletedQRound() + 1 && editDriver.getQualificationScore().get(roundSelected-1) != null){
             driverScore.setText(editDriver.getQualificationScore().get(roundSelected-1) + "");
             driverScore.setEditable(false);
             isAssessed = true;
         }
-        // делаем проверки, чтобы раунды заполнялись один за другим
+        // Performing checks to ensure that rounds are filled one after the other.
         else if(roundSelected != editDriver.getLastCompletedQRound() + 1){
             roundSelected = editDriver.getLastCompletedQRound() + 1;
             isAssessed = false;
         }
 
-        // отображаем на кнопке какой раунд был выбран из списка меню
+        // Displaying on the button which round was selected from the menu list.
         menuButton.setText("Round #" + roundSelected);
 
-        // пробуем достать раунд по индексу из водителя
+        // Attempting to retrieve the round by index from the driver.
         try{
             editDriver.getQualificationScore().get(roundSelected-1);
-        }catch (IndexOutOfBoundsException ex){ // если нет такого - разрешаем редактировать очки для этого раунда
+        }catch (IndexOutOfBoundsException ex){ // If there is no such round, allow for editing points for this round.
             driverScore.setText("");
             driverScore.setEditable(true);
         }
     }
 
-    /**
-     * Метод, который сохраняет очки квалификации за раунд
-     *
-     * @return true - если все прошло успешно, false - если нет
+    /*
+     Method that saves the qualification points for the round.
+
+     @return true - if everything went well, false - otherwise.
      */
     @FXML
     private boolean saveForRound(){
-        // если раунд не был выбран - высвечивается окно предупреждения
+        // If the round was not selected, a warning window is displayed.
         if(roundSelected == -1){
             Alert alertWarning = new Alert(Alert.AlertType.WARNING);
             alertWarning.setTitle("Round not Selected");
@@ -118,7 +110,7 @@ public class DriverQualificationAddController {
             return false;
         }
 
-        // если очки введенные пусты или не соответствуют ограничениям - высвечивается окно предупреждения
+        // If the entered points are empty or do not meet the restrictions, a warning window is displayed.
         if(driverScore.getText().isEmpty() || !driverScore.getText().matches("\\b(?:[0-9]|[1-9][0-9]|100)\\b")){
             Alert alertWarning = new Alert(Alert.AlertType.WARNING);
             alertWarning.setTitle("Incorrect value");
@@ -127,32 +119,31 @@ public class DriverQualificationAddController {
             return false;
         }
 
-        // если водитель уже был оценен
+        // If the driver has already been evaluated.
         if (!isAssessed){
             editDriver.addDriverScoreForQRound(Integer.parseInt(driverScore.getText()));
         }
 
-        // сохраняем текущее соревнование
+        // Save the current competition.
         CompetitionSingleton.saveCurrentCompetition();
         driverScore.setEditable(false);
         return true;
     }
 
-    /**
-     * Метод, который отвечает за выход из редактирования одного водителя к списку квалификации
+    /*
+     Method responsible for exiting the editing of one driver to the qualification list.
      */
     @FXML
     private void exitToQList() {
 
-        // если не получилось сохранить очки за раунд
+        // If unable to save the points for the round.
         if(!saveForRound())
-            return; // выходим из функции и не даем выйти к списку квалификации
+            return; // We exit the function and prevent exiting to the qualification list.
 
-        // если все хорошо - выходим к списку квалификации
+        // If everything is good, we exit to the qualification list.
         QualificationController controller = SceneOpener.openSceneAndReturnController("QualificationView.fxml",
                 "Qualification",
                 exitBtn.getScene().getWindow());
-
         controller.loadWindow();
     }
 }

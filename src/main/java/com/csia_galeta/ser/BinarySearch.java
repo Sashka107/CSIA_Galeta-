@@ -4,20 +4,19 @@ import com.csia_galeta.people.Driver;
 
 import java.util.List;
 
-/**
- * Class BinarySearch
- * Этот утилитарный класс содержит один статический метод
- * для бинарного поиска по списку водителей
- *
- * @author Alexander G.
+/*
+ Class BinarySearch
+ This utility class contains a single static method
+ for binary search through the list of drivers.
  */
 public class BinarySearch {
 
-    /**
-     * Метод ищет по алгоритму бинарного поиска водителя по номеру из списка
-     *
-     * @param drivers - отсортированный список водителей
-     * @param number - номер по которому нужно найти водителя
+    /*
+     The method searches for a driver by number using the binary search algorithm in the list.
+
+     @param drivers - the sorted list of drivers.
+     @param number - the number to find the driver by.
+     @return the driver object if found, otherwise null.
      */
     public static Driver binarySearch(List<Driver> drivers, short number) {
 

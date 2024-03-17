@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- XML declaration specifying encoding and version -->
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
@@ -7,33 +8,61 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
+<!-- Imports for JavaFX classes used in the FXML -->
 
 <HBox alignment="CENTER" prefHeight="247.0" prefWidth="462.0" spacing="20.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.csia_galeta.controllers.AddJudgeController">
-    <padding>
-        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-    </padding>
+   <!-- HBox element with attributes for alignment, preferred height, width, and spacing. Namespaces for JavaFX are declared. Controller class is specified. -->
+
+   <padding>
+      <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+      <!-- Padding for the HBox -->
+   </padding>
+
    <AnchorPane prefHeight="184.0" prefWidth="388.0" style="-fx-background-color: gray;">
+      <!-- AnchorPane element with preferred height, width, and style -->
+
       <children>
+         <!-- Child elements of the AnchorPane -->
+
          <Button fx:id="addJudge" layoutX="140.0" layoutY="141.0" mnemonicParsing="false" onAction="#addJudge" style="-fx-background-color: black;" text="Add Judge" textFill="WHITE">
+            <!-- Button element with specific attributes such as ID, layout positions, action event handler, style, and text properties -->
             <font>
                <Font size="20.0" />
-            </font></Button>
+               <!-- Font size of the button text -->
+            </font>
+         </Button>
+
          <TextField fx:id="judgeName" layoutX="125.0" layoutY="28.0">
+            <!-- TextField element for entering judge's name with specific ID and layout positions -->
             <font>
                <Font size="20.0" />
-            </font></TextField>
+               <!-- Font size of the text field -->
+            </font>
+         </TextField>
+
          <TextField fx:id="judgeSurname" layoutX="125.0" layoutY="86.0">
+            <!-- TextField element for entering judge's surname with specific ID and layout positions -->
             <font>
                <Font size="20.0" />
-            </font></TextField>
+               <!-- Font size of the text field -->
+            </font>
+         </TextField>
+
          <Label layoutX="19.0" layoutY="34.0" prefHeight="26.0" prefWidth="60.0" text="Name:" textFill="WHITE">
+            <!-- Label element for displaying "Name:" with specific layout positions and text properties -->
             <font>
                <Font size="20.0" />
-            </font></Label>
+               <!-- Font size of the label text -->
+            </font>
+         </Label>
+
          <Label layoutX="19.0" layoutY="93.0" prefHeight="26.0" prefWidth="82.0" text="Surname:" textFill="WHITE">
+            <!-- Label element for displaying "Surname:" with specific layout positions and text properties -->
             <font>
                <Font size="20.0" />
-            </font></Label>
+               <!-- Font size of the label text -->
+            </font>
+         </Label>
 
       </children>
    </AnchorPane>

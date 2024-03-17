@@ -3,20 +3,18 @@ package com.csia_galeta;
 import com.csia_galeta.ser.SceneOpener;
 import javafx.stage.Stage;
 
-/**
- * Class Application
- * Этот класс содержит методы для открытия и запуска программы,
- * используя JavaFX библиотеку для написания программы
- *
- * @author Alexander G.
+/*
+ Class Application
+ This class contains methods for opening and running the program,
+ using the JavaFX library for program development.
  */
 public class Application extends javafx.application.Application {
 
-    /**
-     * Переопределяем метод старт из базового класса библиотеку JavaFX,
-     * который устанавливает начальную сцену/окно приложения
-     *
-     * @param stage стадия приложения
+    /*
+     Overriding the start method from the base class of the JavaFX library,
+     which sets the initial scene/window of the application.
+
+     @param stage - the stage of the application.
      */
     @Override
     public void start(Stage stage) {
@@ -24,10 +22,8 @@ public class Application extends javafx.application.Application {
                 "Main View");
     }
 
-    /**
-     * Главная функция запуска программы в Java
-     */
+    // Main function to launch the program in Java.
     public static void main(String[] args) {
-        launch(); // запускаем функцию из класса родителя JavaFX библиотеки
+        launch(); // Invoking a function from the parent class of the JavaFX library.
     }
 }

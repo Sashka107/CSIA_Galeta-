@@ -8,44 +8,41 @@ import javafx.scene.control.ListView;
 
 import java.util.List;
 
-/**
- * Class FinalResultsController
- * Этот класс является контроллером окна финальных результатов соревнования,
- * описывает и содержит функционал для отображения результатов соревнования
- *
- * @author Alexander G.
+/*
+ Class FinalResultsController
+ This class serves as the controller for the final competition results window,
+ describing and containing functionality for displaying the competition results.
  */
 public class FinalResultsController {
-    public Label top1; // переменная-ссылка на поле для отображения первого места
-    public Label top2; // переменная-ссылка на поле для отображения второго места
-    public Label top3; // переменная-ссылка на поле для отображения третьего места
-    public Label top4; // переменная-ссылка на поле для отображения четвертого места
+    public Label top1; // Variable - reference to the field for displaying the first place.
+    public Label top2; // Variable - reference to the field for displaying the second place.
+    public Label top3; // Variable - reference to the field for displaying the third place.
+    public Label top4; // Variable - reference to the field for displaying the fourth place.
 
-    public ListView<String> qDriversList; // переменная-ссылка на список для отображения квалификации
+    public ListView<String> qDriversList; // Variable - reference to the list for displaying the qualification.
 
-    /**
-     * Метод для подгрузки информации во все поля на UI
-     */
+
+    // Method for loading information into all fields on the UI.
     public void load(){
-        // получаем список победителей, то есть последние четыре водителя в порядке мест победы
+        // Obtain the list of winners, i.e., the last four drivers in the order of victory places.
         List<Driver> winners =  CompetitionSingleton.getCurrentCompetition().getListOfDrivers();
 
-        // устанавливаем значения в поля на UI
+        // Set values to the fields on the UI.
         top1.setText(winners.get(0).toStringWinner());
         top2.setText(winners.get(1).toStringWinner());
         top3.setText(winners.get(2).toStringWinner());
         top4.setText(winners.get(3).toStringWinner());
 
-        // подгружаем список водителей из квалификации с из лучшим результатом
+        // Load the list of drivers from the qualification with the best result.
         for(var driver : CompetitionSingleton.getCurrentCompetition().getQualificationOfDrivers()){
             qDriversList.getItems().add(driver.toStringSimple() + " best q score: " + driver.getMaxQScore());
         }
     }
 
-    /**
-     * Метод для выхода на главное меню, срабатывает при нажатии на кнопку "Выйти"
-     *
-     * @param actionEvent событие нажатия на кнопку
+    /*
+     Method for returning to the main menu, triggered when the "Exit" button is clicked.
+
+     @param actionEvent - the button click event
      */
     public void toMainMenu(ActionEvent actionEvent) {
         SceneOpener.openSceneAndReturnController("RC_Drift.fxml", "Main View", top1.getScene().getWindow());

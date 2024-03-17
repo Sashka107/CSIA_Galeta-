@@ -6,21 +6,18 @@ import com.csia_galeta.ser.SceneOpener;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 
-/**
- * Class RC_DriftController
- * Отвечает за поведение главного окна программы
- *
- * @author Alexander G.
+/*
+ Class RC_DriftController responsible for the behavior of the main window of the program.
  */
 public class RC_DriftController {
-    public Button prevCompetitionBtn; // переменная-ссылка на кнопку прошлых/созданных ранее соревнований
+    public Button prevCompetitionBtn; // Variable - a reference to the button for previous/already created competitions.
 
     @FXML
-    private Button addCompetitionBtn; // переменная-ссылка на кнопку, которая добавляет соревнование
+    private Button addCompetitionBtn; // Variable - a reference to the button that adds a competition.
 
-    /**
-     * Метод, который срабатывает при нажатии на кнопку "Предыдущие соревнования"
-     * Открывает окно со списком всех созданных ранее и предыдущих соревнований
+    /*
+     Method triggered when the "Previous Competitions" button is pressed.
+     Opens the window with a list of all previously created and previous competitions.
      */
     @FXML
     public void openPrevCompetitions(){
@@ -30,9 +27,9 @@ public class RC_DriftController {
         controller.showCompetitions(CompetitionSingleton.getInstance().getCompetitions());
     }
 
-    /**
-     * Метод, который срабатывает при нажатии на кнопку "Добавить новое соревнование"
-     * Открывает окно для создания нового соревнования
+    /*
+     Method triggered when the "Add New Competition" button is pressed.
+     Opens the window for creating a new competition.
      */
     @FXML
     protected void openAddCompetitionWindow(){
